@@ -1,5 +1,6 @@
 import re
 import time
+import sys
 import os
 import datetime
 import selenium
@@ -12,8 +13,8 @@ from scrape_helper import Scraper
 # INPUT
 ##########################################################################
 base_url = 'https://www.brockandscott.com/BrockSearch.aspx'
-State = 'NC'
-Country = 'Mecklenburg'
+Country = sys.argv[1] if len(sys.argv)>1 else 'Mecklenburg'# Cabarrus Mecklenburg
+State = sys.argv[2] if len(sys.argv)>2 else 'NC'
 Date = datetime.datetime.now().strftime('%m/%d/%Y')
 
 ##########################################################################
@@ -51,14 +52,14 @@ driver.quit()
 ##########################################################################
 # we initialise a bot that will have run the parsing functions
 today = datetime.datetime.now().strftime('%d/%m/%Y')
-brockandscoot = Scraper("brockandscoott", start_date=today, end_date=today)
+brockandscoot = Scraper("brockandscoott_{}".format(Country.lower()), start_date=today, end_date=today)
 
 def parse_table(html_page_source):
     soup = BeautifulSoup(html_page_source, "lxml")
 
     table = soup.find('table', id='grdSearch')
     headers = []
-    for row_index, row in enumerate(table.find_all('tr')[1:]):
+    for row_index, row in enumerate(table.find_all('tr')):
         # set header
         # -------------
         # print(row)
@@ -84,9 +85,12 @@ def parse_page():
 
 @brockandscoot.scrape(response=page_two)
 def parse_page2():
-    return parse_table(page_two)
+    if page_two:
+        return parse_table(page_two)
 
-parse_functions = [parse_page, parse_page2]
+parse_functions = [parse_page]
+if page_two:
+    parse_functions.append(parse_page2)
 
 if __name__ == "__main__":
     brockandscoot.run(parse_functions)
