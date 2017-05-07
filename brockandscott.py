@@ -52,7 +52,7 @@ driver.quit()
 ##########################################################################
 # we initialise a bot that will have run the parsing functions
 today = datetime.datetime.now().strftime('%d/%m/%Y')
-brockandscoot = Scraper("brockandscoott_{}".format(Country.lower()), start_date=today, end_date=today)
+brockandscoot = Scraper("brockandscott_{}".format(Country.lower()), start_date=today, end_date=today)
 
 def parse_table(html_page_source):
     soup = BeautifulSoup(html_page_source, "lxml")

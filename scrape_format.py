@@ -28,7 +28,7 @@ def execute_scripts():
 
 
 if __name__ == '__main__':
-    execute_scripts()
+    # execute_scripts()
 
 
     today = datetime.datetime.now().strftime('%d_%m_%Y')
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     brockandscott_dfs = []
     shapiro_dfs = []
     for filename, df in res.items():
-        if filename.startswith('brockandscoott'):
+        if filename.startswith('brockandscott'):
             brockandscott_dfs.append(df)
         if filename.startswith('shapiro'):
             shapiro_dfs.append(df)
@@ -116,7 +116,8 @@ if __name__ == '__main__':
             set_flag = lambda x: 'No' if x['Num'] in intersection_records else x['Flag']
             new_records_df = result_df[result_df['Num'].isin(new_records)]
             result_df = pd.concat([init_df, new_records_df])
-            result_df['Flag'] = result_df.apply(set_flag,axis=1)
+            if new_records:
+                result_df['Flag'] = result_df.apply(set_flag,axis=1)
 
     # SET INDEX
     result_df = result_df[preserve_columns_order]
