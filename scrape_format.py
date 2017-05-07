@@ -9,9 +9,11 @@ import datetime
 csv_path = os.path.join(os.getcwd(), 'csv')
 result_file_path = os.path.join('result', 'final_result.csv')
 
+
 def remove_dir(csv_path):
     if os.path.exists(csv_path):
         shutil.rmtree(csv_path)
+
 
 def execute_scripts():
     commands = []
@@ -31,10 +33,10 @@ if __name__ == '__main__':
     today = datetime.datetime.now().strftime('%d_%m_%Y')
     # today = '06_05_2017'
     result_files = glob.glob(os.path.join(csv_path, '*'))
-    result_files = [i for i in result_files if re.search('_'+today,i)]
+    result_files = [i for i in result_files if re.search('_' + today, i)]
     if not result_files:
         raise Exception("No Files found for {}".format(today))
-    res=dict()
+    res = dict()
     for result in result_files:
         variable = os.path.splitext(os.path.basename(result))[0]
         res[variable] = pd.read_csv(result)
@@ -87,21 +89,31 @@ if __name__ == '__main__':
 
     # ADD EXTRA COLUMNS
     result_df = result_df[final_columns].fillna('NA')
-    boa_substitute  = lambda x:"https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address="+x.replace(',','').replace(' ','+')
-    zillow_substitute = lambda x:"https://www.zillow.com/homes/"+x.replace(',','').replace(' ','_')+'_rb'
+    boa_substitute = lambda \
+        x: "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address=" + x.replace(',', '').replace(
+        ' ', '+')
+    zillow_substitute = lambda x: "https://www.zillow.com/homes/" + x.replace(',', '').replace(' ', '_') + '_rb'
     result_df['Group'] = ''
     result_df['Rating'] = ''
     result_df['BoA'] = result_df['Address'].apply(boa_substitute)
     result_df['Zillow'] = result_df['Address'].apply(zillow_substitute)
+    result_df["Flag"] = "Yes"
+
+    preserve_columns_order = result_df.columns.tolist()
+
+    # CONCATENATE NEW RESULT
+    if os.path.exists(result_file_path):
+        init_df = pd.read_csv(result_file_path)
+        init_df['Flag'] = "No"
+        new_records = set(result_df['Num']) - set(init_df['Num'])
+        new_records_df = result_df[result_df['Num'].isin(new_records)]
+        result_df = pd.concat([init_df, new_records_df])
 
     # SET INDEX
+    result_df = result_df[preserve_columns_order]
     result_df = result_df.reset_index(drop=True)
     result_df.index += 1
     result_df.index.name = 'SN'
 
     # WRITE RESULT TO CSV
     result_df.to_csv(result_file_path)
-
-    # CONCATENATE NEW RESULT
-    pass # TODO: script concatenation
-

@@ -1,15 +1,101 @@
 County,Sale Date & Time,Bid Amount,State Code,Court SP#,Case Number,Address,Book Page
-Cabarrus,06/19/17   2:00PM,Not Available Yet,NC,14 SP 281,14-05633-FC01,"7135 Tabor Falls Drive   Harrisburg, North Carolina 28075-8627",6295/334
-Cabarrus,05/31/17   2:00PM,Not Available Yet,NC,15 SP 284,15-06527-FC01,"1565 Duckhorn Street Northwest   Concord, North Carolina 28027",9173/297
-Cabarrus,05/22/17   2:00PM,Not Available Yet,NC,15 SP 795,10-21914-FC02,"3779 Quiet Stream Drive   Concord, North Carolina 28025",08074/0064
-Cabarrus,05/17/17   2:00PM,Not Available Yet,NC,15 SP 887,12-08185-FC02,"672 Bright Orchid Avenue   Concord, North Carolina 28025",7539/151
-Cabarrus,06/21/17   2:00PM,Not Available Yet,NC,16 SP 731,16-16572-FC01,"1014 Austin Avenue   Kannapolis, North Carolina 28083",07959/0213
-Cabarrus,05/24/17   2:00PM,Not Available Yet,NC,17 SP 168,16-17093-FC01,"1041 Ramsgate Drive Southwest   Concord, North Carolina 28025",08424/0038
-Cabarrus,06/06/17   2:00PM,Not Available Yet,NC,16 SP 757,16-17279-FC01,"202 East 5th Street   Kannapolis, North Carolina 28083",08597/0177
-Cabarrus,06/06/17   2:00PM,Not Available Yet,NC,16 SP 787,16-17974-FC01,"2978 Deep Cove Drive Northwest   Concord, North Carolina 28027",11678/0233
-Cabarrus,05/31/17   2:00PM,Not Available Yet,NC,16 SP 89,16-19399-FC01,"4458 Kellybrook Drive   Concord, North Carolina 28025",6667/17
-Cabarrus,05/15/17   2:00PM,Not Available Yet,NC,16 SP 500,16-15912-FC01,"304 Athens Hills Place   Kannapolis, North Carolina 28083",10313/263
-Cabarrus,05/31/17   2:00PM,Not Available Yet,NC,17 SP 67,16-21398-FC01,"70 Bridlewood Place   Concord, North Carolina 28025",5586/153
-Cabarrus,05/31/17   2:00PM,Not Available Yet,NC,17 SP 75,15-20678-FC02,"1002 Oakwood Avenue   Kannapolis, North Carolina 28081",6536/58
-Cabarrus,05/17/17   2:00PM,Not Available Yet,NC,17 SP 82,17-01106-FC01,"1463 Eschol Lane Northwest   Concord, North Carolina 28027",07895/0221
-Cabarrus,06/12/17   2:00PM,Not Available Yet,NC,17 SP 108,17-02003-FC01,"916 Haley Street   Kannapolis, North Carolina 28081",5543/237
+Pender,05/30/17  11:30AM,Not Available Yet,NC,17 SP 55,16-04595-FC01,"317 Cottle Acres Road   Burgaw, North Carolina 28425",4284/0291
+Macon,05/19/17  10:00AM,Not Available Yet,NC,16 SP 124,15-15468-FC02,"355 Hickory Knob Road and .59 acre parcel adjacent to 355 Hickory Knob Road   Franklin, North Carolina 28734",Y-30/480
+Cumberland,05/10/17  10:00AM,Not Available Yet,NC,16 SP 528,16-04716-FC01,"515 Donovan Street   Fayetteville, North Carolina 28301",08579/0124
+Mecklenburg,05/25/17  11:00AM,Not Available Yet,NC,17 SP 847,16-04739-FC01,"2817 Granstark Court   Charlotte, North Carolina 28216",25650/641
+Rockingham,06/21/17  10:00AM,Not Available Yet,NC,16 SP 258,16-04862-FC01,"150 Lake Lemar Road   Reidsville, North Carolina 27320",917/333
+Johnston,06/27/17  12:00PM,Not Available Yet,NC,16 SP 220,16-04947-FC01,"312 McColl Drive   Garner, North Carolina 27529",3002/105
+Alexander,05/19/17  10:00AM,Not Available Yet,NC,16 SP 60,16-05079-FC01,"118 Starmount Lane   Taylorsville, North Carolina 28681",573/1731
+Currituck,05/31/17  10:00AM,Not Available Yet,NC,16 SP 71,09-19383-FC03,"472 Island Lead Road   Corolla, North Carolina 27927",699/847
+Union,06/06/17  12:30PM,Not Available Yet,NC,16 SP 258,16-05312-FC01,"3518 Lawyers Road East   Monroe, North Carolina 28110",4187/700
+Lee,06/20/17  10:00AM,Not Available Yet,NC,16 SP 116,13-03150-FC01,"3027 Carrington Lane   Sanford, North Carolina 27330",1297/847
+Mecklenburg,05/12/17  11:00AM,Not Available Yet,NC,16 SP 1481,08-10246-FC05,"1328 Level Creek Lane   Charlotte, North Carolina 28214",19107/921
+Lee,05/31/17  10:00AM,Not Available Yet,NC,16 SP 148,16-05965-FC01,"1001 Hawkins Avenue   Sanford, North Carolina 27330",01240/0888
+Craven,05/26/17  11:00AM,Not Available Yet,NC,15 SP 329,16-06460-FC01,"1309 Shellbark Court   Havelock, North Carolina 28532",2866/448
+Onslow,05/09/17  10:00AM,Not Available Yet,NC,15 SP 596,16-06505-FC01,"117 Hills Lorough Loop   Jacksonville, North Carolina 28546",3269/520
+Mecklenburg,06/29/17  12:00PM,Not Available Yet,NC,13 SP 1605,16-06561-FC01,"7924 Briardale Drive   Charlotte, North Carolina 28212",24454/366
+Iredell,06/01/17  11:00AM,Not Available Yet,NC,17 SP 133,16-06696-FC01,"109 Coronilla Road   Mooresville, North Carolina 28117",2031/1522
+Wake,05/22/17  10:00AM,Not Available Yet,NC,16 SP 2563,15-24746-FC01,"2500 Amy Court   Garner, North Carolina 27529",008638/00088
+Guilford,05/16/17   2:00PM,Not Available Yet,NC,16 SP 1079,16-07029-FC01,"3203 Winchester Drive   Greensboro, North Carolina 27406",6076/0341
+Burke,05/23/17  10:00AM,Not Available Yet,NC,16 SP 168,16-07273-FC01,"111 Woodbine Terrace   Morganton, North Carolina 28655",1580/538
+Nash,05/24/17  10:00AM,Not Available Yet,NC,16 SP 158,16-07410-FC01,"315 Wilder Drive   Spring Hope, North Carolina 27882",2285/623
+Edgecombe,06/23/17  10:00AM,Not Available Yet,NC,17 SP 43,15-16558-FC01,"228 North Glendale Drive   Rocky Mount, North Carolina 27801",1352/0867
+Pitt,05/30/17  10:00AM,Not Available Yet,NC,16 SP 299,16-07846-FC01,"3608 Coventry Court   Greenville, North Carolina 27858",2205/173
+Henderson,05/30/17  11:00AM,Not Available Yet,NC,16 SP 162,16-08054-FC01,"249 Meadow Pathway Drive   Fletcher, North Carolina 28732",1585/496
+Catawba,05/31/17   2:00PM,Not Available Yet,NC,16 SP 417,16-08065-FC01,"1825 McCombs Street   Newton, North Carolina 28658",1951/904
+Gaston,05/24/17  10:00AM,Not Available Yet,NC,16 SP 936,16-08101-FC01,"2706 Lowell Bethesda Road   Gastonia, North Carolina 28056",4639/1523
+Guilford,06/13/17   2:00PM,Not Available Yet,NC,16 SP 1194,08-18963-FC03,"7217-A Olmstead Drive    Burlington, North Carolina 27215",R 6671/613
+Cumberland,05/17/17  10:00AM,Not Available Yet,NC,16 SP 1168,16-08200-FC01,"540 Deerpath Drive   Fayetteville, North Carolina 28311",7297/451
+Burke,05/23/17  10:00AM,Not Available Yet,NC,16 SP 187,08-13676-FC04,"1857 Zion Road   Morganton, North Carolina 28655",1463/492
+Mecklenburg,06/14/17  12:00PM,Not Available Yet,NC,16 SP 2068,16-08438-FC01,"823 Cattaloochee Lane   Huntersville, North Carolina 28078",23378/962
+Edgecombe,05/26/17  10:00AM,Not Available Yet,NC,16 SP 94,10-28034-FC01,"320 Rouse Road   Rocky Mount, North Carolina 27801",1511/66
+Cumberland,06/14/17  10:00AM,Not Available Yet,NC,16 SP 948,16-09007-FC01,"807 Amye Street   Fayetteville, North Carolina 28301",6183/324
+Wayne,05/25/17  10:00AM,Not Available Yet,NC,16 SP 197,12-11863-FC03,"215 Bunche Drive   Goldsboro, North Carolina 27530",2495/629
+Camden,05/16/17  10:00AM,Not Available Yet,NC,16 SP 25,10-27828-FC06,"604 NC Highway 343 South   Camden, North Carolina 27921",247/530
+Wayne,06/15/17  10:00AM,Not Available Yet,NC,16 SP 203,13-28311-FC02,"111 Oak Knoll Drive   Goldsboro, North Carolina 27530",1932/714
+Cumberland,07/05/17  10:00AM,Not Available Yet,NC,16 SP 938,16-04195-FC02,"5140 Chesapeake Road   Fayetteville, North Carolina 28311",8245/0198
+Alamance,05/16/17   1:00PM,Not Available Yet,NC,16 SP 538,16-09386-FC01,"1113 Jeffreys Street   Graham, North Carolina 27253",1994/757
+Onslow,05/09/17  10:00AM,Not Available Yet,NC,16 SP 696,16-09407-FC01,"103 Browning Court   Midway Park, North Carolina 28544",3978/26
+Wilson,05/30/17  10:00AM,Not Available Yet,NC,17 SP 56,16-09523-FC01,"7478 Fish Pond Road   Sims, North Carolina 27880",1752/893
+Wake,06/05/17  10:00AM,Not Available Yet,NC,16 SP 1781,15-07773-FC02,"1604 Cone Avenue   Apex, North Carolina 27502",13793/730
+Pitt,06/06/17  10:00AM,Not Available Yet,NC,16 SP 312,10-01936-FC04,"2217 Locksley Woods Drive, Unit D   Greenville, North Carolina 27858",2098/707
+Wake,05/15/17  10:00AM,Not Available Yet,NC,16 SP 1713,13-06834-FC04,"2929 Tram Road   Fuquay Varina, North Carolina 27526",010809/00690
+Mecklenburg,05/11/17  12:00PM,Not Available Yet,NC,17 SP 344,16-10015-FC01,"8221 Feather Lane   Charlotte, North Carolina 28212",20666/56
+Currituck,06/01/17  12:00PM,Not Available Yet,NC,16 SP 125,16-10103-FC01,"1060 Lighthouse Drive   Corolla, North Carolina 27927",914/592
+Onslow,06/20/17  10:00AM,Not Available Yet,NC,16 SP 969,10-33063-FC02,"3888 Island Drive   North Topsail Beach, North Carolina 28460",2722/614
+Rockingham,05/17/17  10:00AM,Not Available Yet,NC,16 SP 203,13-17685-FC02,"131 McCoy Road   Reidsville, North Carolina 27320",1124/1039
+Beaufort,06/20/17   1:00PM,Not Available Yet,NC,16 SP 118,14-14116-FC02,"102 Heritage Drive   Washington, North Carolina 27889",1445/43
+Orange,05/09/17   1:00PM,Not Available Yet,NC,16 SP 218,16-10788-FC01,"320 Wesley Drive   Chapel Hill, North Carolina 27516",RB3675/149
+Cumberland,05/10/17  10:00AM,Not Available Yet,NC,16 SP 1401,16-10859-FC01,"709 Rodie Avenue    Fayetteville, North Carolina 28304",6794/201
+Cumberland,07/05/17  10:00AM,Not Available Yet,NC,16 SP 1043,16-10892-FC01,"5567 Quietwood Place   Fayetteville, North Carolina 28304",08888/0543
+Brunswick,06/28/17  10:00AM,Not Available Yet,NC,16 SP 549,16-11042-FC01,"10177 Morecamble Boulevard Southeast   Leland, North Carolina 28451",3694/0752
+New Hanover,06/06/17  10:00AM,Not Available Yet,NC,16 SP 526,16-11445-FC01,"1810 Hawthorne Road   Wilmington, North Carolina 28403",5206/1429
+Brunswick,05/30/17  10:00AM,Not Available Yet,NC,16 SP 378,16-11578-FC01,"6574 Summerfield Place Southwest   Ocean Isle Beach, North Carolina 28469",2894/1021
+Mecklenburg,06/22/17  11:00AM,Not Available Yet,NC,16 SP 2811,09-00794-FC04,"5524 Chasewind Drive   Charlotte, North Carolina 28269",21995/456
+Hertford,05/25/17  11:00AM,Not Available Yet,NC,16 SP 58,16-12078-FC01,"1124 NC Highway 561 West   Aulander, North Carolina 27805",716/760
+Durham,05/09/17  10:00AM,Not Available Yet,NC,16 SP 762,16-12206-FC01,"1701 Cheshire Bridge Road   Durham, North Carolina 27712",3917/50
+Brunswick,05/16/17  10:00AM,Not Available Yet,NC,16 SP 434,16-12216-FC01,"4907 Alamance Drive Southeast   Southport, North Carolina 28461",3371/341
+Onslow,05/24/17  10:00AM,Not Available Yet,NC,16 SP 876,16-12260-FC01,"105 Cole Porter Lane   Jacksonville, North Carolina 28540",3812/804
+Cumberland,05/31/17  10:00AM,Not Available Yet,NC,16 SP 1234,16-12430-FC01,"6564 Honeysuckle Drive   Fayetteville, North Carolina 28304",8229/870
+Halifax,06/13/17  11:00AM,Not Available Yet,NC,16 SP 134,16-12510-FC01,"1002 Bolling Road   Roanoke Rapids, North Carolina 27870",2319/115
+Sampson,06/01/17  10:00AM,Not Available Yet,NC,16 SP 163,13-14967-FC02,"1485 Odom Road   Clinton, North Carolina 28328",01709/0100
+Stokes,05/09/17  10:00AM,Not Available Yet,NC,16 SP 114,16-12629-FC01,"116 Pebblestone Court   King, North Carolina 27021",0411/0474
+Gaston,05/10/17  10:00AM,Not Available Yet,NC,16 SP 912,14-01884-FC01,"413 Costner School Road   Bessemer City, North Carolina 28016",2579/368
+Onslow,06/21/17  10:00AM,Not Available Yet,NC,16 SP 909,10-32613-FC02,"3886 Island Drive   North Topsail Beach, North Carolina 28460",2722/578
+Johnston,06/20/17  12:00PM,Not Available Yet,NC,16 SP 533,16-12797-FC01,"1088 Swift Creek Road   Smithfield, North Carolina 27577",4408/997
+Brunswick,05/30/17  10:00AM,Not Available Yet,NC,16 SP 445,16-12872-FC01,"111 Southeast 34th Street   Oak Island, North Carolina 28465",3700/0154
+Cumberland,05/24/17  10:00AM,Not Available Yet,NC,17 SP 146,15-16121-FC02,"1821 Calista Circle   Fayetteville, North Carolina 28304",7167/776
+Johnston,06/27/17  12:00PM,Not Available Yet,NC,16 SP 539,16-12911-FC01,"278 Fireweed Place   Clayton, North Carolina 27527",3728/157
+Wake,06/07/17  10:00AM,Not Available Yet,NC,16 SP 2239,16-12957-FC01,"3129 Brentwood Road   Raleigh, North Carolina 27604",013179/00484
+Wake,05/15/17  10:00AM,Not Available Yet,NC,17 SP 133,16-13161-FC01,"1103 Mordecai Drive   Raleigh, North Carolina 27604",011672/00988
+Randolph,05/09/17  10:00AM,Not Available Yet,NC,16 SP 488,16-13168-FC01,"3721 Golden Meadow Road   Asheboro, North Carolina 27205",RE1987/1841
+Wilson,05/09/17  10:00AM,Not Available Yet,NC,16 SP 214,16-13274-FC01,"3603 Fulton Place Northwest   Wilson, North Carolina 27896",2487/270
+Davidson,06/26/17  11:00AM,Not Available Yet,NC,16 SP 451,10-09293-FC04,"310 Staley Drive   Linwood, North Carolina 27299",1659/822
+Wayne,05/25/17  10:00AM,Not Available Yet,NC,16 SP 324,16-13594-FC01,"709 North Pineview Avenue   Goldsboro, North Carolina 27530",1915/288
+Harnett,05/11/17  10:00AM,Not Available Yet,NC,16 SP 390,12-02576-FC02,"339 Owens Road   Angier, North Carolina 27501",1743/411
+Yadkin,05/25/17  10:00AM,Not Available Yet,NC,16 SP 106,14-21532-FC02,"1637 Helton Road and .74 acre parcel adjacent to 1637 Helton Road and   1.48 acre parcel adjacent to 1637 Helton Road Yadkinville, North Carolina 27055",00773/0472
+Gates,05/24/17  10:00AM,Not Available Yet,NC,16 SP 42,16-13774-FC01,"111 Cooper Road   Sunbury, North Carolina 27979",298/403
+Robeson,05/18/17  10:00AM,Not Available Yet,NC,16 SP 328,16-13815-FC01,"1304 East 10th Street   Lumberton, North Carolina 28358",1291/691
+Surry,06/13/17  10:00AM,Not Available Yet,NC,16 SP 191,16-13830-FC01,"219 Windsor Park Drive   Dobson, North Carolina 27017",514/0300
+Wake,05/15/17  10:00AM,Not Available Yet,NC,16 SP 3381,16-07251-FC01,"117 Light Falls Drive   Wake Forest, North Carolina 27587",015641/02144
+Nash,06/28/17  10:00AM,Not Available Yet,NC,16 SP 225,16-14071-FC01,"3905 Crosswinds Drive   Rocky Mount, North Carolina 27803",1634/729
+Durham,05/23/17  10:00AM,Not Available Yet,NC,17 SP 265,16-14104-FC01,"7606 Morrell Lane   Durham, North Carolina 27713",5559/881
+Mecklenburg,05/25/17  11:00AM,Not Available Yet,NC,16 SP 3360,16-14333-FC01,"3811 Vining Court   Charlotte, North Carolina 28216",12680/596
+Catawba,06/28/17   2:00PM,Not Available Yet,NC,16 SP 510,16-14342-FC01,"5115 East NC Highway 10   Catawba, North Carolina 28609",02811/0540
+Mecklenburg,05/11/17  12:00PM,Not Available Yet,NC,16 SP 4001,09-11847-FC04,"425 Pecan Avenue   Charlotte, North Carolina 28204",17073/933
+Mecklenburg,05/11/17  11:00AM,Not Available Yet,NC,17 SP 573,15-15853-FC03,"7512 Park Vista Circle   Charlotte, North Carolina 28226",22375/367
+Brunswick,06/28/17  10:00AM,Not Available Yet,NC,16 SP 436,16-14489-FC01,"2628 Jessica Lane Southwest   Supply, North Carolina 28462",2455/0001
+Catawba,06/21/17   2:00PM,Not Available Yet,NC,16 SP 481,16-14493-FC01,"2506 Marble Street and Lots 1 thru 8 adjacent to 2506 Marble Street   Newton, North Carolina 28658",02552/1316
+Johnston,06/27/17  12:00PM,Not Available Yet,NC,16 SP 594,16-14545-FC01,"325 Mustang Lane   Zebulon, North Carolina 27597",4580/201
+Carteret,05/18/17  11:00AM,Not Available Yet,NC,16 SP 271,16-14707-FC01,"126 Forest Line Drive   Bogue, North Carolina 28570",
+Guilford,05/23/17   2:00PM,Not Available Yet,NC,16 SP 1878,14-28299-FC02,"4601 Battle Forest Lane   Greensboro, North Carolina 27455",5831/2800
+Cherokee,05/17/17  11:00AM,Not Available Yet,NC,16 SP 111,16-14794-FC01,"1666 Orton Road   Murphy, North Carolina 28906",01381/0474
+Mecklenburg,05/18/17  12:00PM,Not Available Yet,NC,16 SP 3798,16-00342-FC02,"6203 Day Lilly Lane   Charlotte, North Carolina 28216",19400/122
+Wake,05/10/17  10:00AM,Not Available Yet,NC,16 SP 2598,16-14924-FC01,"4121 Mackinac Island Lane   Raleigh, North Carolina 27610",012462/00795
+Cumberland,05/10/17  10:00AM,Not Available Yet,NC,16 SP 1282,16-14929-FC01,"2152 Fargo Drive   Fayetteville, North Carolina 28306",6287/507
+Mecklenburg,06/15/17  12:00PM,Not Available Yet,NC,16 SP 3592,16-15078-FC01,"8521 Westhope Street   Charlotte, North Carolina 28216",17914/101
+Hoke,05/23/17  10:00AM,Not Available Yet,NC,16 SP 239,16-15136-FC01,"471 Berwick Drive   Raeford, North Carolina 28376",00764/0079
+Person,06/28/17  12:00PM,Not Available Yet,NC,16 SP 134,16-12617-FC01,"500 Virgilina Road   Roxboro, North Carolina 27573",872/3
+Gates,06/26/17  10:00AM,Not Available Yet,NC,16 SP 38,16-15217-FC01,"607 Drum Hill Road   Gates, North Carolina 27937",236/138
+Carteret,06/29/17  11:00AM,Not Available Yet,NC,16 SP 260,15-00584-FC02,"487 Highway 70 Bettie   Beaufort, North Carolina 28516",
+Wilson,05/30/17  10:00AM,Not Available Yet,NC,17 SP 29,16-15341-FC01,"1006 Aycock Street South   Wilson, North Carolina 27893",1721/597
