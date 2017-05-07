@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import pandas as pd
 import subprocess
@@ -6,7 +7,8 @@ import glob
 import datetime
 
 csv_path = os.path.join(os.getcwd(), 'csv')
-today = datetime.datetime.now().strftime('%d-%m-%Y')
+result_file_path = os.path.join('result', 'final_result.csv')
+
 def remove_dir(csv_path):
     if os.path.exists(csv_path):
         shutil.rmtree(csv_path)
@@ -23,18 +25,21 @@ def execute_scripts():
 
 
 if __name__ == '__main__':
-    # execute_scripts()
+    execute_scripts()
 
-    print(os.path.join(csv_path, '*' + today + '*'))
+
+    today = datetime.datetime.now().strftime('%d_%m_%Y')
+    # today = '06_05_2017'
     result_files = glob.glob(os.path.join(csv_path, '*'))
-    print(result_files)
-
+    result_files = [i for i in result_files if re.search('_'+today,i)]
+    if not result_files:
+        raise Exception("No Files found for {}".format(today))
     res=dict()
     for result in result_files:
         variable = os.path.splitext(os.path.basename(result))[0]
         res[variable] = pd.read_csv(result)
-    print(res)
 
+    # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
     shapiro_dfs = []
     for filename, df in res.items():
@@ -43,9 +48,60 @@ if __name__ == '__main__':
         if filename.startswith('shapiro'):
             shapiro_dfs.append(df)
 
+    # Formatting brockandscott
     brockandscott = pd.concat(brockandscott_dfs)
+    remove_extra_spaces = lambda x: re.sub('\s+', ' ', x)
+    brockandscott['Address'] = brockandscott['Address'].apply(remove_extra_spaces)
+    columns_rename = {'Bid Amount': 'Price',
+                      'Book Page': 'Misc-1',
+                      'Case Number': 'Parcel Nu',
+                      'County': 'county',
+                      'Court SP#': 'Num',
+                      'Sale Date & Time': 'Bid Date',
+                      'State Code': 'State'}
+    brockandscott.rename(columns=columns_rename, inplace=True)
+
+    # Formatting Shapiro
     shapiro = pd.concat(shapiro_dfs)
-    brockandscott.to_csv(os.path.join('csv','brockandscott.csv'))
-    shapiro.to_csv(os.path.join('csv', 'shapiro.csv'))
-    res = brockandscott.merge(shapiro, left_on='Address', right_on='Property Address', how='outer')
-    res.to_csv(os.path.join('csv', 'final_result.csv'))
+    columns_rename_shapiro = {'Case #': 'Num',
+                              'Open Bid': 'Price',
+                              'Property Address': 'Address',
+                              'Sale Date - Sale Time': 'Bid Date'}
+    shapiro['county'], shapiro['State'] = shapiro['Property County'].str.split(', ').str
+    shapiro.rename(columns=columns_rename_shapiro, inplace=True)
+
+    # INTERMEDIATE FILE TO CSV
+    # brockandscott.to_csv(os.path.join('result','brockandscott.csv'))
+    # shapiro.to_csv(os.path.join('result', 'shapiro.csv'))
+
+    # RESULT
+    result_df = pd.concat([brockandscott, shapiro])
+    final_columns = ['county',
+                     'Bid Date',
+                     'Price',
+                     'State',
+                     'Num',
+                     'Parcel Nu',
+                     'Address',
+                     'Misc-1']
+
+    # ADD EXTRA COLUMNS
+    result_df = result_df[final_columns].fillna('NA')
+    boa_substitute  = lambda x:"https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address="+x.replace(',','').replace(' ','+')
+    zillow_substitute = lambda x:"https://www.zillow.com/homes/"+x.replace(',','').replace(' ','_')+'_rb'
+    result_df['Group'] = ''
+    result_df['Rating'] = ''
+    result_df['BoA'] = result_df['Address'].apply(boa_substitute)
+    result_df['Zillow'] = result_df['Address'].apply(zillow_substitute)
+
+    # SET INDEX
+    result_df = result_df.reset_index(drop=True)
+    result_df.index += 1
+    result_df.index.name = 'SN'
+
+    # WRITE RESULT TO CSV
+    result_df.to_csv(result_file_path)
+
+    # CONCATENATE NEW RESULT
+    pass # TODO: script concatenation
+
