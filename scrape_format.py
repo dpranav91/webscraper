@@ -28,7 +28,7 @@ def execute_scripts():
 
 
 if __name__ == '__main__':
-    # execute_scripts()
+    execute_scripts()
 
 
     today = datetime.datetime.now().strftime('%d_%m_%Y')
