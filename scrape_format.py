@@ -8,7 +8,8 @@ import datetime
 from collections import Counter
 
 csv_path = os.path.join(os.getcwd(), 'csv')
-result_file_path = os.path.join('result', 'final_result.csv')
+# result_file_path = os.path.join('result', 'final_result.csv')
+result_xlsx_path = os.path.join('result', 'final_result.xlsx')
 
 
 def remove_dir(csv_path):
@@ -28,7 +29,7 @@ def execute_scripts():
 
 
 if __name__ == '__main__':
-    execute_scripts()
+    # execute_scripts()
 
 
     today = datetime.datetime.now().strftime('%d_%m_%Y')
@@ -103,21 +104,21 @@ if __name__ == '__main__':
     preserve_columns_order = result_df.columns.tolist()
 
     # CONCATENATE NEW RESULT
-    if os.path.exists(result_file_path):
+    if os.path.exists(result_xlsx_path):
         try:
-            init_df = pd.read_csv(result_file_path)
+            init_df = pd.read_excel(result_xlsx_path)
         except:
             pass
         else:
             if 'Flag' not in init_df.columns:
-                init_df['Flag'] = "Yes"
+                init_df['Flag'] = "No"
             intersection_records = set(result_df['Num']).intersection(set(init_df['Num']))
             new_records = set(result_df['Num']) - set(init_df['Num'])
-            set_flag = lambda x: 'No' if x['Num'] in intersection_records else x['Flag']
+            set_flag = lambda x: 'Yes' if x['Num'] in intersection_records or \
+                                          x['Num'] in new_records else "No"#x['Flag']
             new_records_df = result_df[result_df['Num'].isin(new_records)]
             result_df = pd.concat([init_df, new_records_df])
-            if new_records:
-                result_df['Flag'] = result_df.apply(set_flag,axis=1)
+            result_df['Flag'] = result_df.apply(set_flag,axis=1)
 
     # SET INDEX
     result_df = result_df[preserve_columns_order]
@@ -126,4 +127,4 @@ if __name__ == '__main__':
     result_df.index.name = 'SN'
 
     # WRITE RESULT TO CSV
-    result_df.to_csv(result_file_path)
+    result_df.to_excel(result_xlsx_path)
