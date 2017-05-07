@@ -5,6 +5,7 @@ import pandas as pd
 import subprocess
 import glob
 import datetime
+from collections import Counter
 
 csv_path = os.path.join(os.getcwd(), 'csv')
 result_file_path = os.path.join('result', 'final_result.csv')
@@ -103,11 +104,19 @@ if __name__ == '__main__':
 
     # CONCATENATE NEW RESULT
     if os.path.exists(result_file_path):
-        init_df = pd.read_csv(result_file_path)
-        init_df['Flag'] = "No"
-        new_records = set(result_df['Num']) - set(init_df['Num'])
-        new_records_df = result_df[result_df['Num'].isin(new_records)]
-        result_df = pd.concat([init_df, new_records_df])
+        try:
+            init_df = pd.read_csv(result_file_path)
+        except:
+            pass
+        else:
+            if 'Flag' not in init_df.columns:
+                init_df['Flag'] = "Yes"
+            intersection_records = set(result_df['Num']).intersection(set(init_df['Num']))
+            new_records = set(result_df['Num']) - set(init_df['Num'])
+            set_flag = lambda x: 'No' if x['Num'] in intersection_records else x['Flag']
+            new_records_df = result_df[result_df['Num'].isin(new_records)]
+            result_df = pd.concat([init_df, new_records_df])
+            result_df['Flag'] = result_df.apply(set_flag,axis=1)
 
     # SET INDEX
     result_df = result_df[preserve_columns_order]
