@@ -1,4 +1,5 @@
 import os
+import sys
 import re
 import shutil
 import pandas as pd
@@ -6,15 +7,34 @@ import subprocess
 import glob
 import datetime
 from collections import Counter
+from df2google import DF2GoogleSpreadSheet
+from utils import setup_logging
+
+logger = setup_logging()
 
 csv_path = os.path.join(os.getcwd(), 'csv')
-# result_file_path = os.path.join('result', 'final_result.csv')
-result_xlsx_path = os.path.join('result', 'final_result.xlsx')
+today = datetime.datetime.now().strftime('%d_%m_%Y')
+sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
+spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
+result_file_path = os.path.join('result', 'final_result.csv')
+HOME_DIRECTORY = os.path.expanduser('~')
+
+
+# result_file_path = os.path.join('result', 'final_result.xlsx')
 
 
 def remove_dir(csv_path):
     if os.path.exists(csv_path):
         shutil.rmtree(csv_path)
+
+
+def copy_gdrive_private_file():
+    drive_private = os.path.join(HOME_DIRECTORY, '.gdrive_private')
+    if not os.path.exists(drive_private):
+        src = os.path.join('private', '.gdrive_private')
+        dst = drive_private
+        shutil.copy(src, dst)
+        logger.info("gdrive_private file placed in HOME directory")
 
 
 def execute_scripts():
@@ -29,10 +49,9 @@ def execute_scripts():
 
 
 if __name__ == '__main__':
-    # execute_scripts()
+    execute_scripts()
 
-
-    today = datetime.datetime.now().strftime('%d_%m_%Y')
+    copy_gdrive_private_file()
     # today = '06_05_2017'
     result_files = glob.glob(os.path.join(csv_path, '*'))
     result_files = [i for i in result_files if re.search('_' + today, i)]
@@ -56,6 +75,7 @@ if __name__ == '__main__':
     brockandscott = pd.concat(brockandscott_dfs)
     remove_extra_spaces = lambda x: re.sub('\s+', ' ', x)
     brockandscott['Address'] = brockandscott['Address'].apply(remove_extra_spaces)
+    brockandscott['Source'] = 'brockandscott'
     columns_rename = {'Bid Amount': 'Price',
                       'Book Page': 'Misc-1',
                       'Case Number': 'Parcel Nu',
@@ -72,6 +92,7 @@ if __name__ == '__main__':
                               'Property Address': 'Address',
                               'Sale Date - Sale Time': 'Bid Date'}
     shapiro['county'], shapiro['State'] = shapiro['Property County'].str.split(', ').str
+    shapiro['Source'] = 'shapiro'
     shapiro.rename(columns=columns_rename_shapiro, inplace=True)
 
     # INTERMEDIATE FILE TO CSV
@@ -87,12 +108,14 @@ if __name__ == '__main__':
                      'Num',
                      'Parcel Nu',
                      'Address',
-                     'Misc-1']
+                     'Misc-1',
+                     'Source']
 
     # ADD EXTRA COLUMNS
     result_df = result_df[final_columns].fillna('NA')
     boa_substitute = lambda \
-        x: "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address=" + x.replace(',', '').replace(
+            x: "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address=" + x.replace(',',
+                                                                                                         '').replace(
         ' ', '+')
     zillow_substitute = lambda x: "https://www.zillow.com/homes/" + x.replace(',', '').replace(' ', '_') + '_rb'
     result_df['Group'] = ''
@@ -103,22 +126,22 @@ if __name__ == '__main__':
 
     preserve_columns_order = result_df.columns.tolist()
 
+    # DOWNLOAD EXISTING SPREADSHEET DATA
+    logger.info("Trying to read data from GoogleSpreadSheet:{} sheet: {}".format(spread_sheet_id, sheet_name))
+    df2google = DF2GoogleSpreadSheet(spreadsheet=spread_sheet_id, sheetname=sheet_name)
+    init_df = df2google.download()
     # CONCATENATE NEW RESULT
-    if os.path.exists(result_xlsx_path):
-        try:
-            init_df = pd.read_excel(result_xlsx_path)
-        except:
-            pass
-        else:
-            if 'Flag' not in init_df.columns:
-                init_df['Flag'] = "No"
-            intersection_records = set(result_df['Num']).intersection(set(init_df['Num']))
-            new_records = set(result_df['Num']) - set(init_df['Num'])
-            set_flag = lambda x: 'Yes' if x['Num'] in intersection_records or \
-                                          x['Num'] in new_records else "No"#x['Flag']
-            new_records_df = result_df[result_df['Num'].isin(new_records)]
-            result_df = pd.concat([init_df, new_records_df])
-            result_df['Flag'] = result_df.apply(set_flag,axis=1)
+    if init_df is not None:
+        logger.info("Found data from SpreadSheet with {} records".format(len(init_df)))
+        if 'Flag' not in init_df.columns:
+            init_df['Flag'] = "No"
+        intersection_records = set(result_df['Num']).intersection(set(init_df['Num']))
+        new_records = set(result_df['Num']) - set(init_df['Num'])
+        set_flag = lambda x: 'Yes' if x['Num'] in intersection_records or \
+                                      x['Num'] in new_records else "No"  # x['Flag']
+        new_records_df = result_df[result_df['Num'].isin(new_records)]
+        result_df = pd.concat([init_df, new_records_df])
+        result_df['Flag'] = result_df.apply(set_flag, axis=1)
 
     # SET INDEX
     result_df = result_df[preserve_columns_order]
@@ -126,5 +149,8 @@ if __name__ == '__main__':
     result_df.index += 1
     result_df.index.name = 'SN'
 
-    # WRITE RESULT TO CSV
-    result_df.to_excel(result_xlsx_path)
+    # WRITE RESULT TO SPREADSHEET
+    logger.info(
+        "New result with {} records will be uploaded to SpreadSheet into Sheet:{}".format(len(result_df), sheet_name))
+    df2google.upload(result_df)
+    logger.info("Upload Successful")

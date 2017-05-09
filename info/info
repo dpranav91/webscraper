@@ -1,0 +1,17 @@
+Required Installations:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* selenium
+* pandas
+* df2gspread
+
+Steps to authenticate google spreadsheet:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* Make sure .gdrive_private file that is reciding in private folder of workspace is copied to home directory
+* First time authentication is required
+
+##########################################
+# Intermediate files from different links will be stored in csv folder
+# Final Result will be saved in Google SpreadSheet
+# Final Result will be a consolidated for each run
+# Find the FINAL RESULT in https://docs.google.com/spreadsheets/d/1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0
+##########################################
