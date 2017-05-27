@@ -15,3 +15,6 @@ Steps to authenticate google spreadsheet:
 # Final Result will be a consolidated for each run
 # Find the FINAL RESULT in https://docs.google.com/spreadsheets/d/1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0
 ##########################################
+LINUX:
+FOR CRPTOGRAPHY/ PARAMIKO/ PYCRYPTO
+sudo yum install gcc libffi-devel python-devel openssl-devel

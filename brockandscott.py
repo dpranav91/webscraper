@@ -7,22 +7,20 @@ import selenium
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from scrape_helper import Scraper
+from scrape_helper import Scraper, init_webdriver
 
 ##########################################################################
 # INPUT
 ##########################################################################
 base_url = 'https://www.brockandscott.com/BrockSearch.aspx'
-Country = sys.argv[1] if len(sys.argv)>1 else 'Mecklenburg'# Cabarrus Mecklenburg
+Country = sys.argv[1] if len(sys.argv)>1 else 'Mecklenburg'#''Mecklenburg'# Cabarrus Mecklenburg
 State = sys.argv[2] if len(sys.argv)>2 else 'NC'
 Date = datetime.datetime.now().strftime('%m/%d/%Y')
 
 ##########################################################################
 # READ CONTENT FROM WEB PAGE
 ##########################################################################
-chromedriver = os.path.join(os.getcwd(),'utilities','chromedriver.exe')
-os.environ["webdriver.chrome.driver"] = chromedriver
-driver = webdriver.Chrome(chromedriver)
+driver = init_webdriver(browser='phantomjs')
 driver.get(base_url)
 
 stateElement = driver.find_element_by_name("ddlState")
