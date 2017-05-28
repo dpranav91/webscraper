@@ -1,3 +1,4 @@
+import pdb
 from df2gspread import df2gspread as d2g
 from df2gspread import gspread2df as g2d
 
@@ -8,7 +9,7 @@ class DF2GoogleSpreadSheet:
 
     def upload(self, df, sheetname=None):
         sheetname = sheetname if sheetname else self.sheetname
-        d2g.upload(df, self.spreadsheet, sheetname)
+        return d2g.upload(df, self.spreadsheet, sheetname)
         # logger and logger.info("DataFrame got uploaded to {}: {}".format(self.spreadsheet, sheetname))
 
     def download(self):
@@ -28,4 +29,6 @@ if __name__=='__main__':
     d = [pd.Series([1., 2., 3.], index=['a', 'b', 'c']),
         pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])]
     df = pd.DataFrame(d)
-    obj.upload(df,'sheet 2')
+    # pdb.set_trace()
+    res=obj.upload(df,'sheet 2')
+    print("Upload Done: {}".format(res))
