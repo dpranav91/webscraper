@@ -44,12 +44,12 @@ def setup_logging(logfile=None, verbose=False):
     handler.setFormatter(standard_log_formatter)
     root = logging.getLogger()
     root.addHandler(handler)
-    root.addHandler(handler)
+    # root.addHandler(handler)
     level = logging.INFO
     if verbose:
         level = logging.DEBUG
     root.setLevel(level)
-    root.setLevel(level)
+    # root.setLevel(level)
     root.debug("starting up logging")
     return root
 

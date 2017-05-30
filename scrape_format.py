@@ -13,9 +13,13 @@ from utils import setup_logging
 logger = setup_logging()
 
 csv_path = os.path.join(os.getcwd(), 'csv')
-today = datetime.datetime.now().strftime('%d_%m_%Y')
-logger.info("\n{}".format(today))
-sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
+datetime_today = datetime.datetime.now()
+today = datetime_today.strftime('%d_%m_%Y')
+today_time = datetime_today.strftime('%d-%m-%Y %H:%M')
+
+logger.info("\n{}".format('*' * 50))
+# sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
+sheet_name = 'Sheet1'
 spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join('result', 'final_result.csv')
 if sys.platform.startswith('win'):
@@ -44,10 +48,12 @@ def copy_gdrive_private_file():
         shutil.copy(src, dst)
         logger.info("gdrive_private file placed in HOME directory")
 
+
 def execute_scripts():
     cmd1 = ('{python} {shapiro} Mecklenburg NC'.format(python=python_interpreter, shapiro=shapiro_file))
     cmd2 = ('{python} {shapiro} Cabarrus NC'.format(python=python_interpreter, shapiro=shapiro_file))
-    cmd3 = ('{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    cmd3 = (
+    '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
     cmd4 = ('{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
 
     for cmd in (cmd1, cmd2, cmd3, cmd4):
@@ -55,7 +61,7 @@ def execute_scripts():
         subprocess.call(cmd, shell=True)
 
 
-if __name__ == '__main__':
+def main():
     execute_scripts()
 
     copy_gdrive_private_file()
@@ -108,6 +114,7 @@ if __name__ == '__main__':
 
     # RESULT
     result_df = pd.concat([brockandscott, shapiro])
+    result_df['Inserted Date'] = today_time
     final_columns = ['county',
                      'Bid Date',
                      'Price',
@@ -116,7 +123,8 @@ if __name__ == '__main__':
                      'Parcel Nu',
                      'Address',
                      'Misc-1',
-                     'Source']
+                     'Source',
+                     'Inserted Date']
 
     # ADD EXTRA COLUMNS
     result_df = result_df[final_columns].fillna('NA')
@@ -125,10 +133,12 @@ if __name__ == '__main__':
                                                                                                          '').replace(
         ' ', '+')
     zillow_substitute = lambda x: "https://www.zillow.com/homes/" + x.replace(',', '').replace(' ', '_') + '_rb'
+    map_substitute = lambda x: "https://www.google.com/maps/place/" + x.replace(',', '').replace(' ', '+')
     result_df['Group'] = ''
     result_df['Rating'] = ''
     result_df['BoA'] = result_df['Address'].apply(boa_substitute)
     result_df['Zillow'] = result_df['Address'].apply(zillow_substitute)
+    result_df['Location'] = result_df['Address'].apply(map_substitute)
     result_df["Flag"] = "Yes"
 
     preserve_columns_order = result_df.columns.tolist()
@@ -137,6 +147,12 @@ if __name__ == '__main__':
     logger.info("Trying to read data from GoogleSpreadSheet:{} sheet: {}".format(spread_sheet_id, sheet_name))
     df2google = DF2GoogleSpreadSheet(spreadsheet=spread_sheet_id, sheetname=sheet_name)
     init_df = df2google.download()
+    if datetime_today.day==1 and datetime_today.hour<1:
+        new_sheet_name = 'Sheet_{}_{}'.format(datetime_today.month - 1, datetime_today.year)
+        logger.info(
+            "New Month Started, moving existing data to new Sheet:{} and emptying existing data".format(new_sheet_name))
+        df2google.upload(init_df, new_sheet_name)
+        init_df = None
     # CONCATENATE NEW RESULT
     if init_df is not None:
         logger.info("Found data from SpreadSheet with {} records".format(len(init_df)))
@@ -156,8 +172,17 @@ if __name__ == '__main__':
     result_df.index += 1
     result_df.index.name = 'SN'
 
+    # TODO : check if equal
+    # if result_df.equals(init_df):
+    #     logger.info("No Changes")
+    #     return
+
     # WRITE RESULT TO SPREADSHEET
     logger.info(
         "New result with {} records will be uploaded to SpreadSheet into Sheet:{}".format(len(result_df), sheet_name))
     df2google.upload(result_df)
     logger.info("Upload Successful")
+
+
+if __name__ == '__main__':
+    main()
