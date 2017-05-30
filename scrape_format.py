@@ -14,9 +14,17 @@ logger = setup_logging()
 
 csv_path = os.path.join(os.getcwd(), 'csv')
 today = datetime.datetime.now().strftime('%d_%m_%Y')
+logger.info("\n{}".format(today))
 sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
 spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join('result', 'final_result.csv')
+if sys.platform.startswith('win'):
+    python_interpreter = sys.executable
+else:
+    python_interpreter = '/home/ec2-user/anaconda3/bin/python'
+current_directory = os.path.split(os.path.realpath(__file__))[0]
+shapiro_file = os.path.join(current_directory, 'shapiro.py')
+brockandscott_file = os.path.join(current_directory, 'brockandscott.py')
 HOME_DIRECTORY = os.path.expanduser('~')
 
 
@@ -36,15 +44,14 @@ def copy_gdrive_private_file():
         shutil.copy(src, dst)
         logger.info("gdrive_private file placed in HOME directory")
 
-
 def execute_scripts():
-    commands = []
-    commands.append('python shapiro.py Mecklenburg NC')
-    commands.append('python shapiro.py Cabarrus NC')
-    commands.append('python brockandscott.py Mecklenburg NC')
-    commands.append('python brockandscott.py Cabarrus NC')
+    cmd1 = ('{python} {shapiro} Mecklenburg NC'.format(python=python_interpreter, shapiro=shapiro_file))
+    cmd2 = ('{python} {shapiro} Cabarrus NC'.format(python=python_interpreter, shapiro=shapiro_file))
+    cmd3 = ('{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    cmd4 = ('{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
 
-    for cmd in commands:
+    for cmd in (cmd1, cmd2, cmd3, cmd4):
+        logger.info("Executing `{}`".format(cmd))
         subprocess.call(cmd, shell=True)
 
 
