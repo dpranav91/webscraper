@@ -12,15 +12,16 @@ from utils import (save_to_csv,
 
 DELAY = 1
 scraper_logging = "stdout"  # the other is "file"
+current_directory = os.path.split(os.path.realpath(__file__))[0]
 
 def init_webdriver(browser='chrome'):
     if browser=='chrome':
-        chromedriver = os.path.join(os.getcwd(),'utilities','chromedriver.exe')
+        chromedriver = os.path.join(current_directory,'utilities','chromedriver.exe')
         # print(os.environ["webdriver.chrome.driver"])
         os.environ["webdriver.chrome.driver"] = chromedriver
         driver = webdriver.Chrome(chromedriver)
     else:
-        phantomdriver = os.path.join(os.getcwd(),'utilities','phantomjs.exe')
+        phantomdriver = os.path.join(current_directory,'utilities','phantomjs.exe')
         driver = webdriver.PhantomJS(phantomdriver)
         driver.set_window_size(1120, 550)
     return driver
