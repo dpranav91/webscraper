@@ -15,11 +15,11 @@ logger = setup_logging()
 csv_path = os.path.join(os.getcwd(), 'csv')
 datetime_today = datetime.datetime.now()
 today = datetime_today.strftime('%d_%m_%Y')
-today_time = datetime_today.strftime('%d-%m-%Y %H:%M')
+today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
 
 logger.info("\n{}".format('*' * 50))
 # sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
-sheet_name = 'Sheet1'
+sheet_name = 'Current'
 spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join('result', 'final_result.csv')
 if sys.platform.startswith('win'):
@@ -49,16 +49,39 @@ def copy_gdrive_private_file():
         logger.info("gdrive_private file placed in HOME directory")
 
 
+def update_dfs(initial_df, updated_df, key):
+    initial_df = initial_df.set_index(key)
+    updated_df = updated_df.set_index(key)
+    initial_df.update(updated_df)
+    initial_df.reset_index(inplace=True)
+    initial_df['Updated Date'] = today_time
+    return initial_df
+
+
+import re
+def parse_bid_date(date):
+    return ' '.join(re.compile('(\d+?/\d+?/\d+?)[\s-]*(\d+?:\d{2}).*').search(date).groups())
+
 def execute_scripts():
     cmd1 = ('{python} {shapiro} Mecklenburg NC'.format(python=python_interpreter, shapiro=shapiro_file))
     cmd2 = ('{python} {shapiro} Cabarrus NC'.format(python=python_interpreter, shapiro=shapiro_file))
     cmd3 = (
-    '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
     cmd4 = ('{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
 
     for cmd in (cmd1, cmd2, cmd3, cmd4):
         logger.info("Executing `{}`".format(cmd))
         subprocess.call(cmd, shell=True)
+
+
+boa_substitute = lambda \
+        x: "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address=" + x.replace(',',
+                                                                                                     '').replace(
+    ' ', '+')
+
+zillow_substitute = lambda x: "https://www.zillow.com/homes/" + x.replace(',', '').replace(' ', '_') + '_rb'
+
+map_substitute = lambda x: "https://www.google.com/maps/place/" + x.replace(',', '').replace(' ', '+')
 
 
 def main():
@@ -78,11 +101,11 @@ def main():
     # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
     shapiro_dfs = []
-    for filename, df in res.items():
+    for filename, result_df in res.items():
         if filename.startswith('brockandscott'):
-            brockandscott_dfs.append(df)
+            brockandscott_dfs.append(result_df)
         if filename.startswith('shapiro'):
-            shapiro_dfs.append(df)
+            shapiro_dfs.append(result_df)
 
     # Formatting brockandscott
     brockandscott = pd.concat(brockandscott_dfs)
@@ -114,40 +137,20 @@ def main():
 
     # RESULT
     result_df = pd.concat([brockandscott, shapiro])
-    result_df['Inserted Date'] = today_time
-    final_columns = ['county',
-                     'Bid Date',
-                     'Price',
-                     'State',
-                     'Num',
-                     'Parcel Nu',
-                     'Address',
-                     'Misc-1',
-                     'Source',
-                     'Inserted Date']
+    preserve_columns_order = ['county', 'Bid Date', 'Price',
+                     'State', 'Num', 'Parcel Nu',
+                     'Address', 'Misc-1', 'Source',
+                     'Group', 'Rating', 'BoA',
+                     'Zillow', 'Location', 'Inserted Date',
+                     'Updated Date', 'Flag'
+                     ]
 
-    # ADD EXTRA COLUMNS
-    result_df = result_df[final_columns].fillna('NA')
-    boa_substitute = lambda \
-            x: "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address=" + x.replace(',',
-                                                                                                         '').replace(
-        ' ', '+')
-    zillow_substitute = lambda x: "https://www.zillow.com/homes/" + x.replace(',', '').replace(' ', '_') + '_rb'
-    map_substitute = lambda x: "https://www.google.com/maps/place/" + x.replace(',', '').replace(' ', '+')
-    result_df['Group'] = ''
-    result_df['Rating'] = ''
-    result_df['BoA'] = result_df['Address'].apply(boa_substitute)
-    result_df['Zillow'] = result_df['Address'].apply(zillow_substitute)
-    result_df['Location'] = result_df['Address'].apply(map_substitute)
-    result_df["Flag"] = "Yes"
-
-    preserve_columns_order = result_df.columns.tolist()
 
     # DOWNLOAD EXISTING SPREADSHEET DATA
     logger.info("Trying to read data from GoogleSpreadSheet:{} sheet: {}".format(spread_sheet_id, sheet_name))
     df2google = DF2GoogleSpreadSheet(spreadsheet=spread_sheet_id, sheetname=sheet_name)
     init_df = df2google.download()
-    if datetime_today.day==1 and datetime_today.hour<1:
+    if datetime_today.day == 1 and datetime_today.hour < 1:
         new_sheet_name = 'Sheet_{}_{}'.format(datetime_today.month - 1, datetime_today.year)
         logger.info(
             "New Month Started, moving existing data to new Sheet:{} and emptying existing data".format(new_sheet_name))
@@ -162,13 +165,40 @@ def main():
         new_records = set(result_df['Num']) - set(init_df['Num'])
         set_flag = lambda x: 'Yes' if x['Num'] in intersection_records or \
                                       x['Num'] in new_records else "No"  # x['Flag']
+
+        # ------------------------------------------
+        # SETUP NEW RECORDS DF
+        # ------------------------------------------
         new_records_df = result_df[result_df['Num'].isin(new_records)]
+        # ADD EXTRA COLUMNS
+        new_records_df['Inserted Date'] = today_time
+        # result_df = result_df[final_columns].fillna('NA')
+        new_records_df['Group'] = ''
+        new_records_df['Rating'] = ''
+        new_records_df['BoA'] = new_records_df['Address'].apply(boa_substitute)
+        new_records_df['Zillow'] = new_records_df['Address'].apply(zillow_substitute)
+        new_records_df['Location'] = new_records_df['Address'].apply(map_substitute)
+        new_records_df["Flag"] = "Yes"
+
+        # UPDATING INITIAL DF with updated data
+        init_df = update_dfs(init_df, result_df, 'Num')
         result_df = pd.concat([init_df, new_records_df])
         result_df['Flag'] = result_df.apply(set_flag, axis=1)
 
     # SET INDEX
+
+    try:
+        result_df['BidDate_Formatted'] = result_df['Bid Date'].apply(parse_bid_date)
+        result_df['BidDate_Formatted'] = (pd.to_datetime(result_df['BidDate_Formatted']))
+        result_df = result_df.sort_values('BidDate_Formatted')
+    except:
+        logger.info("Unable to sort by Bid Date")
+
     result_df = result_df[preserve_columns_order]
-    result_df = result_df.reset_index(drop=True)
+    result_df.fillna("", inplace=True)
+
+    # result_df.sort_values('Bid Date', inplace=True)
+    result_df.reset_index(drop=True, inplace=True)
     result_df.index += 1
     result_df.index.name = 'SN'
 
@@ -180,7 +210,7 @@ def main():
     # WRITE RESULT TO SPREADSHEET
     logger.info(
         "New result with {} records will be uploaded to SpreadSheet into Sheet:{}".format(len(result_df), sheet_name))
-    df2google.upload(result_df)
+    df2google.upload(result_df, sheet_name)
     logger.info("Upload Successful")
 
 
