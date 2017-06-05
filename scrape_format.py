@@ -20,9 +20,10 @@ today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
 logger.info("\n{}".format('*' * 50))
 # sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
 sheet_name = 'Current'
-spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
+spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'#'1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join('result', 'final_result.csv')
 if sys.platform.startswith('win'):
+    spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
     python_interpreter = sys.executable
 else:
     python_interpreter = '/home/ec2-user/anaconda3/bin/python'
@@ -85,7 +86,7 @@ map_substitute = lambda x: "https://www.google.com/maps/place/" + x.replace(',',
 
 
 def main():
-    execute_scripts()
+    # execute_scripts()
 
     copy_gdrive_private_file()
     # today = '06_05_2017'
@@ -137,13 +138,14 @@ def main():
 
     # RESULT
     result_df = pd.concat([brockandscott, shapiro])
-    preserve_columns_order = ['county', 'Bid Date', 'Price',
-                     'State', 'Num', 'Parcel Nu',
-                     'Address', 'Misc-1', 'Source',
-                     'Group', 'Rating', 'BoA',
-                     'Zillow', 'Location', 'Inserted Date',
-                     'Updated Date', 'Flag'
-                     ]
+    preserve_columns_order = ['SN', 'county', 'Bid Date', 'BidDate_Formatted',
+                              'Price',
+                              'State', 'Num', 'Parcel Nu',
+                              'Address', 'Misc-1', 'Source',
+                              'Group', 'Rating', 'BoA',
+                              'Zillow', 'Location', 'Inserted Date',
+                              'Updated Date', 'Flag'
+                              ]
 
 
     # DOWNLOAD EXISTING SPREADSHEET DATA
@@ -194,14 +196,18 @@ def main():
     except:
         logger.info("Unable to sort by Bid Date")
 
-    result_df = result_df[preserve_columns_order]
-    result_df.fillna("", inplace=True)
-
+    # SET INDEX
     # result_df.sort_values('Bid Date', inplace=True)
     result_df.reset_index(drop=True, inplace=True)
     result_df.index += 1
-    result_df.index.name = 'SN'
+    # result_df.index.name = 'SN'
+    result_df['SN'] = result_df.index
 
+    # SET COLUMN ORDER
+    result_df = result_df[preserve_columns_order]
+    result_df.fillna("", inplace=True)
+
+    print(result_df)
     # TODO : check if equal
     # if result_df.equals(init_df):
     #     logger.info("No Changes")
