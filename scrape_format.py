@@ -138,7 +138,7 @@ def main():
 
     # RESULT
     result_df = pd.concat([brockandscott, shapiro])
-    preserve_columns_order = ['SN', 'county', 'Bid Date', 'BidDate_Formatted',
+    preserve_columns_order = ['county', 'Bid Date', 'BidDate_Formatted',
                               'Price',
                               'State', 'Num', 'Parcel Nu',
                               'Address', 'Misc-1', 'Source',
@@ -150,8 +150,11 @@ def main():
 
     # DOWNLOAD EXISTING SPREADSHEET DATA
     logger.info("Trying to read data from GoogleSpreadSheet:{} sheet: {}".format(spread_sheet_id, sheet_name))
-    df2google = DF2GoogleSpreadSheet(spreadsheet=spread_sheet_id, sheetname=sheet_name)
-    init_df = df2google.download()
+    try:
+        df2google = DF2GoogleSpreadSheet(spreadsheet=spread_sheet_id, sheetname=sheet_name)
+        init_df = df2google.download()
+    except Exception as e:
+        raise Exception("Unable to download spreadsheet: {}".format(e))
     if datetime_today.day == 1 and datetime_today.hour < 1:
         new_sheet_name = 'Sheet_{}_{}'.format(datetime_today.month - 1, datetime_today.year)
         logger.info(
@@ -204,6 +207,12 @@ def main():
     result_df['SN'] = result_df.index
 
     # SET COLUMN ORDER
+    # for col in ['Bid Date', 'Updated Date', 'Inserted Date']:
+    #     result_df[col] = result_df[col].astype(str)
+    missing_columns_from_result_df = set(preserve_columns_order)-set(result_df.columns)
+    if missing_columns_from_result_df:
+        for col in missing_columns_from_result_df:
+            result_df[col] = ''
     result_df = result_df[preserve_columns_order]
     result_df.fillna("", inplace=True)
 
