@@ -86,7 +86,7 @@ map_substitute = lambda x: "https://www.google.com/maps/place/" + x.replace(',',
 
 
 def main():
-    # execute_scripts()
+    execute_scripts()
 
     copy_gdrive_private_file()
     # today = '06_05_2017'
