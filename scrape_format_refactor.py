@@ -30,19 +30,21 @@ else:
 current_directory = os.path.split(os.path.realpath(__file__))[0]
 shapiro_file = os.path.join(current_directory, 'shapiro.py')
 brockandscott_file = os.path.join(current_directory, 'brockandscott.py')
+hutchenslawfirm_file = os.path.join(current_directory, 'hutchenslawfirm.py')
+
 HOME_DIRECTORY = os.path.expanduser('~')
 
 # result_file_path = os.path.join('result', 'final_result.xlsx')
 boa_url = "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address="
 zillow_url = "https://www.zillow.com/homes/"
 maps_url = "https://www.google.com/maps/place/"
-boa_substitute = lambda x: boa_url + x.replace(',', '').replace(' ', '+')
+boa_substitute = lambda x: boa_url + str(x).replace(',', '').replace(' ', '+')
 
-zillow_substitute = lambda x: zillow_url + x.replace(',', '').replace(' ', '_') + '_rb'
+zillow_substitute = lambda x: zillow_url + str(x).replace(',', '').replace(' ', '_') + '_rb'
 
-map_substitute = lambda x: maps_url + x.replace(',', '').replace(' ', '+')
+map_substitute = lambda x: maps_url + str(x).replace(',', '').replace(' ', '+')
 
-remove_extra_spaces = lambda x: re.sub('\s+', ' ', x)
+remove_extra_spaces = lambda x: re.sub('\s+', ' ', str(x))
 
 
 def remove_dir(csv_path):
@@ -69,17 +71,37 @@ def update_dfs(initial_df, updated_df, key):
 
 
 def parse_bid_date(date):
-    return ' '.join(re.compile('(\d+?/\d+?/\d+?)[\s-]*(\d+?:\d{2}).*').search(date).groups())
+    try:
+        return ' '.join(re.compile('(\d+?/\d+?/\d+?)[\s-]*(\d+?:\d{2}).*').search(date).groups())
+    except:
+        return ' '.join(re.compile('(\d+?/\d+?/\d+)[\s-]*').search(date).groups())
 
 
 def execute_scripts():
-    cmd1 = ('{python} {shapiro} Mecklenburg NC'.format(python=python_interpreter, shapiro=shapiro_file))
-    cmd2 = ('{python} {shapiro} Cabarrus NC'.format(python=python_interpreter, shapiro=shapiro_file))
-    cmd3 = (
-        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
-    cmd4 = ('{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    commands = []
+    # SHAPIRO
+    commands.append(
+        '{python} {shapiro} Mecklenburg NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
+    commands.append(
+        '{python} {shapiro} Cabarrus NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
 
-    for cmd in (cmd1, cmd2, cmd3, cmd4):
+    # SHAPIRO (SALES_HELD)
+    commands.append(
+        '{python} {shapiro} Mecklenburg NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
+    commands.append('{python} {shapiro} Cabarrus NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
+
+    # BROCKANDSCOTT
+    commands.append(
+        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    commands.append(
+        '{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    # HUTCHENSLAWFIRM
+    commands.append(
+        '{python} {hutchenslawfirm} Cabarrus'.format(python=python_interpreter, hutchenslawfirm=hutchenslawfirm_file))
+    commands.append(
+        '{python} {hutchenslawfirm} Mecklenburg'.format(python=python_interpreter,
+                                                        hutchenslawfirm=hutchenslawfirm_file))
+    for cmd in commands:
         logger.info("Executing `{}`".format(cmd))
         subprocess.call(cmd, shell=True)
 
@@ -120,7 +142,25 @@ def prepare_new_records_for_concatenation(init_df, current_run_data_df):
     return result_df
 
 
-def format_shapiro(shapiro_dfs):
+def reformat_shapiro_salesheld(shapiro_salesheld_dfs):
+    shapiro_salesheld = pd.concat(shapiro_salesheld_dfs)
+    # split Property County to two different columns
+    shapiro_salesheld['county'], shapiro_salesheld['State'] = shapiro_salesheld['Property County'].str.split(', ').str
+    shapiro_salesheld['Source'] = 'shapiro-salesheld'
+    shapiro_salesheld['Upset Info'] = shapiro_salesheld['Last Upset'] + ';' + shapiro_salesheld['Sucessful Bidder']
+
+    # rename columns
+    columns_rename_shapiro = {'Case #': 'Num',
+                              'High Bid': 'Price',
+                              'Property Address': 'Address',
+                              'Sale Date': 'Bid Date',
+                              }
+    shapiro_salesheld.rename(columns=columns_rename_shapiro, inplace=True)
+    shapiro_salesheld['Num'] = shapiro_salesheld['Num'].str.replace(' ', '')
+    return shapiro_salesheld
+
+
+def reformat_shapiro(shapiro_dfs):
     shapiro = pd.concat(shapiro_dfs)
     # split Property County to two different columns
     shapiro['county'], shapiro['State'] = shapiro['Property County'].str.split(', ').str
@@ -131,6 +171,7 @@ def format_shapiro(shapiro_dfs):
                               'Property Address': 'Address',
                               'Sale Date - Sale Time': 'Bid Date'}
     shapiro.rename(columns=columns_rename_shapiro, inplace=True)
+    shapiro['Num'] = shapiro['Num'].str.replace(' ', '')
     return shapiro
 
 
@@ -148,11 +189,27 @@ def reformat_brockandscott(brockandscott_dfs):
                       'Sale Date & Time': 'Bid Date',
                       'State Code': 'State'}
     brockandscott.rename(columns=columns_rename, inplace=True)
+    brockandscott['Num'] = brockandscott['Num'].str.replace(' ', '')
     return brockandscott
 
 
+def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
+    # Formatting Hutchenslawfirm
+    hutchenslawfirm = pd.concat(hutchenslawfirm_dfs)
+    hutchenslawfirm['Source'] = 'hutchens'
+    columns_rename = {'SP#': 'Num',
+                      'County': 'county',
+                      'Sale Date': 'Bid Date',
+                      'Deed of Trust Book/Page': 'Misc-1',
+                      'Bid Amount': 'Price'}
+    hutchenslawfirm['Address'] = hutchenslawfirm['Property Address'] + ' ' + hutchenslawfirm['Property CSZ']
+    hutchenslawfirm.rename(columns=columns_rename, inplace=True)
+    hutchenslawfirm['Num'] = hutchenslawfirm['Num'].str.replace(' ', '')
+    return hutchenslawfirm
+
+# TODO: DELETE `NO MATCHES FOUND` records
 def main():
-    execute_scripts()
+    # execute_scripts()
 
     copy_gdrive_private_file()
     # today = '06_05_2017'
@@ -168,11 +225,18 @@ def main():
     # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
     shapiro_dfs = []
+    shapiro_salesheld_dfs = []
+
+    hutchenslawfirm_dfs = []
     for filename, result_df in res.items():
         if filename.startswith('brockandscott'):
             brockandscott_dfs.append(result_df)
+        if filename.startswith('shapiro-salesheld'):
+            shapiro_salesheld_dfs.append(result_df)
         if filename.startswith('shapiro'):
             shapiro_dfs.append(result_df)
+        if filename.startswith('hutchenslawfirm'):
+            hutchenslawfirm_dfs.append(result_df)
 
     # ------------------------------------------------------
     # Formatting brockandscott
@@ -182,7 +246,13 @@ def main():
     # ------------------------------------------------------
     # Formatting Shapiro
     # ------------------------------------------------------
-    shapiro = format_shapiro(shapiro_dfs)
+    shapiro = reformat_shapiro(shapiro_dfs)
+    shapiro_salesheld = reformat_shapiro_salesheld(shapiro_salesheld_dfs)
+
+    # ------------------------------------------------------
+    # Formatting Hutchenslawfirm
+    # ------------------------------------------------------
+    hutchenslawfirm = reformat_hutchenslawfirm(hutchenslawfirm_dfs)
 
     # ------------------------------------------------------
     # INTERMEDIATE FILE TO CSV
@@ -193,7 +263,7 @@ def main():
     # ------------------------------------------------------
     # Concat Brockandscot and Shapiro current execution result
     # ------------------------------------------------------
-    current_run_data_df = pd.concat([brockandscott, shapiro])
+    current_run_data_df = pd.concat([brockandscott, shapiro, shapiro_salesheld, hutchenslawfirm])
     preserve_columns_order = ['county', 'Bid Date', 'BidDate_Formatted',
                               'Price',
                               'State', 'Num', 'Parcel Nu',
@@ -259,8 +329,8 @@ def main():
     result_df = result_df[preserve_columns_order]
     result_df.fillna("", inplace=True)
 
-    # print(result_df)
-
+    print(result_df)
+    assert 1 == 2
     # ------------------------------------------------------
     # WRITE RESULT TO SPREADSHEET
     # ------------------------------------------------------

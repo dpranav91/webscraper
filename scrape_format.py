@@ -20,7 +20,7 @@ today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
 logger.info("\n{}".format('*' * 50))
 # sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
 sheet_name = 'Current'
-spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'#'1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
+spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'  # '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join('result', 'final_result.csv')
 if sys.platform.startswith('win'):
     spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
@@ -30,6 +30,8 @@ else:
 current_directory = os.path.split(os.path.realpath(__file__))[0]
 shapiro_file = os.path.join(current_directory, 'shapiro.py')
 brockandscott_file = os.path.join(current_directory, 'brockandscott.py')
+hutchenslawfirm_file = os.path.join(current_directory, 'hutchenslawfirm.py')
+
 HOME_DIRECTORY = os.path.expanduser('~')
 
 
@@ -60,17 +62,37 @@ def update_dfs(initial_df, updated_df, key):
 
 
 import re
+
+
 def parse_bid_date(date):
     return ' '.join(re.compile('(\d+?/\d+?/\d+?)[\s-]*(\d+?:\d{2}).*').search(date).groups())
 
-def execute_scripts():
-    cmd1 = ('{python} {shapiro} Mecklenburg NC'.format(python=python_interpreter, shapiro=shapiro_file))
-    cmd2 = ('{python} {shapiro} Cabarrus NC'.format(python=python_interpreter, shapiro=shapiro_file))
-    cmd3 = (
-        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
-    cmd4 = ('{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
 
-    for cmd in (cmd1, cmd2, cmd3, cmd4):
+def execute_scripts():
+    commands = []
+    # SHAPIRO
+    commands.append(
+        '{python} {shapiro} Mecklenburg NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
+    commands.append(
+        '{python} {shapiro} Cabarrus NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
+
+    # SHAPIRO (SALES_HELD)
+    commands.append(
+        '{python} {shapiro} Mecklenburg NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
+    commands.append('{python} {shapiro} Cabarrus NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
+
+    # BROCKANDSCOTT
+    commands.append(
+        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    commands.append(
+        '{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
+    # HUTCHENSLAWFIRM
+    commands.append(
+        '{python} {hutchenslawfirm} Cabarrus'.format(python=python_interpreter, hutchenslawfirm=hutchenslawfirm_file))
+    commands.append(
+        '{python} {hutchenslawfirm} Mecklenburg'.format(python=python_interpreter,
+                                                        hutchenslawfirm=hutchenslawfirm_file))
+    for cmd in commands:
         logger.info("Executing `{}`".format(cmd))
         subprocess.call(cmd, shell=True)
 
@@ -102,11 +124,14 @@ def main():
     # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
     shapiro_dfs = []
+    hutchenslawfirm_dfs = []
     for filename, result_df in res.items():
         if filename.startswith('brockandscott'):
             brockandscott_dfs.append(result_df)
-        if filename.startswith('shapiro'):
+        elif filename.startswith('shapiro'):
             shapiro_dfs.append(result_df)
+        elif filename.startswith('hutchenslawfirm'):
+            hutchenslawfirm_dfs.append(result_df)
 
     # Formatting brockandscott
     brockandscott = pd.concat(brockandscott_dfs)
@@ -132,6 +157,16 @@ def main():
     shapiro['Source'] = 'shapiro'
     shapiro.rename(columns=columns_rename_shapiro, inplace=True)
 
+    # Formatting Hutchenslawfirm
+    hutchenslawfirm = pd.concat(hutchenslawfirm_dfs)
+    columns_rename_hutchenslawfirm = {  # 'Case No.':'ignore',
+        'SP#': 'Num',
+        'County': 'county',
+        'Sale Date': 'Bid Date',
+        'Deed of Trust Book/Page': 'Misc-1',
+        'Bid Amount': 'Price'}
+    hutchenslawfirm['Address'] = hutchenslawfirm['Property Address'] + hutchenslawfirm['Property CSZ']
+
     # INTERMEDIATE FILE TO CSV
     # brockandscott.to_csv(os.path.join('result','brockandscott.csv'))
     # shapiro.to_csv(os.path.join('result', 'shapiro.csv'))
@@ -146,7 +181,6 @@ def main():
                               'Zillow', 'Location', 'Inserted Date',
                               'Updated Date', 'Flag'
                               ]
-
 
     # DOWNLOAD EXISTING SPREADSHEET DATA
     logger.info("Trying to read data from GoogleSpreadSheet:{} sheet: {}".format(spread_sheet_id, sheet_name))
@@ -209,7 +243,7 @@ def main():
     # SET COLUMN ORDER
     # for col in ['Bid Date', 'Updated Date', 'Inserted Date']:
     #     result_df[col] = result_df[col].astype(str)
-    missing_columns_from_result_df = set(preserve_columns_order)-set(result_df.columns)
+    missing_columns_from_result_df = set(preserve_columns_order) - set(result_df.columns)
     if missing_columns_from_result_df:
         for col in missing_columns_from_result_df:
             result_df[col] = ''
