@@ -12,7 +12,8 @@ from utils import setup_logging
 
 logger = setup_logging()
 
-csv_path = os.path.join(os.getcwd(), 'csv')
+CWD = os.path.split(os.path.abspath(__file__))[0]
+csv_path = os.path.join(CWD, 'csv')
 datetime_today = datetime.datetime.now()
 today = datetime_today.strftime('%d_%m_%Y')
 today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
@@ -21,7 +22,7 @@ logger.info("\n{}".format('*' * 50))
 # sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
 sheet_name = 'Current'
 spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'  # '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
-result_file_path = os.path.join('result', 'final_result.csv')
+result_file_path = os.path.join(CWD, 'result', 'final_result.csv')
 if sys.platform.startswith('win'):
     spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
     python_interpreter = sys.executable
@@ -62,9 +63,12 @@ def copy_gdrive_private_file():
 
 
 def update_dfs(initial_df, updated_df, key):
+    # initial_df = initial_df.sort_values('Source').reset_index().groupby('Num', group_keys=False).last()
+    # updated_df = updated_df.sort_values('Source').reset_index().groupby('Num', group_keys=False).last()
     initial_df = initial_df.set_index(key)
     updated_df = updated_df.set_index(key)
-    initial_df.update(updated_df)
+
+    initial_df.update(updated_df) # ERROR
     initial_df.reset_index(inplace=True)
     initial_df['Updated Date'] = today_time
     return initial_df
@@ -107,6 +111,7 @@ def execute_scripts():
 
 
 def prepare_new_records_for_concatenation(init_df, current_run_data_df):
+    init_df['Num'] = init_df['Num'].str.replace(' ', '')
     logger.info("Found data from SpreadSheet with {} records".format(len(init_df)))
     if 'Flag' not in init_df.columns:
         init_df['Flag'] = "No"
@@ -144,6 +149,8 @@ def prepare_new_records_for_concatenation(init_df, current_run_data_df):
 
 def reformat_shapiro_salesheld(shapiro_salesheld_dfs):
     shapiro_salesheld = pd.concat(shapiro_salesheld_dfs)
+    shapiro_salesheld.fillna("", inplace=True)
+    shapiro_salesheld = shapiro_salesheld[shapiro_salesheld['Property County'] != 'NO MATCHES FOUND']
     # split Property County to two different columns
     shapiro_salesheld['county'], shapiro_salesheld['State'] = shapiro_salesheld['Property County'].str.split(', ').str
     shapiro_salesheld['Source'] = 'shapiro-salesheld'
@@ -162,6 +169,8 @@ def reformat_shapiro_salesheld(shapiro_salesheld_dfs):
 
 def reformat_shapiro(shapiro_dfs):
     shapiro = pd.concat(shapiro_dfs)
+    shapiro.fillna("", inplace=True)
+    shapiro = shapiro[shapiro['Property County'] != 'NO MATCHES FOUND']
     # split Property County to two different columns
     shapiro['county'], shapiro['State'] = shapiro['Property County'].str.split(', ').str
     shapiro['Source'] = 'shapiro'
@@ -177,6 +186,7 @@ def reformat_shapiro(shapiro_dfs):
 
 def reformat_brockandscott(brockandscott_dfs):
     brockandscott = pd.concat(brockandscott_dfs)
+    brockandscott.fillna("", inplace=True)
     # remove extra spaces from Address
     brockandscott['Address'] = brockandscott['Address'].apply(remove_extra_spaces)
     brockandscott['Source'] = 'brockandscott'
@@ -192,13 +202,15 @@ def reformat_brockandscott(brockandscott_dfs):
     brockandscott['Num'] = brockandscott['Num'].str.replace(' ', '')
     return brockandscott
 
-
+# TODO: remove `No records to display` records
 def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
     # Formatting Hutchenslawfirm
     hutchenslawfirm = pd.concat(hutchenslawfirm_dfs)
+    hutchenslawfirm.fillna("", inplace=True)
     hutchenslawfirm['Source'] = 'hutchens'
+    hutchenslawfirm['county'], hutchenslawfirm['State'] = hutchenslawfirm['County'].str.split(', ').str
     columns_rename = {'SP#': 'Num',
-                      'County': 'county',
+                      # 'County': 'county',
                       'Sale Date': 'Bid Date',
                       'Deed of Trust Book/Page': 'Misc-1',
                       'Bid Amount': 'Price'}
@@ -209,7 +221,7 @@ def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
 
 # TODO: DELETE `NO MATCHES FOUND` records
 def main():
-    # execute_scripts()
+    execute_scripts()
 
     copy_gdrive_private_file()
     # today = '06_05_2017'
@@ -231,11 +243,11 @@ def main():
     for filename, result_df in res.items():
         if filename.startswith('brockandscott'):
             brockandscott_dfs.append(result_df)
-        if filename.startswith('shapiro-salesheld'):
+        elif filename.startswith('shapiro-salesheld'):
             shapiro_salesheld_dfs.append(result_df)
-        if filename.startswith('shapiro'):
+        elif filename.startswith('shapiro'):
             shapiro_dfs.append(result_df)
-        if filename.startswith('hutchenslawfirm'):
+        elif filename.startswith('hutchenslawfirm'):
             hutchenslawfirm_dfs.append(result_df)
 
     # ------------------------------------------------------
@@ -264,6 +276,7 @@ def main():
     # Concat Brockandscot and Shapiro current execution result
     # ------------------------------------------------------
     current_run_data_df = pd.concat([brockandscott, shapiro, shapiro_salesheld, hutchenslawfirm])
+    current_run_data_df.fillna("", inplace=True)
     preserve_columns_order = ['county', 'Bid Date', 'BidDate_Formatted',
                               'Price',
                               'State', 'Num', 'Parcel Nu',
@@ -329,8 +342,8 @@ def main():
     result_df = result_df[preserve_columns_order]
     result_df.fillna("", inplace=True)
 
-    print(result_df)
-    assert 1 == 2
+    # print(result_df)
+    # assert 1 == 2
     # ------------------------------------------------------
     # WRITE RESULT TO SPREADSHEET
     # ------------------------------------------------------
