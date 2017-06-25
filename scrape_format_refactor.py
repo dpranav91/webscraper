@@ -1,4 +1,5 @@
 import os
+import pdb
 import sys
 import re
 import shutil
@@ -10,6 +11,7 @@ from collections import Counter
 from df2google import DF2GoogleSpreadSheet
 from utils import setup_logging
 
+pd.options.mode.chained_assignment = None
 logger = setup_logging()
 
 CWD = os.path.split(os.path.abspath(__file__))[0]
@@ -335,8 +337,8 @@ def main():
     # ------------------------------------------------------
     # SET COLUMN ORDER
     # ------------------------------------------------------
-    add_quotes_to_data = lambda x: "'{}".format(x.strip('"').strip("'"))
-    for col in ['Bid Date', 'Updated Date', 'Inserted Date']:
+    add_quotes_to_data = lambda x: "'{}".format(str(x).strip('"').strip("'"))
+    for col in ['Bid Date', 'Updated Date', 'Inserted Date', 'BidDate_Formatted']:
         result_df[col] = result_df[col].apply(add_quotes_to_data)
 
     result_df = result_df[preserve_columns_order]
