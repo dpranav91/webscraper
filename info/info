@@ -44,3 +44,8 @@ Property County	Sale Date - Sale Time	Case #	Property Address	Open Bid
 
 Property County	Sale Date	Case #	Property Address	Last Upset	High Bid(Open Bid)
 Sucessful Bidder(Upset Info:Last Upset+Sucessful Bidder)
+
+#################################
+AWS INSTANCE
+#################################
+ec2-user@ec2-34-210-239-160.us-west-2.compute.amazonaws.com
