@@ -7,7 +7,7 @@ from scrape_helper import Scraper
 
 
 today = datetime.datetime.now().strftime('%d/%m/%Y')
-print(sys.argv)
+# print(sys.argv)
 base_url = 'https://www.shapiro-ingle.com/sales.aspx?SubmitBtn=Search&sort=sale_date&db={db}&county={country}&state={state}'
 COUNTY = sys.argv[1] if len(sys.argv) > 1 else 'Mecklenburg'# Cabarrus, Mecklenburg
 STATE = sys.argv[2] if len(sys.argv)>2 else 'NC'

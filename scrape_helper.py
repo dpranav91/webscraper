@@ -189,7 +189,7 @@ class Scraper:
         if params and cookies:
             log_sec_part = "with {params} and {cookies}".format(params=params,
                                                                 cookies=cookies)
-            self.log.info(" ".join([log_first_part, log_sec_part]))
+            self.log.debug(" ".join([log_first_part, log_sec_part]))
             time.sleep(self.delay)
             return self.requests.post(url,
                                       params=params,
@@ -197,7 +197,7 @@ class Scraper:
                                       headers=self.headers,
                                       proxies=self.proxies)
         else:
-            self.log.info(log_first_part)
+            self.log.debug(log_first_part)
             time.sleep(self.delay)
             return self.requests.get(url, headers=self.headers,
                                      proxies=self.proxies)
@@ -228,7 +228,7 @@ class Scraper:
                 # same csv file was used to write the data
                 assert self.csvfile == path
 
-                self.log.info("csv file {path}".format(path=path))
+                self.log.debug("csv file {path}".format(path=path))
                 return path
             except TypeError:
                 information = "cannot save to csv as start date is not set"
@@ -281,4 +281,4 @@ class Scraper:
 
         self.bot_last_status = {"path": self.csvfile, "date": self.start_date,
                                 "headers": self.headers}
-        self.log.info(self.bot_last_status)
+        self.log.debug(self.bot_last_status)

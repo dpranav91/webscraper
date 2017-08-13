@@ -41,8 +41,9 @@ def setup_logging(logfile=None, verbose=False):
         handler = logging.FileHandler(logfile)
     else:
         handler = logging.StreamHandler(sys.stdout)
+        # handler = logging.StreamHandler()
     handler.setFormatter(standard_log_formatter)
-    root = logging.getLogger()
+    root = logging.getLogger(__name__)
     root.addHandler(handler)
     # root.addHandler(handler)
     level = logging.INFO
@@ -74,12 +75,12 @@ def setup_date_range(start_date, end_date):
 
     Examples:
     ---------
-        >>> setup_date_range(start_date="1/1/2017", end_date="1/2/2017")
-        (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
-        >>> setup_date_range(start_date="Jan 1, 2017", end_date="Jan 2. 2017")
-        (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
-        >>> setup_date_range(start_date="Jan 1, 2017", end_date="Jan 2, 2017")
-        (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
+        # >> setup_date_range(start_date="1/1/2017", end_date="1/2/2017")
+        # (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
+        # >> setup_date_range(start_date="Jan 1, 2017", end_date="Jan 2. 2017")
+        # (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
+        # >> setup_date_range(start_date="Jan 1, 2017", end_date="Jan 2, 2017")
+        # (datetime.date(2017, 1, 1), datetime.date(2017, 1, 2))
     '''
     if start_date:
         start_date = parse_date(start_date)
@@ -116,12 +117,12 @@ def parse_date(date, to_string=False):
 
     Examples:
     ---------
-        >>> parse_date("1/1/2017")
-        datetime.date(2017, 1, 1)
-        >>> parse_date("Jan 1, 2017")
-        datetime.date(2017, 1, 1)
-        >>> parse_date("1/1/2017", to_string=True)
-        '01_01_2017'
+        # >>> parse_date("1/1/2017")
+        # datetime.date(2017, 1, 1)
+        # >>> parse_date("Jan 1, 2017")
+        # datetime.date(2017, 1, 1)
+        # >>> parse_date("1/1/2017", to_string=True)
+        # '01_01_2017'
     '''
     if to_string:
         return '{:%m_%d_%Y}'.format(parse(date).date())
@@ -188,3 +189,8 @@ def convert_to_filenameable(invalid_str: str):
         # checks if the string is returned
         valid_string = None
     return valid_string
+
+
+if __name__=='__main__':
+    logger = setup_logging()
+    logger.info("Hi")

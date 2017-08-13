@@ -143,7 +143,11 @@ def prepare_new_records_for_concatenation(init_df, current_run_data_df):
         new_records_df[col] = ''
 
     # UPDATING INITIAL DF with updated data
-    init_df = update_dfs(init_df, current_run_data_df, 'Num')
+    try:
+        init_df = update_dfs(init_df, current_run_data_df, 'Num')
+    except Exception as e:
+        raise Exception("Unable to update exisiting data with curretn run data. Error:{}".format(e))
+
     result_df = pd.concat([init_df, new_records_df])
     result_df['Flag'] = result_df.apply(set_flag, axis=1)
     return result_df
@@ -221,17 +225,42 @@ def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
     hutchenslawfirm['Num'] = hutchenslawfirm['Num'].str.replace(' ', '')
     return hutchenslawfirm
 
+def drop_duplicates_nd_preserve_rest(df, key):
+    '''
+    to rename key with number of occurence in case of duplicate key having multiple values
+    Eg:
+         col1    col2    col3
+    1    ABC     pra     nav
+    2    BDE     ran     dom
+    3    ABC     das     ari        **
+    ->cosidering col1 as key: value in row 3 (ABC) is duplicate, but has different values for rest of the columns
+        so we replace ABC with ABC_1
+    :return: dataframe without duplicates
+    '''
+    # REMOVE DUPLICATE ROWS
+    df = df.drop_duplicates()
+
+    count_series = df.groupby(key).cumcount()
+    count_series = count_series.replace(0,'').replace(1,'_1').astype(str)
+    df[key] += count_series
+    return df
+
 # TODO: DELETE `NO MATCHES FOUND` records
 def main():
+    # // execute all scraping sites and store in csv folder
     execute_scripts()
 
+    # // if gdrive creds file is not present in home directory, copy it
     copy_gdrive_private_file()
-    # today = '06_05_2017'
+
+    # // get all files list of those which were stored by executing scraping sites
     result_files = glob.glob(os.path.join(csv_path, '*'))
     result_files = [i for i in result_files if re.search('_' + today, i)]
     if not result_files:
         raise Exception("No Files found for {}".format(today))
     res = dict()
+
+    # // read all files and store them as dataframes
     for result in result_files:
         variable = os.path.splitext(os.path.basename(result))[0]
         res[variable] = pd.read_csv(result)
@@ -315,6 +344,13 @@ def main():
         df2google.upload(init_df, new_sheet_name)
         init_df = pd.DataFrame(columns=preserve_columns_order)
 
+    # ------------------------------------------------------
+    # Drop duplciated from current df and init df
+    # ------------------------------------------------------
+    init_df = drop_duplicates_nd_preserve_rest(init_df, key='Num')
+    current_run_data_df = drop_duplicates_nd_preserve_rest(current_run_data_df, key='Num')
+
+    current_run_data_df.drop_duplicates(inplace=True)
     # ------------------------------------------------------
     # Concatenate New Data and Existing Data
     # ------------------------------------------------------

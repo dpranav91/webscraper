@@ -31,3 +31,16 @@ As an example: "4/_fD14MOYc-OVK7rksZxplAudfNaKUwyuN_2AVdik4QM"
 This is one time process
 This will save private file /home/.oauth/drive.json using .gdrive_private file which we store in home directory
 #########################################################################
+
+Num: remove spaces
+
+Case No.	SP#	County	Sale Date	Property Address+Property CSZ	Deed of Trust Book/Page	Bid Amount
+ignore      Num county  Bid Date    Address                         Misc-1                  Price         source:HUTCHENS
+{No records to display}-delete
+county	Bid Date	BidDate_Formatted	Price	State	Num	Parcel Nu	Address	Misc-1
+
+SHAPIRO
+Property County	Sale Date - Sale Time	Case #	Property Address	Open Bid
+
+Property County	Sale Date	Case #	Property Address	Last Upset	High Bid(Open Bid)
+Sucessful Bidder(Upset Info:Last Upset+Sucessful Bidder)
