@@ -25,7 +25,7 @@ datetime_today = datetime.datetime.now(tz)
 today = datetime_today.strftime('%d_%m_%Y')
 today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
 
-logger.info("\n{}".format('*' * 50))
+logger.info("\n{}<{}>{}".format('*' * 25, today_time, '*' * 25))
 # sheet_name = datetime.datetime.now().strftime('Sheet_%m_%Y')
 sheet_name = 'Current'
 spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'  # '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
