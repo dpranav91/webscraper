@@ -2,6 +2,7 @@
 import requests
 import time
 import os
+import sys
 from selenium import webdriver
 
 from utils import (save_to_csv,
@@ -22,7 +23,10 @@ def init_webdriver(browser='chrome'):
         driver = webdriver.Chrome(chromedriver)
     else:
         phantomdriver = os.path.join(current_directory,'utilities','phantomjs.exe')
-        driver = webdriver.PhantomJS(phantomdriver)
+        if sys.platform.startswith('win'):
+            driver = webdriver.PhantomJS(phantomdriver)
+        else:
+            driver = webdriver.PhantomJS()
         driver.set_window_size(1120, 550)
     return driver
 

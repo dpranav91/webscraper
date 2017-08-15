@@ -6,17 +6,22 @@ import shutil
 import pandas as pd
 import subprocess
 import glob
+import os
 import datetime
+from pytz import timezone
 from collections import Counter
 from df2google import DF2GoogleSpreadSheet
 from utils import setup_logging
 
 pd.options.mode.chained_assignment = None
-logger = setup_logging()
+work_directory = os.path.dirname(os.path.abspath(__file__))
+logfile = os.path.join(work_directory, 'logs', 'scraper_log.log')
+logger = setup_logging(logfile)
 
 CWD = os.path.split(os.path.abspath(__file__))[0]
 csv_path = os.path.join(CWD, 'csv')
-datetime_today = datetime.datetime.now()
+tz = timezone('EST')
+datetime_today = datetime.datetime.now(tz)
 today = datetime_today.strftime('%d_%m_%Y')
 today_time = datetime_today.strftime('%m-%d-%Y %H:%M')
 
@@ -70,7 +75,7 @@ def update_dfs(initial_df, updated_df, key):
     initial_df = initial_df.set_index(key)
     updated_df = updated_df.set_index(key)
 
-    initial_df.update(updated_df) # ERROR
+    initial_df.update(updated_df)  # ERROR
     initial_df.reset_index(inplace=True)
     initial_df['Updated Date'] = today_time
     return initial_df
@@ -83,33 +88,35 @@ def parse_bid_date(date):
         return ' '.join(re.compile('(\d+?/\d+?/\d+)[\s-]*').search(date).groups())
 
 
+def execute_scraping_script(scriptname, county=None, state=None, sales_type=None):
+    cmd_args = [python_interpreter, scriptname]
+    if county:
+        cmd_args.append(county)
+    if state:
+        cmd_args.append(state)
+    if sales_type:
+        cmd_args.append(sales_type)
+
+    cmd = ' '.join(cmd_args)
+    logger.info("Executing `{}`".format(cmd))
+    subprocess.call(cmd, shell=True)
+
+
 def execute_scripts():
-    commands = []
-    # SHAPIRO
-    commands.append(
-        '{python} {shapiro} Mecklenburg NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
-    commands.append(
-        '{python} {shapiro} Cabarrus NC upcoming_sales'.format(python=python_interpreter, shapiro=shapiro_file))
+    counties = ['Mecklenburg', 'Cabarrus', 'Union', 'Iredell']
 
-    # SHAPIRO (SALES_HELD)
-    commands.append(
-        '{python} {shapiro} Mecklenburg NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
-    commands.append('{python} {shapiro} Cabarrus NC sales_held'.format(python=python_interpreter, shapiro=shapiro_file))
+    for county in counties:
+        # SHAPIRO
+        execute_scraping_script(shapiro_file, county=county, state='NC', sales_type='upcoming_sales')
 
-    # BROCKANDSCOTT
-    commands.append(
-        '{python} {brockandscott} Mecklenburg NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
-    commands.append(
-        '{python} {brockandscott} Cabarrus NC'.format(python=python_interpreter, brockandscott=brockandscott_file))
-    # HUTCHENSLAWFIRM
-    commands.append(
-        '{python} {hutchenslawfirm} Cabarrus'.format(python=python_interpreter, hutchenslawfirm=hutchenslawfirm_file))
-    commands.append(
-        '{python} {hutchenslawfirm} Mecklenburg'.format(python=python_interpreter,
-                                                        hutchenslawfirm=hutchenslawfirm_file))
-    for cmd in commands:
-        logger.info("Executing `{}`".format(cmd))
-        subprocess.call(cmd, shell=True)
+        # SHAPIRO (SALES_HELD)
+        execute_scraping_script(shapiro_file, county=county, state='NC', sales_type='sales_held')
+
+        # BROCKANDSCOTT
+        execute_scraping_script(brockandscott_file, county=county, state='NC')
+
+        # HUTCHENSLAWFIRM
+        execute_scraping_script(hutchenslawfirm_file, county=county)
 
 
 def prepare_new_records_for_concatenation(init_df, current_run_data_df):
@@ -208,6 +215,7 @@ def reformat_brockandscott(brockandscott_dfs):
     brockandscott['Num'] = brockandscott['Num'].str.replace(' ', '')
     return brockandscott
 
+
 # TODO: remove `No records to display` records
 def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
     # Formatting Hutchenslawfirm
@@ -225,6 +233,7 @@ def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
     hutchenslawfirm['Num'] = hutchenslawfirm['Num'].str.replace(' ', '')
     return hutchenslawfirm
 
+
 def drop_duplicates_nd_preserve_rest(df, key):
     '''
     to rename key with number of occurence in case of duplicate key having multiple values
@@ -241,9 +250,10 @@ def drop_duplicates_nd_preserve_rest(df, key):
     df = df.drop_duplicates()
 
     count_series = df.groupby(key).cumcount()
-    count_series = count_series.replace(0,'').replace(1,'_1').astype(str)
+    count_series = count_series.replace(0, '').replace(1, '_1').astype(str)
     df[key] += count_series
     return df
+
 
 # TODO: DELETE `NO MATCHES FOUND` records
 def main():
@@ -263,7 +273,10 @@ def main():
     # // read all files and store them as dataframes
     for result in result_files:
         variable = os.path.splitext(os.path.basename(result))[0]
-        res[variable] = pd.read_csv(result)
+        try:
+            res[variable] = pd.read_csv(result)
+        except UnicodeDecodeError:
+            res[variable] = pd.read_csv(result, encoding="ISO-8859-1")
 
     # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
