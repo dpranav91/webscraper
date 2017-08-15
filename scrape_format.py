@@ -277,6 +277,8 @@ def main():
             res[variable] = pd.read_csv(result)
         except UnicodeDecodeError:
             res[variable] = pd.read_csv(result, encoding="ISO-8859-1")
+        except:
+            pass
 
     # OBTAIN shapiro related files into one df and brockandscott into one
     brockandscott_dfs = []
