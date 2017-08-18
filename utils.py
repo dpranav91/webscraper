@@ -150,7 +150,8 @@ def create_csv(filename):
     filename: str
     '''
     filename = '{filename}.csv'.format(filename=filename)
-    directory = os.path.join(os.getcwd(),'csv')
+    work_directory = os.path.dirname(os.path.abspath(__file__))
+    directory = os.path.join(work_directory,'csv')
     new_dir_made = False
 
     if not os.path.isdir(directory):

@@ -4,6 +4,7 @@ import sys
 import os
 import datetime
 import selenium
+from pytz import timezone
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -15,7 +16,9 @@ from scrape_helper import Scraper, init_webdriver
 base_url = 'https://www.brockandscott.com/BrockSearch.aspx'
 Country = sys.argv[1] if len(sys.argv)>1 else 'Mecklenburg'#''Mecklenburg'# Cabarrus Mecklenburg
 State = sys.argv[2] if len(sys.argv)>2 else 'NC'
-Date = datetime.datetime.now().strftime('%m/%d/%Y')
+tz = timezone('EST')
+datetime_obj = datetime.datetime.now(tz)
+Date = datetime_obj.strftime('%m/%d/%Y')
 
 ##########################################################################
 # READ CONTENT FROM WEB PAGE
@@ -49,7 +52,7 @@ driver.quit()
 # START PARSING
 ##########################################################################
 # we initialise a bot that will have run the parsing functions
-today = datetime.datetime.now().strftime('%d/%m/%Y')
+today = datetime_obj.strftime('%d/%m/%Y')
 brockandscoot = Scraper("brockandscott_{}".format(Country.lower()), start_date=today, end_date=today)
 
 def parse_table(html_page_source):
