@@ -2,6 +2,7 @@ import os
 import argparse
 import logging
 import sys
+import json
 from csv import DictWriter
 
 from dateutil.parser import parse
@@ -86,7 +87,7 @@ def setup_date_range(start_date, end_date):
         start_date = parse_date(start_date)
     else:
         tmp_date = datetime.now().date()
-        start_date = tmp_date-timedelta(days=30)
+        start_date = tmp_date - timedelta(days=30)
 
     if end_date:
         end_date = parse_date(end_date)
@@ -137,6 +138,26 @@ def file_is_empty(path):
     return os.stat(path).st_size == 0
 
 
+def dump_json(json_file, dict_to_dump):
+    with open(json_file, 'w') as file_obj:
+        json.dump(dict_to_dump, file_obj)
+
+
+def load_json(json_file):
+    with open(json_file) as file_obj:
+        return json.load(file_obj)
+
+
+def load_json_or_create_if_empty(json_file):
+    if os.path.exists(json_file) and not file_is_empty(json_file):
+        rent_dict = load_json(json_file)
+    else:
+        rent_dict = {}
+        dump_json(json_file, rent_dict)
+
+    return rent_dict
+
+
 def create_csv(filename):
     '''
     This function checks if the csv containing permits is already existing
@@ -151,21 +172,20 @@ def create_csv(filename):
     '''
     filename = '{filename}.csv'.format(filename=filename)
     work_directory = os.path.dirname(os.path.abspath(__file__))
-    directory = os.path.join(work_directory,'csv')
+    directory = os.path.join(work_directory, 'csv')
     new_dir_made = False
 
     if not os.path.isdir(directory):
         os.makedirs(directory)
         new_dir_made = True
 
-    path = os.path.join(directory,filename)
+    path = os.path.join(directory, filename)
     # we will create a csv file and truncate also truncate the file if it
     # already exists
     with open(path, "w") as f:
         f.truncate()
 
     return path
-
 
 
 def save_to_csv(headers, filename, record):
@@ -192,6 +212,6 @@ def convert_to_filenameable(invalid_str: str):
     return valid_string
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     logger = setup_logging()
     logger.info("Hi")

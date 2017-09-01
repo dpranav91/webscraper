@@ -4,6 +4,7 @@ Required Installations:
 * pandas
 * df2gspread
 * beautifulsoup4
+* requests
 
 Steps to authenticate google spreadsheet:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,3 +50,5 @@ Sucessful Bidder(Upset Info:Last Upset+Sucessful Bidder)
 AWS INSTANCE
 #################################
 ec2-user@ec2-34-210-239-160.us-west-2.compute.amazonaws.com
+
+ssh -i pranav.pem ec2-user@ec2-34-210-239-160.us-west-2.compute.amazonaws.com

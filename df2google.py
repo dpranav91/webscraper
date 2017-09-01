@@ -17,7 +17,7 @@ class DF2GoogleSpreadSheet:
             except Exception as e:
                 counter += 1
                 error = e
-        raise Exception(error)
+        raise Exception("Upload Error: {}".format(error))
         # logger and logger.info("DataFrame got uploaded to {}: {}".format(self.spreadsheet, sheetname))
 
     def download(self, max_retry_count=3):

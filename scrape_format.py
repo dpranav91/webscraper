@@ -1,5 +1,7 @@
 import os
 import pdb
+import json
+import numpy as np
 import sys
 import re
 import shutil
@@ -11,7 +13,10 @@ import datetime
 from pytz import timezone
 from collections import Counter
 from df2google import DF2GoogleSpreadSheet
-from utils import setup_logging
+from utils import (setup_logging,
+                   load_json,
+                   dump_json,
+                   load_json_or_create_if_empty)
 
 pd.options.mode.chained_assignment = None
 work_directory = os.path.dirname(os.path.abspath(__file__))
@@ -19,6 +24,7 @@ logfile = os.path.join(work_directory, 'logs', 'scraper_log.log')
 logger = setup_logging(logfile)
 
 CWD = os.path.split(os.path.abspath(__file__))[0]
+database_path = os.path.join(CWD, 'database')
 csv_path = os.path.join(CWD, 'csv')
 tz = timezone('EST')
 datetime_today = datetime.datetime.now(tz)
@@ -30,7 +36,8 @@ logger.info("\n{}<{}>{}".format('*' * 25, today_time, '*' * 25))
 sheet_name = 'Current'
 spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'  # '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
 result_file_path = os.path.join(CWD, 'result', 'final_result.csv')
-if sys.platform.startswith('win'):
+is_test_env = os.path.exists(os.path.join(CWD, '.test'))
+if is_test_env or sys.platform.startswith('win'):
     spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
     python_interpreter = sys.executable
 else:
@@ -255,6 +262,36 @@ def drop_duplicates_nd_preserve_rest(df, key):
     return df
 
 
+def init_rent_dict_for_missing_address(address_series):
+    rent_json_file = os.path.join(database_path, 'rent.json')
+    rent_dict = load_json_or_create_if_empty(rent_json_file)
+    for address in address_series:
+        if address not in rent_dict:
+            rent_dict[address] = {}
+    dump_json(rent_json_file, rent_dict)
+    return rent_dict
+
+
+def set_rent_attributes(rent_dict, row_series, rent_attr):
+    address = row_series['Address']
+    error_field = 'Error'
+    attr_value = row_series.get(rent_attr)
+    if (not attr_value or attr_value is np.nan):
+        attrs_from_json = rent_dict.get(address, {})
+        error = attrs_from_json.get(error_field)
+        if error:
+            attr_value = error
+        else:
+            attr_value = attrs_from_json.get(rent_attr, '')
+
+    return attr_value
+
+
+def rent_attrs_series(rent_dict, row_series, rent_attrs):
+    return pd.Series([set_rent_attributes(rent_dict, row_series, attr)
+                      for attr in rent_attrs])
+
+
 # TODO: DELETE `NO MATCHES FOUND` records
 def main():
     # // execute all scraping sites and store in csv folder
@@ -395,6 +432,17 @@ def main():
     result_df = result_df[preserve_columns_order]
     result_df.fillna("", inplace=True)
 
+    # ------------------------------------------------------
+    # UPDATE RENT ATTRIBUTES
+    # ------------------------------------------------------
+    # // update rents.json with empty dict for missing addresses
+    rent_attrs = init_rent_dict_for_missing_address(result_df['Address'])
+
+    # // update result_df with rent attributes based on addresses
+    rent_attrs_list = ['Estimate Range', 'Estimate', 'Avg. Sales Price', 'Bedrooms']
+    result_df[rent_attrs_list] = result_df.apply(
+        lambda row_series: rent_attrs_series(rent_attrs, row_series, rent_attrs_list),
+        axis=1)
     # print(result_df)
     # assert 1 == 2
     # ------------------------------------------------------
