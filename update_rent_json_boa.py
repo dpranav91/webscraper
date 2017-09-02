@@ -35,4 +35,5 @@ def update_rent_json_by_parsing_boa(rent_json_file):
 if __name__ == '__main__':
     from pprint import pprint
 
-    pprint(update_rent_json_by_parsing_boa(rent_json_file))
+    rents_attr = update_rent_json_by_parsing_boa(rent_json_file)
+    # pprint(rents_attr)
