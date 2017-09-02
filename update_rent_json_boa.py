@@ -8,7 +8,7 @@ from utils import load_json, dump_json, load_json_or_create_if_empty
 CWD = os.path.split(os.path.abspath(__file__))[0]
 database_path = os.path.join(CWD, 'database')
 rent_json_file = os.path.join(database_path, 'rent.json')
-
+TRIGGER_LIMIT = 50
 
 def update_rent_json_by_parsing_boa(rent_json_file):
     rent_dict = load_json_or_create_if_empty(rent_json_file)
@@ -26,7 +26,7 @@ def update_rent_json_by_parsing_boa(rent_json_file):
             print("Updating rent attributes for address: {}".format(address))
             attrs_map.update(get_rent_attributes_from_boa(address))
             counter += 1
-            if counter >= 5: break
+            if counter >= TRIGGER_LIMIT: break
 
     dump_json(rent_json_file, rent_dict)
     return rent_dict

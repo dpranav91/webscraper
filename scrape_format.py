@@ -280,7 +280,7 @@ def set_rent_attributes(rent_dict, row_series, rent_attr):
         attrs_from_json = rent_dict.get(address, {})
         error = attrs_from_json.get(error_field)
         if error:
-            attr_value = error
+            attr_value = "Error: {}".format(error)
         else:
             attr_value = attrs_from_json.get(rent_attr, '')
 
