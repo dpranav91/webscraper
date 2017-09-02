@@ -16,7 +16,7 @@ def load_boa(boa_url):
     :return: (str) html page source
     '''
     browser = init_webdriver(browser='phantomjs')
-    browser.set_page_load_timeout(40)
+    # browser.set_page_load_timeout(40)
 
     try:
         browser.get(boa_url)

@@ -27,7 +27,10 @@ def init_webdriver(browser='chrome'):
             driver = webdriver.PhantomJS(phantomdriver)
         else:
             phantomdriver = os.path.join(current_directory, 'utilities', 'phantomjs')
-            driver = webdriver.PhantomJS(phantomdriver)
+            if os.path.exists(phantomdriver):
+                driver = webdriver.PhantomJS(phantomdriver)
+            else:
+                driver = webdriver.PhantomJS()
         driver.set_window_size(1120, 550)
     return driver
 
