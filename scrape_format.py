@@ -297,6 +297,13 @@ def apply_excel_formula(df, formula):
     return df.apply(lambda x: formula.format(x.name + 1), axis=1)
 
 
+def extract_dolar_value(string):
+    match_obj = re.match(".*?(\$.*)", string)
+    if match_obj:
+        return match_obj.group(1)
+    return ''
+
+
 # TODO: DELETE `NO MATCHES FOUND` records
 def main():
     # // execute all scraping sites and store in csv folder
@@ -436,6 +443,10 @@ def main():
 
     result_df = result_df[preserve_columns_order]
     result_df.fillna("", inplace=True)
+
+    # Reformat Price attribute
+    # ------------------------------------------------------
+    result_df['Price Formatted'] = result_df['Price'].apply(extract_dolar_value)
 
     # ------------------------------------------------------
     # UPDATE RENT ATTRIBUTES
