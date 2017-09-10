@@ -17,6 +17,7 @@ from utils import (setup_logging,
                    load_json,
                    dump_json,
                    load_json_or_create_if_empty)
+from excel_formulas import formulas_dict
 
 pd.options.mode.chained_assignment = None
 work_directory = os.path.dirname(os.path.abspath(__file__))
@@ -280,7 +281,7 @@ def set_rent_attributes(rent_dict, row_series, rent_attr):
         attrs_from_json = rent_dict.get(address, {})
         error = attrs_from_json.get(error_field)
         if error:
-            attr_value = 0#"Error: {}".format(error)
+            attr_value = 0  # "Error: {}".format(error)
         else:
             attr_value = attrs_from_json.get(rent_attr, '')
 
@@ -290,6 +291,10 @@ def set_rent_attributes(rent_dict, row_series, rent_attr):
 def rent_attrs_series(rent_dict, row_series, rent_attrs):
     return pd.Series([set_rent_attributes(rent_dict, row_series, attr)
                       for attr in rent_attrs])
+
+
+def apply_excel_formula(df, formula):
+    return df.apply(lambda x: formula.format(x.name + 1), axis=1)
 
 
 # TODO: DELETE `NO MATCHES FOUND` records
@@ -443,6 +448,13 @@ def main():
     result_df[rent_attrs_list] = result_df.apply(
         lambda row_series: rent_attrs_series(rent_attrs, row_series, rent_attrs_list),
         axis=1)
+
+    # ------------------------------------------------------
+    # UPDATE FORMULAS
+    # ------------------------------------------------------
+    for column_name, column_formula in formulas_dict.items():
+        result_df[column_name] = apply_excel_formula(result_df, column_formula)
+
     # print(result_df)
     # assert 1 == 2
     # ------------------------------------------------------
