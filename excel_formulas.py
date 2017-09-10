@@ -3,13 +3,13 @@ from collections import OrderedDict as od
 excel_columns_mapping = {
     'estimate': 'V',
     'price': 'T',
-    'spread': 'Y',
-    'loan_amount': 'AA',
-    'mortage_price_int': 'AB',
-    'property_tax': 'AC',
-    'hoa_ins': 'AD',
-    'rent_meter_avg': 'AF',
-    'final_mortgage': 'AE'}
+    'spread': 'AB',
+    'loan_amount': 'AD',
+    'mortage_price_int': 'AE',
+    'property_tax': 'AF',
+    'hoa_ins': 'AG',
+    'rent_meter_avg': 'Y',
+    'final_mortgage': 'AH'}
 
 formulas_dict = od([
     ('Spread',
