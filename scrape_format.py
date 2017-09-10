@@ -461,13 +461,18 @@ def main():
         axis=1)
 
     # ------------------------------------------------------
+    # RENTOMETER Attributes
+    # ------------------------------------------------------
+    result_df['Rento Meter Avg'] = ''
+    result_df['Rent Best'] = ''
+    result_df['Rest Bottom'] = ''
+
+    # ------------------------------------------------------
     # UPDATE FORMULAS
     # ------------------------------------------------------
     for column_name, column_formula in formulas_dict.items():
         result_df[column_name] = apply_excel_formula(result_df, column_formula)
 
-    # print(result_df)
-    # assert 1 == 2
     # ------------------------------------------------------
     # WRITE RESULT TO SPREADSHEET
     # ------------------------------------------------------
