@@ -1,5 +1,6 @@
 import pyzillow
 from pyzillow.pyzillow import ZillowWrapper, GetDeepSearchResults
+from pprint import pprint
 
 ZWSID = r'X1-ZWz190x3nag8i3_6wmn8'
 
@@ -25,6 +26,7 @@ def get_rent_attributes_from_zillow(address):
                     'zestimate_last_updated': 'Rent Last Updated'}
 
     result = parse_zestimate_attributes(address)
+    pprint(result.__dict__)
     if result:
         zillow_result = {}
         for attr, other_name in zillow_attrs.items():
@@ -51,27 +53,27 @@ if __name__ == '__main__':
     ************************************
     result.__dict__ SAMPLE
     ************************************
-    {'bathrooms': '2.5',
-     'bedrooms': '4',
+    {>'bathrooms': '2.5',
+     >'bedrooms': '4',
      'data': <Element 'results' at 0x7f73a8fd7098>,
      'graph_data_link': 'http://www.zillow.com/homedetails/13506-Kibworth-Ln-Charlotte-NC-28273/6308261_zpid/#charts-and-data',
      'home_detail_link': 'http://www.zillow.com/homedetails/13506-Kibworth-Ln-Charlotte-NC-28273/6308261_zpid/',
-     'home_size': '2638',
-     'home_type': 'SingleFamily',
+     ^'home_size': '2638',
+     ^'home_type': 'SingleFamily',
      'last_sold_date': '02/28/2006',
      'last_sold_price': '161500',
      'latitude': '35.109349',
      'longitude': '-80.965557',
      'map_this_home_link': 'http://www.zillow.com/homes/6308261_zpid/',
-     'property_size': '8712',
-     'tax_value': '182900.0',
+     >'property_size': '8712',
+     >'tax_value': '182900.0',
      'tax_year': '2017',
-     'year_built': '1995',
-     'zestimate_amount': '239991',
+     >'year_built': '1995',
+     >'zestimate_amount': '239991',
      'zestimate_last_updated': '09/16/2017',
      'zestimate_percentile': '0',
-     'zestimate_valuationRange_low': '227991',
-     'zestimate_valuation_range_high': '251991',
+     >'zestimate_valuationRange_low': '227991',
+     >'zestimate_valuation_range_high': '251991',
      'zestimate_value_change': '2202',
      'zillow_id': '6308261'}
      '''

@@ -169,6 +169,8 @@ def prepare_new_records_for_concatenation(init_df, current_run_data_df):
 
 
 def reformat_shapiro_salesheld(shapiro_salesheld_dfs):
+    if not shapiro_salesheld_dfs:
+        return pd.DataFrame()
     shapiro_salesheld = pd.concat(shapiro_salesheld_dfs)
     shapiro_salesheld.fillna("", inplace=True)
     shapiro_salesheld = shapiro_salesheld[shapiro_salesheld['Property County'] != 'NO MATCHES FOUND']
@@ -189,6 +191,8 @@ def reformat_shapiro_salesheld(shapiro_salesheld_dfs):
 
 
 def reformat_shapiro(shapiro_dfs):
+    if not shapiro_dfs:
+        return pd.DataFrame()
     shapiro = pd.concat(shapiro_dfs)
     shapiro.fillna("", inplace=True)
     shapiro = shapiro[shapiro['Property County'] != 'NO MATCHES FOUND']
@@ -206,6 +210,8 @@ def reformat_shapiro(shapiro_dfs):
 
 
 def reformat_brockandscott(brockandscott_dfs):
+    if not brockandscott_dfs:
+        return pd.DataFrame()
     brockandscott = pd.concat(brockandscott_dfs)
     brockandscott.fillna("", inplace=True)
     # remove extra spaces from Address
@@ -226,6 +232,8 @@ def reformat_brockandscott(brockandscott_dfs):
 
 # TODO: remove `No records to display` records
 def reformat_hutchenslawfirm(hutchenslawfirm_dfs):
+    if not hutchenslawfirm_dfs:
+        return pd.DataFrame()
     # Formatting Hutchenslawfirm
     hutchenslawfirm = pd.concat(hutchenslawfirm_dfs)
     hutchenslawfirm.fillna("", inplace=True)
