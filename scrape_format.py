@@ -464,7 +464,8 @@ def main():
 
     # // update result_df with rent attributes based on addresses
     rent_attrs_list = ['Estimate Range', 'Estimate', 'Avg. Sales Price', 'Bedrooms',
-                       'Zillow Rent', 'Rent Best', 'Rent Bottom']
+                       'rentzestimate_amount', 'rentzestimate_last_updated',
+                       'zestimate_valuation_range']
     result_df[rent_attrs_list] = result_df.apply(
         lambda row_series: rent_attrs_series(rent_attrs, row_series, rent_attrs_list),
         axis=1)

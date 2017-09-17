@@ -1,15 +1,5 @@
 from collections import OrderedDict as od
-
-excel_columns_mapping = {
-    'estimate': 'V',
-    'price': 'T',
-    'spread': 'AB',
-    'loan_amount': 'AD',
-    'mortage_price_int': 'AE',
-    'property_tax': 'AF',
-    'hoa_ins': 'AG',
-    'rent_meter_avg': 'Y',
-    'final_mortgage': 'AH'}
+from config import excel_columns_mapping
 
 formulas_dict = od([
     ('Spread',
