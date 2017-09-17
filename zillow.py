@@ -12,8 +12,8 @@ def parse_zestimate_attributes(address):
         deep_search_response = zillow_data.get_deep_search_results(address, zipcode)
     # except pyzillow.pyzillowerrors.ZillowError:
     #     return
-    except Exception as e:
-        print("Error while parsing zillow attributes for {}: {}".format(address, e))
+    except Exception:
+        print("Error while parsing zillow attributes for {}".format(address))
         return
     return GetDeepSearchResults(deep_search_response)
 
