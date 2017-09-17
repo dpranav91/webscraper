@@ -7,7 +7,7 @@ ZWSID = r'X1-ZWz190x3nag8i3_6wmn8'
 def parse_zestimate_attributes(address):
     zipcode = address.split()[-1]  # address.split()[-1].split('-')[0]
     zillow_data = ZillowWrapper(ZWSID)
-    print("Zillow update for {}".format(address))
+    print("zestimate for address:{}, zipcode:{}".format(address, zipcode))
     try:
         deep_search_response = zillow_data.get_deep_search_results(address, zipcode)
     # except pyzillow.pyzillowerrors.ZillowError:
@@ -41,7 +41,8 @@ def get_rent_attributes_from_zillow(address):
 if __name__ == '__main__':
     addressList = ['4916 Laborde Street Charlotte, NC 28269',
                    '7318 MIDDLEBURY PL, CHARLOTTE, NC 28212',
-                   '2150 Pheasant Glen Road Charlotte, NC 28214']
+                   '2150 Pheasant Glen Road Charlotte, NC 28214',
+                   '254 Lucky Drive Way Northwest Concord, NC 28027']
     for address in addressList:
         res = get_rent_attributes_from_zillow(address)
         print(res)

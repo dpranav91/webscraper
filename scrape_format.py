@@ -455,17 +455,18 @@ def main():
     rent_attrs = init_rent_dict_for_missing_address(result_df['Address'])
 
     # // update result_df with rent attributes based on addresses
-    rent_attrs_list = ['Estimate Range', 'Estimate', 'Avg. Sales Price', 'Bedrooms']
+    rent_attrs_list = ['Estimate Range', 'Estimate', 'Avg. Sales Price', 'Bedrooms',
+                       'Zillow Rent', 'Rent Best', 'Rent Bottom']
     result_df[rent_attrs_list] = result_df.apply(
         lambda row_series: rent_attrs_series(rent_attrs, row_series, rent_attrs_list),
         axis=1)
 
-    # ------------------------------------------------------
-    # RENTOMETER Attributes
-    # ------------------------------------------------------
-    result_df['Rento Meter Avg'] = ''
-    result_df['Rent Best'] = ''
-    result_df['Rest Bottom'] = ''
+    # # ------------------------------------------------------
+    # # RENTOMETER Attributes
+    # # ------------------------------------------------------
+    # result_df['Rento Meter Avg'] = ''
+    # result_df['Rent Best'] = ''
+    # result_df['Rest Bottom'] = ''
 
     # ------------------------------------------------------
     # UPDATE FORMULAS
