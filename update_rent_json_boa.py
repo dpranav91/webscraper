@@ -37,12 +37,8 @@ def update_rent_json(rent_json_file):
         # -------------------------
         # PARSE ZILLOW
         # -------------------------
-        # if 'zillow' not in attrs_map:
-        attrs_map.update(parse_zestimate_attributes(address, ZILLOW_ATTRS))
-
-        for i in ["Zillow Rent","Rent Bottom","Rent Best","Rent Last Updated"]:
-            if i in attrs_map:
-                del attrs_map[i]
+        if 'zillow' not in attrs_map:
+            attrs_map.update(parse_zestimate_attributes(address, ZILLOW_ATTRS))
 
     dump_json(rent_json_file, rent_dict)
     return rent_dict
