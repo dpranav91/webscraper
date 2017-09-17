@@ -3,6 +3,8 @@ import os
 from load_parse_boa import (load_boa,
                             parse_boa,
                             get_rent_attributes_from_boa)
+
+from zillow import get_rent_attributes_from_zillow
 from utils import load_json, dump_json, load_json_or_create_if_empty
 
 CWD = os.path.split(os.path.abspath(__file__))[0]
@@ -14,6 +16,9 @@ def update_rent_json_by_parsing_boa(rent_json_file):
     rent_dict = load_json_or_create_if_empty(rent_json_file)
     counter = 0
     for address, attrs_map in rent_dict.items():
+        # -------------------------
+        # PARSE BOA
+        # -------------------------
         # error in loading/parsing boa url
         if attrs_map.get('Error'):
             pass
@@ -27,6 +32,12 @@ def update_rent_json_by_parsing_boa(rent_json_file):
             attrs_map.update(get_rent_attributes_from_boa(address))
             counter += 1
             if counter >= TRIGGER_LIMIT: break
+
+        # -------------------------
+        # PARSE ZILLOW
+        # -------------------------
+        if 'Zillow Rent' not in attrs_map:
+            attrs_map.update(get_rent_attributes_from_zillow(address))
 
     dump_json(rent_json_file, rent_dict)
     return rent_dict
