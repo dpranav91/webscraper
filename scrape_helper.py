@@ -290,3 +290,12 @@ class Scraper:
         self.bot_last_status = {"path": self.csvfile, "date": self.start_date,
                                 "headers": self.headers}
         self.log.debug(self.bot_last_status)
+
+    def multiple_records_to_csv(self, records):
+
+        for record in records:
+            self._save_records_to_csv(list(record))
+
+        self.bot_last_status = {"path": self.csvfile, "date": self.start_date,
+                                "headers": self.headers}
+        self.log.debug(self.bot_last_status)

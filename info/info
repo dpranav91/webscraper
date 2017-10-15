@@ -5,6 +5,7 @@ Required Installations:
 * df2gspread
 * beautifulsoup4
 * requests
+* pyzillow
 
 Steps to authenticate google spreadsheet:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

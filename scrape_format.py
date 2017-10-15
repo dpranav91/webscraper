@@ -225,6 +225,13 @@ def reformat_brockandscott(brockandscott_dfs):
                       'Court SP#': 'Num',
                       'Sale Date & Time': 'Bid Date',
                       'State Code': 'State'}
+    '''
+    'Sale Date','Sale Date & Time'
+    'State','State Code'
+    'Court SP #','Court SP#'
+    'Case #','Case Number'
+    'Opening Bid Amount','Bid Amount'
+    '''
     brockandscott.rename(columns=columns_rename, inplace=True)
     brockandscott['Num'] = brockandscott['Num'].str.replace(' ', '')
     return brockandscott
