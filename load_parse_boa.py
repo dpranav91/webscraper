@@ -97,6 +97,8 @@ def parse_boa(html_page_source):
 
 
 def get_rent_attributes_from_boa(address):
+    if not address.strip():
+        return {'Error': "Empty Address"}
     boa_url = "https://realestatecenter.bankofamerica.com/tools/marketvalue4.aspx?address="
     boa_substitute = lambda x: boa_url + str(x).replace(',', '').replace(' ', '+')
 

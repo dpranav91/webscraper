@@ -62,6 +62,8 @@ class GetZestimateDetails(ZillowResults):
 # ----------------------------------------------
 
 def parse_zestimate_attributes(address, zillow_attrs):
+    if not address.strip():
+        return {'zillow': False}
     zipcode = address.split()[-1]  # address.split()[-1].split('-')[0]
     zillow_data = ZillowWrap(ZWSID)
     print("zestimate for address:{}, zipcode:{}".format(address, zipcode))
