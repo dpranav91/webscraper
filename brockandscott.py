@@ -20,27 +20,17 @@ County = sys.argv[1] if len(sys.argv) > 1 else 'Mecklenburg'  # ''Mecklenburg'# 
 State = sys.argv[2] if len(sys.argv) > 2 else 'NC'
 tz = timezone('EST')
 datetime_obj = datetime.datetime.now(tz)
-Date = '20171018'  # datetime_obj.strftime('%Y%m%d')
+Date = datetime_obj.strftime('%Y%m%d')
 
 ##########################################################################
 # READ CONTENT FROM WEB PAGE
 ##########################################################################
-driver = init_webdriver(browser='phantomjs')
-
 base_url = base_url.format(State.lower(), County.lower(), Date, Date)
-base_url = 'https://www.brockandscott.com/foreclosure-sales/?sf_paged={}'
-base_url = 'https://www.brockandscott.com/foreclosure-sales/?_sfm_saledate=20171018+20171025&sf_paged={}'
-driver.get(base_url)
 
-# STORE PAGE SOURCE IN VARAIBLES
-page_one = driver.page_source
 
-try:
-    driver.find_element_by_link_text('2').click()
-    page_two = driver.page_source
-except:
-    page_two = None
-driver.quit()
+# // test URL
+# base_url = 'https://www.brockandscott.com/foreclosure-sales/?sf_paged={}'
+# base_url = 'https://www.brockandscott.com/foreclosure-sales/?_sfm_saledate=20171018+20171025&sf_paged={}'
 
 
 def requests_response(url, params=None, cookies=None):
@@ -91,7 +81,6 @@ records_generators_list = []
 page_number = 1
 page_limit = 15
 while page_number < page_limit:
-    # print(base_url.format(page_number))
     response = requests_response(url=base_url.format(page_number))
     response_text = response.text
 
@@ -102,7 +91,7 @@ while page_number < page_limit:
 
     if soup.find('div', {'class': 'continfo'}) is None:
         break
-
+    print(base_url.format(page_number))
     records = parse_page_main(soup)
     records_generators_list.append(records)
     page_number += 1

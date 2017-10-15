@@ -40,6 +40,7 @@ result_file_path = os.path.join(CWD, 'result', 'final_result.csv')
 is_test_env = os.path.exists(os.path.join(CWD, '.test'))
 if is_test_env or sys.platform.startswith('win'):
     spread_sheet_id = '1uMa11jIIYyKMj2o73fgdHzYI5IUNdPzZzu_pocwoUx0'
+    spread_sheet_id = '1kZvZn__U62ZMytci3je8cZ-TLNmRtdtuFI0avzqK75c'
     python_interpreter = sys.executable
 else:
     python_interpreter = '/home/ec2-user/anaconda3/bin/python'
@@ -225,13 +226,14 @@ def reformat_brockandscott(brockandscott_dfs):
                       'Court SP#': 'Num',
                       'Sale Date & Time': 'Bid Date',
                       'State Code': 'State'}
-    '''
-    'Sale Date','Sale Date & Time'
-    'State','State Code'
-    'Court SP #','Court SP#'
-    'Case #','Case Number'
-    'Opening Bid Amount','Bid Amount'
-    '''
+    # after change of URL
+    columns_rename = {'Opening Bid Amount': 'Price',
+                      'Book Page': 'Misc-1',
+                      'Case #': 'Parcel Nu',
+                      'County': 'county',
+                      'Court SP #': 'Num',
+                      'Sale Date': 'Bid Date'}
+
     brockandscott.rename(columns=columns_rename, inplace=True)
     brockandscott['Num'] = brockandscott['Num'].str.replace(' ', '')
     return brockandscott
