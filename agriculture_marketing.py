@@ -1,3 +1,4 @@
+import sys
 import datetime
 import time
 from collections import namedtuple
@@ -17,13 +18,15 @@ class AgmarknetScraper(object):
     base_url = 'https://agmarknet.gov.in'
     commodity_id = 'ddlCommodity'
     state_id = 'ddlState'
-    commodities_list = ['Tomato', 'Green Gram (Moong)(Whole)', 'Garlic']
-    states_list = ['Andhra Pradesh', 'Telangana', 'Maharashtra', 'Karnataka', 'Chattisgarh', 'Tamil Nadu', 'Uttar Pradesh', 'Madhya Pradesh']
+    commodities_list = []  # ['Tomato', 'Green Gram (Moong)(Whole)', 'Garlic']
+    states_list = ['Andhra Pradesh', 'Telangana', 'Maharashtra', 'Karnataka', 'Chattisgarh', 'Tamil Nadu',
+                   'Uttar Pradesh', 'Madhya Pradesh']
 
     def __init__(self, days_before=7, verbose=True, healess_browser=True):
         self.logger = setup_logging(verbose=verbose, name='argmarknet')
         self.driver = init_webdriver(browser='chrome', headless=healess_browser)
         self.driver.implicitly_wait(10)
+        self.errors_count = 0
         self.output = []
         self.start_date = self.stringify_date(days_before=days_before)
         self.end_date = self.stringify_date(days_before=0)
@@ -81,7 +84,7 @@ class AgmarknetScraper(object):
                     else:
                         return
 
-    def get_options(self, element_id):
+    def get_options(self, element_id, filtered_options=None):
         dropdown_element = self.driver.find_element_by_id(element_id)
         select = Select(dropdown_element)
         # print([option.text for option in select.options])
@@ -89,6 +92,8 @@ class AgmarknetScraper(object):
         for option in select.options:
             text = option.text
             if '--Select--' not in text:
+                if filtered_options and text not in filtered_options:
+                    continue
                 value = option.get_attribute('value')
                 options.append(
                     OptionTuple(
@@ -100,29 +105,33 @@ class AgmarknetScraper(object):
     def parse_all_pages(self):
         # parse base url page
         self.driver.get(self.base_url)
-        commodities = self.get_options(element_id=self.commodity_id)
-        self.logger.debug('Collected all options for commodities')
-        states = self.get_options(element_id=self.state_id)
-        self.logger.debug('Collected all options for states')
-
+        commodities = self.get_options(element_id=self.commodity_id, filtered_options=self.commodities_list)
+        states = self.get_options(element_id=self.state_id, filtered_options=self.states_list)
+        self.logger.debug('Collected required commodities and states')
         # parse listed commodities and all states
         for commodity in commodities:
-            if self.commodities_list and commodity.text not in self.commodities_list:
-                continue
             for state in states:
-                if self.states_list and state.text not in self.states_list:
-                    continue
                 url = self.generate_url(
                     commodity=commodity.uri_arg, commodity_id=commodity.value,
                     state=state.uri_arg, state_id=state.value
                 )
                 self.logger.info(f'Collecting data for {commodity.text} from {state.text} through {url}')
                 self.driver.get(url)
-                self.parse_page()
+                try:
+                    self.parse_page()
+                except Exception as e:
+                    self.logger.error(e)
+                    print("exception raised; but still continuing with rest of the combinations")
+                    self.errors_count += 1
+                    if self.errors_count > 5:
+                        print("Script reported more than 5 errors; so script will stop processing")
+                        raise
 
     def main(self):
+        start_time = time.time()
         try:
             self.parse_all_pages()
+            # write data
             if not self.output:
                 print("No Data found for any combination")
                 return
@@ -134,11 +143,13 @@ class AgmarknetScraper(object):
             print(f"Data with {len(dataframe)} rows written to {output_file}")
         finally:
             self.driver.quit()
+            end_time = time.time()
+            print(f"Execution took {end_time - start_time} seconds")
 
 
 if __name__ == '__main__':
-    a = time.time()
-    scraper = AgmarknetScraper(days_before=7, verbose=True, healess_browser=True)
+    days_before = int(sys.argv[1]) if len(sys.argv) > 1 else 7
+    scraper = AgmarknetScraper(days_before=days_before, verbose=True, healess_browser=True)
     scraper.main()
-    b = time.time()
-    print(f"Took {b - a} seconds")
+    if scraper.errors_count:
+        sys.exit(1)
