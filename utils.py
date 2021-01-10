@@ -30,7 +30,7 @@ def get_standard_arg_parser(program_name):
     return parser
 
 
-def setup_logging(logfile=None, verbose=False):
+def setup_logging(logfile=None, verbose=False, name=None):
     '''
     This function sets up the logger used by webscraper_pack depending on the
     setting provided by the user.
@@ -44,7 +44,8 @@ def setup_logging(logfile=None, verbose=False):
         handler = logging.StreamHandler(sys.stdout)
         # handler = logging.StreamHandler()
     handler.setFormatter(standard_log_formatter)
-    root = logging.getLogger(__name__)
+    logger_name = __name__ if not name else name
+    root = logging.getLogger(logger_name)
     root.addHandler(handler)
     # root.addHandler(handler)
     level = logging.INFO
