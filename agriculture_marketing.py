@@ -102,12 +102,7 @@ class AgmarknetScraper(object):
                 )
         return options
 
-    def parse_all_pages(self):
-        # parse base url page
-        self.driver.get(self.base_url)
-        commodities = self.get_options(element_id=self.commodity_id, filtered_options=self.commodities_list)
-        states = self.get_options(element_id=self.state_id, filtered_options=self.states_list)
-        self.logger.debug('Collected required commodities and states')
+    def parse_all_pages(self, commodities, states):
         # parse listed commodities and all states
         for commodity in commodities:
             for state in states:
@@ -130,8 +125,21 @@ class AgmarknetScraper(object):
     def main(self):
         start_time = time.time()
         try:
-            self.parse_all_pages()
+            # ---------------------------------------------------------------
+            # get list of states and commodities
+            # ---------------------------------------------------------------
+            self.driver.get(self.base_url)
+            commodities = self.get_options(element_id=self.commodity_id, filtered_options=self.commodities_list)
+            states = self.get_options(element_id=self.state_id, filtered_options=self.states_list)
+            self.logger.debug('Collected required commodities and states')
+
+            # ---------------------------------------------------------------
+            # parse all different combinations and pages
+            # ---------------------------------------------------------------
+            self.parse_all_pages(commodities, states)
+            # ---------------------------------------------------------------
             # write data
+            # ---------------------------------------------------------------
             if not self.output:
                 print("No Data found for any combination")
                 return
