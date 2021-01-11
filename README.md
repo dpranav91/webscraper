@@ -2,7 +2,6 @@
 Scrape website with requests, selenium and beautiful soup
 
 # FIRST TIME SETUP
-# -------------------
 ## clone repo
 > git clone https://github.com/dpranav91/webscraper.git
 
@@ -12,7 +11,7 @@ Scrape website with requests, selenium and beautiful soup
 ## change directory
 > cd webscraper
 
-## Create virtual env if virtual env is not created yet (this is for first time setup) 
+## create virtual env if virtual env is not created yet (this is for first time setup) 
 ### NOTE: Use python3.6
 > mkvirtualenv webscraper
 > setvirtualenvproject
@@ -21,13 +20,12 @@ Scrape website with requests, selenium and beautiful soup
 > ./update_requirements
 
 # IF SETUP IS ALREADY CREATED
-# -----------------------------
 ## activate virtual env that was created earlier using below command
 > workon webscraper
 
 
 # RUNNER
-## Run agriculture_marketing to collect tabular data from agmarknet.gov.in
+## run agriculture_marketing to collect tabular data from agmarknet.gov.in
 > python agriculture_marketing.py
 
 - By default script with consider start date as 7 days prior to today's date. In case you want to fetch data for different number of days, pass the value as an argument to agriculture_marketing.py.
