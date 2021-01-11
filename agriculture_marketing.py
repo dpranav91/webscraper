@@ -18,7 +18,11 @@ class AgmarknetScraper(object):
     base_url = 'https://agmarknet.gov.in'
     commodity_id = 'ddlCommodity'
     state_id = 'ddlState'
-    commodities_list = []  # ['Tomato', 'Green Gram (Moong)(Whole)', 'Garlic']
+    # Leaving commodities_list  to empty list or None will run the script for all commodities
+    commodities_list = ['Apple', 'Arhar Dal(Tur Dal)', 'Beans', 'Bengal Gram Dal', 'Bhindi(Ladies Finger)',
+                        'Bitter gourd', 'Carrot', 'Chili Red', 'Coriander(Leaves)', 'Cotton', 'Dry Chillies',
+                        'Ginger(Dry)', 'Ginger(Green)', 'Green Chilli', 'Groundnut', 'Potato', 'Spinach',
+                        'Tamarind Fruit', 'Tamarind Seed', 'Tomato', 'Turmeric', 'Water Melon']
     states_list = ['Andhra Pradesh', 'Telangana', 'Maharashtra', 'Karnataka', 'Chattisgarh', 'Tamil Nadu',
                    'Uttar Pradesh', 'Madhya Pradesh']
 
