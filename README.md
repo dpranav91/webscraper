@@ -11,8 +11,7 @@
 
 #### create virtual env if virtual env is not created yet (this is for first time setup) 
 ##### NOTE: Use python3.6
-> mkvirtualenv webscraper
-> setvirtualenvproject
+> mkvirtualenv webscraper; setvirtualenvproject
 
 #### install required packages
 > ./update_requirements
