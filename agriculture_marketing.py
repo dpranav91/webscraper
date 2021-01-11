@@ -1,4 +1,5 @@
 import sys
+import argparse
 import datetime
 import time
 from collections import namedtuple
@@ -18,7 +19,7 @@ class AgmarknetScraper(object):
     base_url = 'https://agmarknet.gov.in'
     commodity_id = 'ddlCommodity'
     state_id = 'ddlState'
-    # Leaving commodities_list  to empty list or None will run the script for all commodities
+    # Leaving commodities_list/states_list to empty list or None will run the script for all commodities/states
     commodities_list = ['Apple', 'Arhar Dal(Tur Dal)', 'Beans', 'Bengal Gram Dal', 'Bhindi(Ladies Finger)',
                         'Bitter gourd', 'Carrot', 'Chili Red', 'Coriander(Leaves)', 'Cotton', 'Dry Chillies',
                         'Ginger(Dry)', 'Ginger(Green)', 'Green Chilli', 'Groundnut', 'Potato', 'Spinach',
@@ -88,7 +89,7 @@ class AgmarknetScraper(object):
                     else:
                         return
 
-    def get_options(self, element_id, filtered_options=None):
+    def get_options(self, element_name, element_id, filtered_options=None):
         dropdown_element = self.driver.find_element_by_id(element_id)
         select = Select(dropdown_element)
         # print([option.text for option in select.options])
@@ -104,6 +105,11 @@ class AgmarknetScraper(object):
                         value=value, text=text, uri_arg=self.convert_text_to_url_text(text)
                     )
                 )
+
+        assert options, f"No options found for {element_name}. Please check values and re-run with proper values"
+        if filtered_options:
+            assert len(options) == len(
+                filtered_options), f"Some options in {element_name} did not match filtered_options. Please check names provided as options and re-run with proper values"
         return options
 
     def parse_all_pages(self, commodities, states):
@@ -127,14 +133,17 @@ class AgmarknetScraper(object):
                         raise
 
     def main(self):
-        start_time = time.time()
         try:
+            start_time = time.time()
+            self.logger.info(f"Extracting data for following commodities {self.commodities_list}")
+            self.logger.info(f"Extracting data for following states {self.states_list}")
             # ---------------------------------------------------------------
             # get list of states and commodities
             # ---------------------------------------------------------------
             self.driver.get(self.base_url)
-            commodities = self.get_options(element_id=self.commodity_id, filtered_options=self.commodities_list)
-            states = self.get_options(element_id=self.state_id, filtered_options=self.states_list)
+            commodities = self.get_options(element_name='commodity', element_id=self.commodity_id,
+                                           filtered_options=self.commodities_list)
+            states = self.get_options(element_name='state', element_id=self.state_id, filtered_options=self.states_list)
             self.logger.debug('Collected required commodities and states')
 
             # ---------------------------------------------------------------
@@ -156,12 +165,36 @@ class AgmarknetScraper(object):
         finally:
             self.driver.quit()
             end_time = time.time()
-            print(f"Execution took {end_time - start_time} seconds")
+            time_taken = round(end_time - start_time, 2)
+            print(f"Execution took {time_taken} seconds")
+
+
+def parse_args(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--state', action='append', default=[])
+    parser.add_argument('-c', '--commodity', action='append', default=[])
+    parser.add_argument(
+        "-d",
+        "--days",
+        default=7,
+        type=int,
+        help='start date will be calculated based on this value',
+    )
+    return parser.parse_args(args)
 
 
 if __name__ == '__main__':
-    days_before = int(sys.argv[1]) if len(sys.argv) > 1 else 7
-    scraper = AgmarknetScraper(days_before=days_before, verbose=True, healess_browser=True)
+    # # MAKE SURE SCRIPT IS RAN WITH python 3.6
+    # interpreter_version_info = sys.version_info
+    # assert interpreter_version_info.major == 3 and interpreter_version_info.minor == 6, "Run script with python version 3.6"
+
+    args = parse_args(sys.argv[1:])
+
+    scraper = AgmarknetScraper(days_before=args.days, verbose=True, healess_browser=True)
+    if args.state:
+        scraper.states_list = args.state
+    if args.commodity:
+        scraper.commodities_list = args.commodity
     scraper.main()
     if scraper.errors_count:
         sys.exit(1)
