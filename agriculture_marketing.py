@@ -185,8 +185,8 @@ def parse_args(args):
 
 if __name__ == '__main__':
     # # MAKE SURE SCRIPT IS RAN WITH python 3.6
-    # interpreter_version_info = sys.version_info
-    # assert interpreter_version_info.major == 3 and interpreter_version_info.minor == 6, "Run script with python version 3.6"
+    interpreter_version_info = sys.version_info
+    assert interpreter_version_info.major == 3 and interpreter_version_info.minor == 6, "Run script with python version 3.6"
 
     args = parse_args(sys.argv[1:])
 
