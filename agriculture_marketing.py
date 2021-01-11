@@ -20,7 +20,7 @@ class AgmarknetScraper(object):
     commodity_id = 'ddlCommodity'
     state_id = 'ddlState'
     # Leaving commodities_list/states_list to empty list or None will run the script for all commodities/states
-    commodities_list = ['Apple', 'Arhar Dal(Tur Dal)', 'Beans', 'Bengal Gram Dal', 'Bhindi(Ladies Finger)',
+    commodities_list = ['Apple', 'Arhar Dal(Tur Dal)', 'Beans', 'Bengal Gram Dal (Chana Dal)', 'Bhindi(Ladies Finger)',
                         'Bitter gourd', 'Carrot', 'Chili Red', 'Coriander(Leaves)', 'Cotton', 'Dry Chillies',
                         'Ginger(Dry)', 'Ginger(Green)', 'Green Chilli', 'Groundnut', 'Potato', 'Spinach',
                         'Tamarind Fruit', 'Tamarind Seed', 'Tomato', 'Turmeric', 'Water Melon']
