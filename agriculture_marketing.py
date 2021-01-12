@@ -26,7 +26,7 @@ class AgmarknetScraper(object):
     base_url = 'https://agmarknet.gov.in'
     commodity_id = 'ddlCommodity'
     state_id = 'ddlState'
-    state_codes_filename = 'StateDistricts.json'
+    state_codes_filename = 'CountryStates.json'
     district_codes_filename = 'StateDistricts.json'
     market_codes_filename = 'DistrictMarkets.json'
     # Leaving commodities_list/states_list to empty list or None will run the script for all commodities/states
