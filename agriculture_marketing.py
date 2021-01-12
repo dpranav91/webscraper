@@ -258,7 +258,7 @@ if __name__ == '__main__':
     assert interpreter_version_info.major == 3 and interpreter_version_info.minor == 6, "Run script with python version 3.6"
 
     args = parse_args(sys.argv[1:])
-    print(args)
+    # print(args)
     scraper = AgmarknetScraper(days_before=args.days, verbose=True, healess_browser=True)
     if args.state:
         scraper.states_list = args.state
