@@ -1,0 +1,4276 @@
+{
+  "TS": [
+    {
+      "districtName": "Adilabad",
+      "districtCode": "ADB",
+      "label": "Adilabad",
+      "value": "TSADB"
+    },
+    {
+      "districtName": "Bhadradri Kothagudem",
+      "districtCode": "BKM",
+      "label": "Bhadradri Kothagudem",
+      "value": "TSBKM"
+    },
+    {
+      "districtName": "Hyderabad",
+      "districtCode": "HYD",
+      "label": "Hyderabad",
+      "value": "TSHYD"
+    },
+    {
+      "districtName": "Jagtial",
+      "districtCode": "JGL",
+      "label": "Jagtial",
+      "value": "TSJGL"
+    },
+    {
+      "districtName": "Jangaon",
+      "districtCode": "JGN",
+      "label": "Jangaon",
+      "value": "TSJGN"
+    },
+    {
+      "districtName": "Jayashankar Bhoopalpally",
+      "districtCode": "JBP",
+      "label": "Jayashankar Bhoopalpally",
+      "value": "TSJBP"
+    },
+    {
+      "districtName": "Jogulamba Gadwal",
+      "districtCode": "JGG",
+      "label": "Jogulamba Gadwal",
+      "value": "TSJGG"
+    },
+    {
+      "districtName": "Kamareddy",
+      "districtCode": "KMR",
+      "label": "Kamareddy",
+      "value": "TSKMR"
+    },
+    {
+      "districtName": "Karimnagar",
+      "districtCode": "KRM",
+      "label": "Karimnagar",
+      "value": "TSKRM"
+    },
+    {
+      "districtName": "Khammam",
+      "districtCode": "KMM",
+      "label": "Khammam",
+      "value": "TSKMM"
+    },
+    {
+      "districtName": "Komaram Bheem Asifabad",
+      "districtCode": "KBA",
+      "label": "Komaram Bheem Asifabad",
+      "value": "TSKBA"
+    },
+    {
+      "districtName": "Mahabubabad",
+      "districtCode": "MHB",
+      "label": "Mahabubabad",
+      "value": "TSMHB"
+    },
+    {
+      "districtName": "Mahabubnagar",
+      "districtCode": "MBN",
+      "label": "Mahabubnagar",
+      "value": "TSMBN"
+    },
+    {
+      "districtName": "Mancherial",
+      "districtCode": "MCL",
+      "label": "Mancherial",
+      "value": "TSMCL"
+    },
+    {
+      "districtName": "Medchal",
+      "districtCode": "MDC",
+      "label": "Medchal",
+      "value": "TSMDC"
+    },
+    {
+      "districtName": "Medak",
+      "districtCode": "MDK",
+      "label": "Medak",
+      "value": "TSMDK"
+    },
+    {
+      "districtName": "Mulugu",
+      "districtCode": "MGU",
+      "label": "Mulugu",
+      "value": "TSMGU"
+    },
+    {
+      "districtName": "Nagarkurnool",
+      "districtCode": "NGK",
+      "label": "Nagarkurnool",
+      "value": "TSNGK"
+    },
+    {
+      "districtName": "Nalgonda",
+      "districtCode": "NGL",
+      "label": "Nalgonda",
+      "value": "TSNGL"
+    },
+    {
+      "districtName": "Narayanpet",
+      "districtCode": "NYP",
+      "label": "Narayanpet",
+      "value": "TSNYP"
+    },
+    {
+      "districtName": "Nirmal",
+      "districtCode": "NRM",
+      "label": "Nirmal",
+      "value": "TSNRM"
+    },
+    {
+      "districtName": "Nizamabad",
+      "districtCode": "NZB",
+      "label": "Nizamabad",
+      "value": "TSNZB"
+    },
+    {
+      "districtName": "Peddapalle",
+      "districtCode": "PDP",
+      "label": "Peddapalle",
+      "value": "TSPDP"
+    },
+    {
+      "districtName": "Rajanna Sircilla",
+      "districtCode": "RAS",
+      "label": "Rajanna Sircilla",
+      "value": "TSRAS"
+    },
+    {
+      "districtName": "Ranga Reddy",
+      "districtCode": "RGR",
+      "label": "Ranga Reddy",
+      "value": "TSRGR"
+    },
+    {
+      "districtName": "Sangareddy",
+      "districtCode": "SGR",
+      "label": "Sangareddy",
+      "value": "TSSGR"
+    },
+    {
+      "districtName": "Siddipet",
+      "districtCode": "SDP",
+      "label": "Siddipet",
+      "value": "TSSDP"
+    },
+    {
+      "districtName": "Suryapet",
+      "districtCode": "SYP",
+      "label": "Suryapet",
+      "value": "TSSYP"
+    },
+    {
+      "districtName": "Vikarabad",
+      "districtCode": "VRB",
+      "label": "Vikarabad",
+      "value": "TSVRB"
+    },
+    {
+      "districtName": "Wanaparthy",
+      "districtCode": "WPH",
+      "label": "Wanaparthy",
+      "value": "TSWPH"
+    },
+    {
+      "districtName": "Warangal (Rural)",
+      "districtCode": "WGR",
+      "label": "Warangal (Rural)",
+      "value": "TSWGR"
+    },
+    {
+      "districtName": "Warangal (Urban)",
+      "districtCode": "WGU",
+      "label": "Warangal (Urban)",
+      "value": "TSWGU"
+    },
+    {
+      "districtName": "Yadadri-Bhuvanagiri",
+      "districtCode": "YBG",
+      "label": "Yadadri-Bhuvanagiri",
+      "value": "TSYBG"
+    }
+  ],
+  "AP": [
+    {
+      "districtName": "Anantapur",
+      "districtCode": "ATP",
+      "label": "Anantapur",
+      "value": "APATP"
+    },
+    {
+      "districtName": "Chittoor",
+      "districtCode": "CTR",
+      "label": "Chittoor",
+      "value": "APCTR"
+    },
+    {
+      "districtName": "East Godavari",
+      "districtCode": "EGV",
+      "label": "East Godavari",
+      "value": "APEGV"
+    },
+    {
+      "districtName": "Guntur",
+      "districtCode": "GNT",
+      "label": "Guntur",
+      "value": "APGNT"
+    },
+    {
+      "districtName": "Kadapa",
+      "districtCode": "KDP",
+      "label": "Kadapa",
+      "value": "APKDP"
+    },
+    {
+      "districtName": "Krishna",
+      "districtCode": "KRN",
+      "label": "Krishna",
+      "value": "APKRN"
+    },
+    {
+      "districtName": "Kurnool",
+      "districtCode": "KOL",
+      "label": "Kurnool",
+      "value": "APKOL"
+    },
+    {
+      "districtName": "Nellore",
+      "districtCode": "NLR",
+      "label": "Nellore",
+      "value": "APNLR"
+    },
+    {
+      "districtName": "Prakasam",
+      "districtCode": "PKS",
+      "label": "Prakasam",
+      "value": "APPKS"
+    },
+    {
+      "districtName": "Srikakulam",
+      "districtCode": "SKk",
+      "label": "Srikakulam",
+      "value": "APSKK"
+    },
+    {
+      "districtName": "Visakhapatnam",
+      "districtCode": "VSP",
+      "label": "Visakhapatnam",
+      "value": "APVSP"
+    },
+    {
+      "districtName": "Vizianagaram",
+      "districtCode": "VZN",
+      "label": "Vizianagaram",
+      "value": "APVZN"
+    },
+    {
+      "districtName": "West Godavari",
+      "districtCode": "WGV",
+      "label": "West Godavari",
+      "value": "APWGV"
+    }
+  ],
+  "AC": [
+    {
+      "districtName": "Anjaw",
+      "districtCode": "ANJ",
+      "label": "Anjaw",
+      "value": "ACANJ"
+    },
+    {
+      "districtName": "Changlang",
+      "districtCode": "CHG",
+      "label": "Changlang",
+      "value": "ACCHG"
+    },
+    {
+      "districtName": "Dibang Valley",
+      "districtCode": "DBG",
+      "label": "Dibang Valley",
+      "value": "ACDBG"
+    },
+    {
+      "districtName": "East Kameng",
+      "districtCode": "EKM",
+      "label": "East Kameng",
+      "value": "ACEKM"
+    },
+    {
+      "districtName": "East Siang",
+      "districtCode": "ESN",
+      "label": "East Siang",
+      "value": "ACESN"
+    },
+    {
+      "districtName": "Kra Daadi",
+      "districtCode": "KDD",
+      "label": "Kra Daadi",
+      "value": "ACKDD"
+    },
+    {
+      "districtName": "Kurung Kumey",
+      "districtCode": "KRN",
+      "label": "Kurung Kumey",
+      "value": "ACKRN"
+    },
+    {
+      "districtName": "Lohit",
+      "districtCode": "LHT",
+      "label": "Lohit",
+      "value": "ACLHT"
+    },
+    {
+      "districtName": "Longding",
+      "districtCode": "LND",
+      "label": "Longding",
+      "value": "ACLND"
+    },
+    {
+      "districtName": "Lower Dibang Valley",
+      "districtCode": "LDB",
+      "label": "Lower Dibang Valley",
+      "value": "ACLDB"
+    },
+    {
+      "districtName": "Lower Subansiri",
+      "districtCode": "LSB",
+      "label": "Lower Subansiri",
+      "value": "ACLSB"
+    },
+    {
+      "districtName": "Namsai",
+      "districtCode": "NMS",
+      "label": "Namsai",
+      "value": "ACNMS"
+    },
+    {
+      "districtName": "Papum Pare",
+      "districtCode": "PPP",
+      "label": "Papum Pare",
+      "value": "ACPPP"
+    },
+    {
+      "districtName": "Siang",
+      "districtCode": "SNG",
+      "label": "Siang",
+      "value": "ACSNG"
+    },
+    {
+      "districtName": "Tawang",
+      "districtCode": "TWG",
+      "label": "Tawang",
+      "value": "ACTWG"
+    },
+    {
+      "districtName": "Tirap",
+      "districtCode": "TRP",
+      "label": "Tirap",
+      "value": "ACTRP"
+    },
+    {
+      "districtName": "Upper Siang",
+      "districtCode": "USN",
+      "label": "Upper Siang",
+      "value": "ACUSN"
+    },
+    {
+      "districtName": "Upper Subansiri",
+      "districtCode": "USB",
+      "label": "Upper Subansiri",
+      "value": "ACUSB"
+    },
+    {
+      "districtName": "West Kameng",
+      "districtCode": "WKG",
+      "label": "West Kameng",
+      "value": "ACWKG"
+    },
+    {
+      "districtName": "West Siang",
+      "districtCode": "WSI",
+      "label": "West Siang",
+      "value": "ACWSI"
+    },
+    {
+      "districtName": "Kamle",
+      "districtCode": "KME",
+      "label": "Kamle",
+      "value": "ACKME"
+    },
+    {
+      "districtName": "Pakke-Kessang",
+      "districtCode": "PKG",
+      "label": "Pakke-Kessang",
+      "value": "ACPKG"
+    },
+    {
+      "districtName": "Lepa Rada",
+      "districtCode": "LRD",
+      "label": "Lepa Rada",
+      "value": "ACLRD"
+    },
+    {
+      "districtName": "Shi-Yomi",
+      "districtCode": "SYO",
+      "label": "Shi-Yomi",
+      "value": "ACSYO"
+    }
+  ],
+  "AS": [
+    {
+      "districtName": "BAKSA",
+      "districtCode": "KSA",
+      "label": "BAKSA",
+      "value": "ASBKS"
+    },
+    {
+      "districtName": "BARPETA",
+      "districtCode": "BPT",
+      "label": "BARPETA",
+      "value": "ASBPT"
+    },
+    {
+      "districtName": "BISWANATH",
+      "districtCode": "BST",
+      "label": "BISWANATH",
+      "value": "ASBST"
+    },
+    {
+      "districtName": "BONGAIGAON",
+      "districtCode": "BGG",
+      "label": "BONGAIGAON",
+      "value": "ASBGG"
+    },
+    {
+      "districtName": "CACHAR",
+      "districtCode": "CHR",
+      "label": "CACHAR",
+      "value": "ASCHR"
+    },
+    {
+      "districtName": "CHARAIDEO",
+      "districtCode": "CRD",
+      "label": "CHARAIDEO",
+      "value": "ASCRD"
+    },
+    {
+      "districtName": "CHIRANG",
+      "districtCode": "CRG",
+      "label": "CHIRANG",
+      "value": "ASCRG"
+    },
+    {
+      "districtName": "DARRANG",
+      "districtCode": "DRG",
+      "label": "DARRANG",
+      "value": "ASDRG"
+    },
+    {
+      "districtName": "DHEMAJI",
+      "districtCode": "DMJ",
+      "label": "DHEMAJI",
+      "value": "ASDMJ"
+    },
+    {
+      "districtName": "DHUBRI",
+      "districtCode": "DBR",
+      "label": "DHUBRI",
+      "value": "ASDBR"
+    },
+    {
+      "districtName": "GOALPARA",
+      "districtCode": "GPR",
+      "label": "GOALPARA",
+      "value": "ASGPR"
+    },
+    {
+      "districtName": "GOLAGHAT",
+      "districtCode": "GLG",
+      "label": "GOLAGHAT",
+      "value": "ASGLG"
+    },
+    {
+      "districtName": "HAILAKANDI",
+      "districtCode": "HLK",
+      "label": "HAILAKANDI",
+      "value": "ASHLK"
+    },
+    {
+      "districtName": "HOJAI",
+      "districtCode": "HOJ",
+      "label": "HOJAI",
+      "value": "ASHOJ"
+    },
+    {
+      "districtName": "JORHAT",
+      "districtCode": "JRT",
+      "label": "JORHAT",
+      "value": "ASJRT"
+    },
+    {
+      "districtName": "KAMRUP",
+      "districtCode": "KMR",
+      "label": "KAMRUP",
+      "value": "ASKMR"
+    },
+    {
+      "districtName": "KARIMGANJ",
+      "districtCode": "KRG",
+      "label": "KARIMGANJ",
+      "value": "ASKRG"
+    },
+    {
+      "districtName": "LAKHIMPUR",
+      "districtCode": "LKM",
+      "label": "LAKHIMPUR",
+      "value": "ASLKM"
+    },
+    {
+      "districtName": "MAJULI",
+      "districtCode": "MJL",
+      "label": "MAJULI",
+      "value": "ASMJL"
+    },
+    {
+      "districtName": "MORIGAON",
+      "districtCode": "MRN",
+      "label": "MORIGAON",
+      "value": "ASMRN"
+    },
+    {
+      "districtName": "NALBARI",
+      "districtCode": "NBR",
+      "label": "NALBARI",
+      "value": "ASNBR"
+    },
+    {
+      "districtName": "SONITPUR",
+      "districtCode": "SNP",
+      "label": "SONITPUR",
+      "value": "ASSNP"
+    },
+    {
+      "districtName": "TINSUKIA",
+      "districtCode": "TNK",
+      "label": "TINSUKIA",
+      "value": "ASTNK"
+    },
+    {
+      "districtName": "UDALGURI",
+      "districtCode": "UDG",
+      "label": "UDALGURI",
+      "value": "ASUDG"
+    }
+  ],
+  "BI": [
+    {
+      "districtName": "Patna",
+      "districtCode": "PTA",
+      "label": "Patna",
+      "value": "BIPTA"
+    },
+    {
+      "districtName": "ARARIA",
+      "districtCode": "ARR",
+      "label": "ARARIA",
+      "value": "BIARR"
+    },
+    {
+      "districtName": "ARWAL",
+      "districtCode": "ARW",
+      "label": "ARWAL",
+      "value": "BIARW"
+    },
+    {
+      "districtName": "AURANGABAD",
+      "districtCode": "ARB",
+      "label": "AURANGABAD",
+      "value": "BIARB"
+    },
+    {
+      "districtName": "BANKA",
+      "districtCode": "BNK",
+      "label": "BANKA",
+      "value": "BIBNK"
+    },
+    {
+      "districtName": "BEGUSARAI",
+      "districtCode": "BGR",
+      "label": "BEGUSARAI",
+      "value": "BIBGR"
+    },
+    {
+      "districtName": "BHAGALPUR",
+      "districtCode": "BHG",
+      "label": "BHAGALPUR",
+      "value": "BIBHG"
+    },
+    {
+      "districtName": "BHOJPUR",
+      "districtCode": "BJU",
+      "label": "BHOJPUR",
+      "value": "BIBJU"
+    },
+    {
+      "districtName": "BUXAR",
+      "districtCode": "BXR",
+      "label": "BUXAR",
+      "value": "BIBXR"
+    },
+    {
+      "districtName": "DARBHANGA",
+      "districtCode": "DRG",
+      "label": "DARBHANGA",
+      "value": "BIDRG"
+    },
+    {
+      "districtName": "GAYA",
+      "districtCode": "GYA",
+      "label": "GAYA",
+      "value": "BIGYA"
+    },
+    {
+      "districtName": "GOPALGANJ",
+      "districtCode": "GPJ",
+      "label": "GOPALGANJ",
+      "value": "BIGPJ"
+    },
+    {
+      "districtName": "JAMUI",
+      "districtCode": "JMI",
+      "label": "JAMUI",
+      "value": "BIJMI"
+    },
+    {
+      "districtName": "JEHANABAD",
+      "districtCode": "JHB",
+      "label": "JEHANABAD",
+      "value": "BIJHB"
+    },
+    {
+      "districtName": "KAIMUR",
+      "districtCode": "KMR",
+      "label": "KAIMUR",
+      "value": "BIKMR"
+    },
+    {
+      "districtName": "KATIHAR",
+      "districtCode": "KTR",
+      "label": "KATIHAR",
+      "value": "BIKTR"
+    },
+    {
+      "districtName": "KHAGARIA",
+      "districtCode": "KGR",
+      "label": "KHAGARIA",
+      "value": "BIKGR"
+    },
+    {
+      "districtName": "KISHANGANJ",
+      "districtCode": "KNG",
+      "label": "KISHANGANJ",
+      "value": "BIKNG"
+    },
+    {
+      "districtName": "LAKHISARAI",
+      "districtCode": "LKR",
+      "label": "LAKHISARAI",
+      "value": "BILKR"
+    },
+    {
+      "districtName": "MADHEPURA",
+      "districtCode": "MDP",
+      "label": "MADHEPURA",
+      "value": "BIMDP"
+    },
+    {
+      "districtName": "MADHUBANI",
+      "districtCode": "MDB",
+      "label": "MADHUBANI",
+      "value": "BIMDB"
+    },
+    {
+      "districtName": "MUNGER",
+      "districtCode": "MGR",
+      "label": "MUNGER",
+      "value": "BIMGR"
+    },
+    {
+      "districtName": "MUZAFFARPUR",
+      "districtCode": "MZF",
+      "label": "MUZAFFARPUR",
+      "value": "BIMZF"
+    },
+    {
+      "districtName": "NALANDA",
+      "districtCode": "NLD",
+      "label": "NALANDA",
+      "value": "BINLD"
+    },
+    {
+      "districtName": "NAWADA",
+      "districtCode": "NWD",
+      "label": "NAWADA",
+      "value": "BINWD"
+    },
+    {
+      "districtName": "PASHCHIM CHAMPARAN",
+      "districtCode": "PCR",
+      "label": "PASHCHIM CHAMPARAN",
+      "value": "BIPCR"
+    },
+    {
+      "districtName": "PATNA",
+      "districtCode": "PTN",
+      "label": "PATNA",
+      "value": "BIPTN"
+    },
+    {
+      "districtName": "PURBI CHAMPARAN",
+      "districtCode": "PRB",
+      "label": "PURBI CHAMPARAN",
+      "value": "BIPRB"
+    },
+    {
+      "districtName": "PURNIA",
+      "districtCode": "PRN",
+      "label": "PURNIA",
+      "value": "BIPRN"
+    },
+    {
+      "districtName": "ROHTAS",
+      "districtCode": "RTS",
+      "label": "ROHTAS",
+      "value": "BIRTS"
+    },
+    {
+      "districtName": "SAHARSA",
+      "districtCode": "SHR",
+      "label": "SAHARSA",
+      "value": "BISHR"
+    },
+    {
+      "districtName": "SAMASTIPUR",
+      "districtCode": "SMT",
+      "label": "SAMASTIPUR",
+      "value": "BISMT"
+    },
+    {
+      "districtName": "SARAN",
+      "districtCode": "SRN",
+      "label": "SARAN",
+      "value": "BISRN"
+    },
+    {
+      "districtName": "SHEIKHPURA",
+      "districtCode": "SKP",
+      "label": "SHEIKHPURA",
+      "value": "BISKP"
+    },
+    {
+      "districtName": "SHEOHAR",
+      "districtCode": "SOR",
+      "label": "SHEOHAR",
+      "value": "BISOR"
+    },
+    {
+      "districtName": "SITAMARHI",
+      "districtCode": "STI",
+      "label": "SITAMARHI",
+      "value": "BISTI"
+    },
+    {
+      "districtName": "SIWAN",
+      "districtCode": "SWN",
+      "label": "SIWAN",
+      "value": "BISWN"
+    },
+    {
+      "districtName": "SUPAUL",
+      "districtCode": "SPU",
+      "label": "SUPAUL",
+      "value": "BISPU"
+    },
+    {
+      "districtName": "VAISHALI",
+      "districtCode": "VLI",
+      "label": "VAISHALI",
+      "value": "BIVLI"
+    }
+  ],
+  "CG": [
+    {
+      "districtName": "BALOD",
+      "districtCode": "BLO",
+      "label": "BALOD",
+      "value": "CGBLO"
+    },
+    {
+      "districtName": "BALODA BAZAR",
+      "districtCode": "BZR",
+      "label": "BALODA BAZAR",
+      "value": "CGBZR"
+    },
+    {
+      "districtName": "BALRAMPUR",
+      "districtCode": "BRM",
+      "label": "BALRAMPUR",
+      "value": "CGBRM"
+    },
+    {
+      "districtName": "BASTAR",
+      "districtCode": "BST",
+      "label": "BASTAR",
+      "value": "CGBST"
+    },
+    {
+      "districtName": "BEMETARA",
+      "districtCode": "BTA",
+      "label": "BEMETARA",
+      "value": "CGBTA"
+    },
+    {
+      "districtName": "BIJAPUR",
+      "districtCode": "BIJ",
+      "label": "BIJAPUR",
+      "value": "CGBIJ"
+    },
+    {
+      "districtName": "BILASPUR",
+      "districtCode": "BPU",
+      "label": "BILASPUR",
+      "value": "CGBPU"
+    },
+    {
+      "districtName": "DANTEWADA",
+      "districtCode": "DNT",
+      "label": "DANTEWADA",
+      "value": "CGDNT"
+    },
+    {
+      "districtName": "DHAMTARI",
+      "districtCode": "DHM",
+      "label": "DHAMTARI",
+      "value": "CGDHM"
+    },
+    {
+      "districtName": "DURG",
+      "districtCode": "DUR",
+      "label": "DURG",
+      "value": "CGDUR"
+    },
+    {
+      "districtName": "GARIYABAND",
+      "districtCode": "GRY",
+      "label": "GARIYABAND",
+      "value": "CGGRY"
+    },
+    {
+      "districtName": "Gaurella Pendra Marwahi",
+      "districtCode": "MRW",
+      "label": "Gaurella Pendra Marwahi",
+      "value": "CGMRW"
+    },
+    {
+      "districtName": "JANJGIR-CHAMPA",
+      "districtCode": "JJR",
+      "label": "JANJGIR-CHAMPA",
+      "value": "CGJJR"
+    },
+    {
+      "districtName": "JASHPUR",
+      "districtCode": "JSH",
+      "label": "JASHPUR",
+      "value": "CGJSH"
+    },
+    {
+      "districtName": "KABIRDHAM",
+      "districtCode": "KRI",
+      "label": "KABIRDHAM",
+      "value": "CGKRI"
+    },
+    {
+      "districtName": "KANKER",
+      "districtCode": "KNK",
+      "label": "KANKER",
+      "value": "CGKNK"
+    },
+    {
+      "districtName": "KONDAGAON",
+      "districtCode": "KON",
+      "label": "KONDAGAON",
+      "value": "CGKON"
+    },
+    {
+      "districtName": "KORBA",
+      "districtCode": "KRB",
+      "label": "KORBA",
+      "value": "CGKRB"
+    },
+    {
+      "districtName": "KOREA",
+      "districtCode": "KOR",
+      "label": "KOREA",
+      "value": "CGKOR"
+    },
+    {
+      "districtName": "MAHASAMUND",
+      "districtCode": "MAH",
+      "label": "MAHASAMUND",
+      "value": "CGMAH"
+    },
+    {
+      "districtName": "MUNGELI",
+      "districtCode": "MUG",
+      "label": "MUNGELI",
+      "value": "CGMUG"
+    },
+    {
+      "districtName": "NARAYANPUR",
+      "districtCode": "NRY",
+      "label": "NARAYANPUR",
+      "value": "CGNRY"
+    },
+    {
+      "districtName": "RAIGARH",
+      "districtCode": "RIG",
+      "label": "RAIGARH",
+      "value": "CGRIG"
+    },
+    {
+      "districtName": "RAIPUR",
+      "districtCode": "RAP",
+      "label": "RAIPUR",
+      "value": "CGRAP"
+    },
+    {
+      "districtName": "RAJNANDGAON",
+      "districtCode": "RJD",
+      "label": "RAJNANDGAON",
+      "value": "CGRJD"
+    },
+    {
+      "districtName": "SUKMA",
+      "districtCode": "SUK",
+      "label": "SUKMA",
+      "value": "CGSUK"
+    },
+    {
+      "districtName": "SURAJPUR",
+      "districtCode": "SRJ",
+      "label": "SURAJPUR",
+      "value": "CGSRJ"
+    },
+    {
+      "districtName": "SURGUJA",
+      "districtCode": "SGJ",
+      "label": "SURGUJA",
+      "value": "CGSGJ"
+    }
+  ],
+  "GO": [
+    {
+      "districtName": "NORTH GOA",
+      "districtCode": "NGO",
+      "label": "NORTH GOA",
+      "value": "GONGO"
+    },
+    {
+      "districtName": "SOUTH GOA",
+      "districtCode": "SGO",
+      "label": "SOUTH GOA",
+      "value": "GOSGO"
+    }
+  ],
+  "GJ": [
+    {
+      "districtName": "AHMADABAD",
+      "districtCode": "AHM",
+      "label": "AHMADABAD",
+      "value": "GJAHM"
+    },
+    {
+      "districtName": "AMRELI",
+      "districtCode": "AMR",
+      "label": "AMRELI",
+      "value": "GJAMR"
+    },
+    {
+      "districtName": "ANAND",
+      "districtCode": "AND",
+      "label": "ANAND",
+      "value": "GJAND"
+    },
+    {
+      "districtName": "ARVALLI",
+      "districtCode": "ARV",
+      "label": "ARVALLI",
+      "value": "GJARV"
+    },
+    {
+      "districtName": "BANAS KANTHA",
+      "districtCode": "BNK",
+      "label": "BANAS KANTHA",
+      "value": "GJBNK"
+    },
+    {
+      "districtName": "BHARUCH",
+      "districtCode": "BHR",
+      "label": "BHARUCH",
+      "value": "GJBHR"
+    },
+    {
+      "districtName": "BHAVNAGAR",
+      "districtCode": "BHV",
+      "label": "BHAVNAGAR",
+      "value": "GJBHV"
+    },
+    {
+      "districtName": "BOTAD",
+      "districtCode": "BOT",
+      "label": "BOTAD",
+      "value": "GJBOT"
+    },
+    {
+      "districtName": "CHHOTAUDEPUR",
+      "districtCode": "CHT",
+      "label": "CHHOTAUDEPUR",
+      "value": "GJCHT"
+    },
+    {
+      "districtName": "DANG",
+      "districtCode": "DNG",
+      "label": "DANG",
+      "value": "GJDNG"
+    },
+    {
+      "districtName": "DEVBHUMI DWARKA",
+      "districtCode": "DBH",
+      "label": "DEVBHUMI DWARKA",
+      "value": "GJDBH"
+    },
+    {
+      "districtName": "DOHAD",
+      "districtCode": "DOH",
+      "label": "DOHAD",
+      "value": "GJDOH"
+    },
+    {
+      "districtName": "GANDHINAGAR",
+      "districtCode": "GND",
+      "label": "GANDHINAGAR",
+      "value": "GJGND"
+    },
+    {
+      "districtName": "GIR SOMNATH",
+      "districtCode": "GIR",
+      "label": "GIR SOMNATH",
+      "value": "GJGIR"
+    },
+    {
+      "districtName": "JAMNAGAR",
+      "districtCode": "JMG",
+      "label": "JAMNAGAR",
+      "value": "GJJMG"
+    },
+    {
+      "districtName": "JUNAGADH",
+      "districtCode": "JUN",
+      "label": "JUNAGADH",
+      "value": "GJJUN"
+    },
+    {
+      "districtName": "KACHCHH",
+      "districtCode": "KCH",
+      "label": "KACHCHH",
+      "value": "GJKCH"
+    },
+    {
+      "districtName": "KHEDA",
+      "districtCode": "KHD",
+      "label": "KHEDA",
+      "value": "GJKHD"
+    },
+    {
+      "districtName": "MAHESANA",
+      "districtCode": "MHS",
+      "label": "MAHESANA",
+      "value": "GJMHS"
+    },
+    {
+      "districtName": "Mahisagar",
+      "districtCode": "MHI",
+      "label": "Mahisagar",
+      "value": "GJMHI"
+    },
+    {
+      "districtName": "MORBI",
+      "districtCode": "MOR",
+      "label": "MORBI",
+      "value": "GJMOR"
+    },
+    {
+      "districtName": "NARMADA",
+      "districtCode": "NRM",
+      "label": "NARMADA",
+      "value": "GJNRM"
+    },
+    {
+      "districtName": "NAVSARI",
+      "districtCode": "NVS",
+      "label": "NAVSARI",
+      "value": "GJNVS"
+    },
+    {
+      "districtName": "PANCH MAHALS",
+      "districtCode": "PMH",
+      "label": "PANCH MAHALS",
+      "value": "GJPMH"
+    },
+    {
+      "districtName": "PATAN",
+      "districtCode": "PTN",
+      "label": "PATAN",
+      "value": "GJPTN"
+    },
+    {
+      "districtName": "PORBANDAR",
+      "districtCode": "PBR",
+      "label": "PORBANDAR",
+      "value": "GJPBR"
+    },
+    {
+      "districtName": "RAJKOT",
+      "districtCode": "RJK",
+      "label": "RAJKOT",
+      "value": "GJRJK"
+    },
+    {
+      "districtName": "SABAR KANTHA",
+      "districtCode": "SBK",
+      "label": "SABAR KANTHA",
+      "value": "GJSBK"
+    },
+    {
+      "districtName": "SURAT",
+      "districtCode": "SRT",
+      "label": "SURAT",
+      "value": "GJSRT"
+    },
+    {
+      "districtName": "SURENDRANAGAR",
+      "districtCode": "SRR",
+      "label": "SURENDRANAGAR",
+      "value": "GJSRR"
+    },
+    {
+      "districtName": "TAPI",
+      "districtCode": "TPI",
+      "label": "TAPI",
+      "value": "GJTPI"
+    },
+    {
+      "districtName": "VADODARA",
+      "districtCode": "VDR",
+      "label": "VADODARA",
+      "value": "GJVDR"
+    },
+    {
+      "districtName": "VALSAD",
+      "districtCode": "VLD",
+      "label": "VALSAD",
+      "value": "GJVLD"
+    }
+  ],
+  "HR": [
+    {
+      "districtName": "AMBALA",
+      "districtCode": "AMB",
+      "label": "AMBALA",
+      "value": "HRAMB"
+    },
+    {
+      "districtName": "BHIWANI",
+      "districtCode": "BHI",
+      "label": "BHIWANI",
+      "value": "HRBHI"
+    },
+    {
+      "districtName": "CHARKI DADRI",
+      "districtCode": "CDR",
+      "label": "CHARKI DADRI",
+      "value": "HRCDR"
+    },
+    {
+      "districtName": "FARIDABAD",
+      "districtCode": "FRI",
+      "label": "FARIDABAD",
+      "value": "HRFRI"
+    },
+    {
+      "districtName": "FATEHABAD",
+      "districtCode": "FTB",
+      "label": "FATEHABAD",
+      "value": "HRFTB"
+    },
+    {
+      "districtName": "GURUGRAM",
+      "districtCode": "GRU",
+      "label": "GURUGRAM",
+      "value": "HRGRU"
+    },
+    {
+      "districtName": "HISAR",
+      "districtCode": "HIR",
+      "label": "HISAR",
+      "value": "HRHIR"
+    },
+    {
+      "districtName": "JHAJJAR",
+      "districtCode": "JJR",
+      "label": "JHAJJAR",
+      "value": "HRJJR"
+    },
+    {
+      "districtName": "JIND",
+      "districtCode": "JID",
+      "label": "JIND",
+      "value": "HRJID"
+    },
+    {
+      "districtName": "KAITHAL",
+      "districtCode": "KIT",
+      "label": "KAITHAL",
+      "value": "HRKIT"
+    },
+    {
+      "districtName": "KARNAL",
+      "districtCode": "KRN",
+      "label": "KARNAL",
+      "value": "HRKRN"
+    },
+    {
+      "districtName": "KURUKSHETRA",
+      "districtCode": "KRT",
+      "label": "KURUKSHETRA",
+      "value": "HRKRT"
+    },
+    {
+      "districtName": "MAHENDRAGARH",
+      "districtCode": "MDR",
+      "label": "MAHENDRAGARH",
+      "value": "HRMDR"
+    },
+    {
+      "districtName": "NUH",
+      "districtCode": "NUH",
+      "label": "NUH",
+      "value": "HRNUH"
+    },
+    {
+      "districtName": "PALWAL",
+      "districtCode": "PLW",
+      "label": "PALWAL",
+      "value": "HRPLW"
+    },
+    {
+      "districtName": "PANCHKULA",
+      "districtCode": "PCL",
+      "label": "PANCHKULA",
+      "value": "HRPCL"
+    },
+    {
+      "districtName": "PANIPAT",
+      "districtCode": "PPT",
+      "label": "PANIPAT",
+      "value": "HRPPT"
+    },
+    {
+      "districtName": "REWARI",
+      "districtCode": "RWR",
+      "label": "REWARI",
+      "value": "HRRWR"
+    },
+    {
+      "districtName": "ROHTAK",
+      "districtCode": "ROK",
+      "label": "ROHTAK",
+      "value": "HRROK"
+    },
+    {
+      "districtName": "SIRSA",
+      "districtCode": "SIS",
+      "label": "SIRSA",
+      "value": "HRSIS"
+    },
+    {
+      "districtName": "SONIPAT",
+      "districtCode": "SPT",
+      "label": "SONIPAT",
+      "value": "HRSPT"
+    },
+    {
+      "districtName": "YAMUNANAGAR",
+      "districtCode": "YMG",
+      "label": "YAMUNANAGAR",
+      "value": "HRYMG"
+    }
+  ],
+  "HP": [
+    {
+      "districtName": "BILASPUR",
+      "districtCode": "BIL",
+      "label": "BILASPUR",
+      "value": "HPBIL"
+    },
+    {
+      "districtName": "CHAMBA",
+      "districtCode": "CHB",
+      "label": "CHAMBA",
+      "value": "HPCHB"
+    },
+    {
+      "districtName": "HAMIRPUR",
+      "districtCode": "HMI",
+      "label": "HAMIRPUR",
+      "value": "HPHMI"
+    },
+    {
+      "districtName": "KANGRA",
+      "districtCode": "GRA",
+      "label": "KANGRA",
+      "value": "HPGRA"
+    },
+    {
+      "districtName": "KINNAUR",
+      "districtCode": "KIN",
+      "label": "KINNAUR",
+      "value": "HPKIN"
+    },
+    {
+      "districtName": "KULLU",
+      "districtCode": "KLU",
+      "label": "KULLU",
+      "value": "HPKLU"
+    },
+    {
+      "districtName": "LAHUL AND SPITI",
+      "districtCode": "LAS",
+      "label": "LAHUL AND SPITI",
+      "value": "HPLAS"
+    },
+    {
+      "districtName": "MANDI",
+      "districtCode": "MND",
+      "label": "MANDI",
+      "value": "HPMND"
+    },
+    {
+      "districtName": "SHIMLA",
+      "districtCode": "SHI",
+      "label": "SHIMLA",
+      "value": "HPSHI"
+    },
+    {
+      "districtName": "SIRMAUR",
+      "districtCode": "SIR",
+      "label": "SIRMAUR",
+      "value": "HPSIR"
+    },
+    {
+      "districtName": "SOLAN",
+      "districtCode": "OLN",
+      "label": "SOLAN",
+      "value": "HPOLN"
+    },
+    {
+      "districtName": "UNA",
+      "districtCode": "UNA",
+      "label": "UNA",
+      "value": "HPUNA"
+    }
+  ],
+  "JK": [
+    {
+      "districtName": "ANANTNAG",
+      "districtCode": "ANT",
+      "label": "ANANTNAG",
+      "value": "JKANT"
+    },
+    {
+      "districtName": "BANDIPORA",
+      "districtCode": "BND",
+      "label": "BANDIPORA",
+      "value": "JKBND"
+    },
+    {
+      "districtName": "BARAMULLA",
+      "districtCode": "BRU",
+      "label": "BARAMULLA",
+      "value": "JKBRU"
+    },
+    {
+      "districtName": "Budgam",
+      "districtCode": "BUD",
+      "label": "Budgam",
+      "value": "JKBUD"
+    },
+    {
+      "districtName": "DODA",
+      "districtCode": "DOA",
+      "label": "DODA",
+      "value": "JKDOA"
+    },
+    {
+      "districtName": "GANDERBAL",
+      "districtCode": "GNR",
+      "label": "GANDERBAL",
+      "value": "JKGNR"
+    },
+    {
+      "districtName": "JAMMU",
+      "districtCode": "JMM",
+      "label": "JAMMU",
+      "value": "JKJMM"
+    },
+    {
+      "districtName": "KATHUA",
+      "districtCode": "KTH",
+      "label": "KATHUA",
+      "value": "JKKTH"
+    },
+    {
+      "districtName": "KISHTWAR",
+      "districtCode": "KST",
+      "label": "KISHTWAR",
+      "value": "JKKST"
+    },
+    {
+      "districtName": "KULGAM",
+      "districtCode": "KUL",
+      "label": "KULGAM",
+      "value": "JKKUL"
+    },
+    {
+      "districtName": "KUPWARA",
+      "districtCode": "KPR",
+      "label": "KUPWARA",
+      "value": "JKKPR"
+    },
+    {
+      "districtName": "POONCH",
+      "districtCode": "POO",
+      "label": "POONCH",
+      "value": "JKPOO"
+    },
+    {
+      "districtName": "PULWAMA",
+      "districtCode": "PWM",
+      "label": "PULWAMA",
+      "value": "JKPWM"
+    },
+    {
+      "districtName": "RAJOURI",
+      "districtCode": "RJP",
+      "label": "RAJOURI",
+      "value": "JKRJP"
+    },
+    {
+      "districtName": "RAMBAN",
+      "districtCode": "RMB",
+      "label": "RAMBAN",
+      "value": "JKRMB"
+    },
+    {
+      "districtName": "REASI",
+      "districtCode": "RSI",
+      "label": "REASI",
+      "value": "JKRSI"
+    },
+    {
+      "districtName": "SAMBA",
+      "districtCode": "SMA",
+      "label": "SAMBA",
+      "value": "JKSMA"
+    },
+    {
+      "districtName": "SHOPIAN",
+      "districtCode": "SHO",
+      "label": "SHOPIAN",
+      "value": "JKSHO"
+    },
+    {
+      "districtName": "SRINAGAR",
+      "districtCode": "SNA",
+      "label": "SRINAGAR",
+      "value": "JKSNA"
+    },
+    {
+      "districtName": "UDHAMPUR",
+      "districtCode": "UHM",
+      "label": "UDHAMPUR",
+      "value": "JKUHM"
+    }
+  ],
+  "JR": [
+    {
+      "districtName": "BOKARO",
+      "districtCode": "BOK",
+      "label": "BOKARO",
+      "value": "JRBOK"
+    },
+    {
+      "districtName": "CHATRA",
+      "districtCode": "CHT",
+      "label": "CHATRA",
+      "value": "JRCHT"
+    },
+    {
+      "districtName": "DEOGHAR",
+      "districtCode": "DGH",
+      "label": "DEOGHAR",
+      "value": "JRDGH"
+    },
+    {
+      "districtName": "DHANBAD",
+      "districtCode": "DNB",
+      "label": "DHANBAD",
+      "value": "JRDNB"
+    },
+    {
+      "districtName": "DUMKA",
+      "districtCode": "DMK",
+      "label": "DUMKA",
+      "value": "JRDMK"
+    },
+    {
+      "districtName": "EAST SINGHBUM",
+      "districtCode": "ESI",
+      "label": "EAST SINGHBUM",
+      "value": "JRESI"
+    },
+    {
+      "districtName": "GARHWA",
+      "districtCode": "GRW",
+      "label": "GARHWA",
+      "value": "JRGRW"
+    },
+    {
+      "districtName": "GIRIDIH",
+      "districtCode": "GID",
+      "label": "GIRIDIH",
+      "value": "JRGID"
+    },
+    {
+      "districtName": "GODDA",
+      "districtCode": "GDD",
+      "label": "GODDA",
+      "value": "JRGDD"
+    },
+    {
+      "districtName": "GUMLA",
+      "districtCode": "GML",
+      "label": "GUMLA",
+      "value": "JRGML"
+    },
+    {
+      "districtName": "HAZARIBAGH",
+      "districtCode": "HZR",
+      "label": "HAZARIBAGH",
+      "value": "JRHZR"
+    },
+    {
+      "districtName": "JAMTARA",
+      "districtCode": "JMT",
+      "label": "JAMTARA",
+      "value": "JRJMT"
+    },
+    {
+      "districtName": "KHUNTI",
+      "districtCode": "KUT",
+      "label": "KHUNTI",
+      "value": "JRKUT"
+    },
+    {
+      "districtName": "KODERMA",
+      "districtCode": "KOD",
+      "label": "KODERMA",
+      "value": "JRKOD"
+    },
+    {
+      "districtName": "LATEHAR",
+      "districtCode": "LTH",
+      "label": "LATEHAR",
+      "value": "JRLTH"
+    },
+    {
+      "districtName": "LOHARDAGA",
+      "districtCode": "LRD",
+      "label": "LOHARDAGA",
+      "value": "JRLRD"
+    },
+    {
+      "districtName": "PAKUR",
+      "districtCode": "PKR",
+      "label": "PAKUR",
+      "value": "JRPKR"
+    },
+    {
+      "districtName": "PALAMU",
+      "districtCode": "PLM",
+      "label": "PALAMU",
+      "value": "JRPLM"
+    },
+    {
+      "districtName": "RAMGARH",
+      "districtCode": "RMG",
+      "label": "RAMGARH",
+      "value": "JRRMG"
+    },
+    {
+      "districtName": "RANCHI",
+      "districtCode": "RNC",
+      "label": "RANCHI",
+      "value": "JRRNC"
+    },
+    {
+      "districtName": "SAHEBGANJ",
+      "districtCode": "SHJ",
+      "label": "SAHEBGANJ",
+      "value": "JRSHJ"
+    },
+    {
+      "districtName": "SARAIKELA KHARSAWAN",
+      "districtCode": "SIL",
+      "label": "SARAIKELA KHARSAWAN",
+      "value": "JRSIL"
+    },
+    {
+      "districtName": "SIMDEGA",
+      "districtCode": "SDE",
+      "label": "SIMDEGA",
+      "value": "JRSDE"
+    },
+    {
+      "districtName": "WEST SINGHBHUM",
+      "districtCode": "WSH",
+      "label": "WEST SINGHBHUM",
+      "value": "JRWSH"
+    }
+  ],
+  "KA": [
+    {
+      "districtName": "BAGALKOTE",
+      "districtCode": "BAG",
+      "label": "BAGALKOTE",
+      "value": "KABAG"
+    },
+    {
+      "districtName": "BALLARI",
+      "districtCode": "BAL",
+      "label": "BALLARI",
+      "value": "KABAL"
+    },
+    {
+      "districtName": "BENGALURU RURAL",
+      "districtCode": "BLR",
+      "label": "BENGALURU RURAL",
+      "value": "KABLR"
+    },
+    {
+      "districtName": "BENGALURU URBAN",
+      "districtCode": "BLU",
+      "label": "BENGALURU URBAN",
+      "value": "KABLU"
+    },
+    {
+      "districtName": "BIDAR",
+      "districtCode": "BID",
+      "label": "BIDAR",
+      "value": "KABID"
+    },
+    {
+      "districtName": "CHAMARAJANAGARA",
+      "districtCode": "CHM",
+      "label": "CHAMARAJANAGARA",
+      "value": "KACHM"
+    },
+    {
+      "districtName": "CHIKKABALLAPURA",
+      "districtCode": "CHI",
+      "label": "CHIKKABALLAPURA",
+      "value": "KACHI"
+    },
+    {
+      "districtName": "CHIKKAMAGALURU",
+      "districtCode": "CKI",
+      "label": "CHIKKAMAGALURU",
+      "value": "KACKI"
+    },
+    {
+      "districtName": "CHITRADURGA",
+      "districtCode": "CTR",
+      "label": "CHITRADURGA",
+      "value": "KACTR"
+    },
+    {
+      "districtName": "DAKSHINA KANNADA",
+      "districtCode": "DKS",
+      "label": "DAKSHINA KANNADA",
+      "value": "KADKS"
+    },
+    {
+      "districtName": "DAVANGERE",
+      "districtCode": "DVA",
+      "label": "DAVANGERE",
+      "value": "KADVA"
+    },
+    {
+      "districtName": "DHARWAD",
+      "districtCode": "DHA",
+      "label": "DHARWAD",
+      "value": "KADHA"
+    },
+    {
+      "districtName": "GADAG",
+      "districtCode": "GDA",
+      "label": "GADAG",
+      "value": "KAGDA"
+    },
+    {
+      "districtName": "HASSAN",
+      "districtCode": "HAS",
+      "label": "HASSAN",
+      "value": "KAHAS"
+    },
+    {
+      "districtName": "HAVERI",
+      "districtCode": "HVR",
+      "label": "HAVERI",
+      "value": "KAHVR"
+    },
+    {
+      "districtName": "KALABURAGI",
+      "districtCode": "KAL",
+      "label": "KALABURAGI",
+      "value": "KAKAL"
+    },
+    {
+      "districtName": "KODAGU",
+      "districtCode": "KOD",
+      "label": "KODAGU",
+      "value": "KAKOD"
+    },
+    {
+      "districtName": "KOLAR",
+      "districtCode": "KOL",
+      "label": "KOLAR",
+      "value": "KAKOL"
+    },
+    {
+      "districtName": "KOPPAL",
+      "districtCode": "KPP",
+      "label": "KOPPAL",
+      "value": "KAKPP"
+    },
+    {
+      "districtName": "MANDYA",
+      "districtCode": "MDY",
+      "label": "MANDYA",
+      "value": "KAMDY"
+    },
+    {
+      "districtName": "MYSURU",
+      "districtCode": "MYS",
+      "label": "MYSURU",
+      "value": "KAMYS"
+    },
+    {
+      "districtName": "RAICHUR",
+      "districtCode": "RAI",
+      "label": "RAICHUR",
+      "value": "KARAI"
+    },
+    {
+      "districtName": "RAMANAGARA",
+      "districtCode": "RAM",
+      "label": "RAMANAGARA",
+      "value": "KARAM"
+    },
+    {
+      "districtName": "SHIVAMOGGA",
+      "districtCode": "SHI",
+      "label": "SHIVAMOGGA",
+      "value": "KASHI"
+    },
+    {
+      "districtName": "TUMAKURU",
+      "districtCode": "TUM",
+      "label": "TUMAKURU",
+      "value": "KATUM"
+    },
+    {
+      "districtName": "UDUPI",
+      "districtCode": "UDP",
+      "label": "UDUPI",
+      "value": "KAUDP"
+    },
+    {
+      "districtName": "UTTARA KANNADA",
+      "districtCode": "UTR",
+      "label": "UTTARA KANNADA",
+      "value": "KAUTR"
+    },
+    {
+      "districtName": "VIJAYAPURA",
+      "districtCode": "VIJ",
+      "label": "VIJAYAPURA",
+      "value": "KAVIJ"
+    },
+    {
+      "districtName": "YADGIR",
+      "districtCode": "YGR",
+      "label": "YADGIR",
+      "value": "KAYGR"
+    }
+  ],
+  "KL": [
+    {
+      "districtName": "ALAPPUZHA",
+      "districtCode": "APZ",
+      "label": "ALAPPUZHA",
+      "value": "KLAPZ"
+    },
+    {
+      "districtName": "ERNAKULAM",
+      "districtCode": "ERN",
+      "label": "ERNAKULAM",
+      "value": "KLERN"
+    },
+    {
+      "districtName": "IDUKKI",
+      "districtCode": "IDK",
+      "label": "IDUKKI",
+      "value": "KLIDK"
+    },
+    {
+      "districtName": "KANNUR",
+      "districtCode": "KNR",
+      "label": "KANNUR",
+      "value": "KLKNR"
+    },
+    {
+      "districtName": "KASARAGOD",
+      "districtCode": "KSO",
+      "label": "KASARAGOD",
+      "value": "KLKSO"
+    },
+    {
+      "districtName": "KOLLAM",
+      "districtCode": "KOL",
+      "label": "KOLLAM",
+      "value": "KLKOL"
+    },
+    {
+      "districtName": "KOTTAYAM",
+      "districtCode": "KTT",
+      "label": "KOTTAYAM",
+      "value": "KLKTT"
+    },
+    {
+      "districtName": "KOZHIKODE",
+      "districtCode": "KOZ",
+      "label": "KOZHIKODE",
+      "value": "KLKOZ"
+    },
+    {
+      "districtName": "MALAPPURAM",
+      "districtCode": "MLP",
+      "label": "MALAPPURAM",
+      "value": "KLMLP"
+    },
+    {
+      "districtName": "PALAKKAD",
+      "districtCode": "PLK",
+      "label": "PALAKKAD",
+      "value": "KLPLK"
+    },
+    {
+      "districtName": "PATHANAMTHITTA",
+      "districtCode": "PTT",
+      "label": "PATHANAMTHITTA",
+      "value": "KLPTT"
+    },
+    {
+      "districtName": "THIRUVANANTHAPURAM",
+      "districtCode": "TRN",
+      "label": "THIRUVANANTHAPURAM",
+      "value": "KLTRN"
+    },
+    {
+      "districtName": "THRISSUR",
+      "districtCode": "TRI",
+      "label": "THRISSUR",
+      "value": "KLTRI"
+    },
+    {
+      "districtName": "WAYANAD",
+      "districtCode": "WYD",
+      "label": "WAYANAD",
+      "value": "KLWYD"
+    }
+  ],
+  "MP": [
+    {
+      "districtName": "AGAR MALWA",
+      "districtCode": "AGR",
+      "label": "AGAR MALWA",
+      "value": "MPAGR"
+    },
+    {
+      "districtName": "ALIRAJPUR",
+      "districtCode": "ALI",
+      "label": "ALIRAJPUR",
+      "value": "MPALI"
+    },
+    {
+      "districtName": "ANUPPUR",
+      "districtCode": "ANP",
+      "label": "ANUPPUR",
+      "value": "MPANP"
+    },
+    {
+      "districtName": "ASHOKNAGAR",
+      "districtCode": "AKO",
+      "label": "ASHOKNAGAR",
+      "value": "MPAKO"
+    },
+    {
+      "districtName": "BALAGHAT",
+      "districtCode": "BLG",
+      "label": "BALAGHAT",
+      "value": "MPBLG"
+    },
+    {
+      "districtName": "BARWANI",
+      "districtCode": "BRW",
+      "label": "BARWANI",
+      "value": "MPBRW"
+    },
+    {
+      "districtName": "BETUL",
+      "districtCode": "BTL",
+      "label": "BETUL",
+      "value": "MPBTL"
+    },
+    {
+      "districtName": "BHIND",
+      "districtCode": "BIN",
+      "label": "BHIND",
+      "value": "MPBIN"
+    },
+    {
+      "districtName": "BHOPAL",
+      "districtCode": "BOL",
+      "label": "BHOPAL",
+      "value": "MPBOL"
+    },
+    {
+      "districtName": "BURHANPUR",
+      "districtCode": "BHU",
+      "label": "BURHANPUR",
+      "value": "MPBHU"
+    },
+    {
+      "districtName": "CHHATARPUR",
+      "districtCode": "CTP",
+      "label": "CHHATARPUR",
+      "value": "MPCTP"
+    },
+    {
+      "districtName": "CHHINDWARA",
+      "districtCode": "CIW",
+      "label": "CHHINDWARA",
+      "value": "MPCIW"
+    },
+    {
+      "districtName": "DAMOH",
+      "districtCode": "DMH",
+      "label": "DAMOH",
+      "value": "MPDMH"
+    },
+    {
+      "districtName": "DATIA",
+      "districtCode": "DIA",
+      "label": "DATIA",
+      "value": "MPDIA"
+    },
+    {
+      "districtName": "DEWAS",
+      "districtCode": "DWS",
+      "label": "DEWAS",
+      "value": "MPDWS"
+    },
+    {
+      "districtName": "DHAR",
+      "districtCode": "DHA",
+      "label": "DHAR",
+      "value": "MPDHA"
+    },
+    {
+      "districtName": "DINDORI",
+      "districtCode": "DIO",
+      "label": "DINDORI",
+      "value": "MPDIO"
+    },
+    {
+      "districtName": "EAST NIMAR",
+      "districtCode": "ENI",
+      "label": "EAST NIMAR",
+      "value": "MPENI"
+    },
+    {
+      "districtName": "GUNA",
+      "districtCode": "GNA",
+      "label": "GUNA",
+      "value": "MPGNA"
+    },
+    {
+      "districtName": "GWALIOR",
+      "districtCode": "GWL",
+      "label": "GWALIOR",
+      "value": "MPGWL"
+    },
+    {
+      "districtName": "HARDA",
+      "districtCode": "HRA",
+      "label": "HARDA",
+      "value": "MPHRA"
+    },
+    {
+      "districtName": "HOSHANGABAD",
+      "districtCode": "HSG",
+      "label": "HOSHANGABAD",
+      "value": "MPHSG"
+    },
+    {
+      "districtName": "INDORE",
+      "districtCode": "IND",
+      "label": "INDORE",
+      "value": "MPIND"
+    },
+    {
+      "districtName": "JABALPUR",
+      "districtCode": "JLP",
+      "label": "JABALPUR",
+      "value": "MPJLP"
+    },
+    {
+      "districtName": "JHABUA",
+      "districtCode": "JUB",
+      "label": "JHABUA",
+      "value": "MPJUB"
+    },
+    {
+      "districtName": "KATNI",
+      "districtCode": "KTN",
+      "label": "KATNI",
+      "value": "MPKTN"
+    },
+    {
+      "districtName": "KHARGONE",
+      "districtCode": "KRG",
+      "label": "KHARGONE",
+      "value": "MPKRG"
+    },
+    {
+      "districtName": "MANDLA",
+      "districtCode": "MDL",
+      "label": "MANDLA",
+      "value": "MPMDL"
+    },
+    {
+      "districtName": "MANDSAUR",
+      "districtCode": "MDS",
+      "label": "MANDSAUR",
+      "value": "MPMDS"
+    },
+    {
+      "districtName": "MORENA",
+      "districtCode": "MRN",
+      "label": "MORENA",
+      "value": "MPMRN"
+    },
+    {
+      "districtName": "NARSINGHPUR",
+      "districtCode": "NRS",
+      "label": "NARSINGHPUR",
+      "value": "MPNRS"
+    },
+    {
+      "districtName": "NEEMUCH",
+      "districtCode": "NMU",
+      "label": "NEEMUCH",
+      "value": "MPNMU"
+    },
+    {
+      "districtName": "Niwari",
+      "districtCode": "NIW",
+      "label": "Niwari",
+      "value": "MPNIW"
+    },
+    {
+      "districtName": "PANNA",
+      "districtCode": "PNN",
+      "label": "PANNA",
+      "value": "MPPNN"
+    },
+    {
+      "districtName": "RAISEN",
+      "districtCode": "RIS",
+      "label": "RAISEN",
+      "value": "MPRIS"
+    },
+    {
+      "districtName": "RAJGARH",
+      "districtCode": "RJG",
+      "label": "RAJGARH",
+      "value": "MPRJG"
+    },
+    {
+      "districtName": "RATLAM",
+      "districtCode": "RTM",
+      "label": "RATLAM",
+      "value": "MPRTM"
+    },
+    {
+      "districtName": "REWA",
+      "districtCode": "REW",
+      "label": "REWA",
+      "value": "MPREW"
+    },
+    {
+      "districtName": "SAGAR",
+      "districtCode": "SGA",
+      "label": "SAGAR",
+      "value": "MPSGA"
+    },
+    {
+      "districtName": "SATNA",
+      "districtCode": "STN",
+      "label": "SATNA",
+      "value": "MPSTN"
+    },
+    {
+      "districtName": "SEHORE",
+      "districtCode": "SEO",
+      "label": "SEHORE",
+      "value": "MPSEO"
+    },
+    {
+      "districtName": "SEONI",
+      "districtCode": "SNI",
+      "label": "SEONI",
+      "value": "MPSNI"
+    },
+    {
+      "districtName": "SHAHDOL",
+      "districtCode": "SOL",
+      "label": "SHAHDOL",
+      "value": "MPSOL"
+    },
+    {
+      "districtName": "SHAJAPUR",
+      "districtCode": "SJR",
+      "label": "SHAJAPUR",
+      "value": "MPSJR"
+    },
+    {
+      "districtName": "SHEOPUR",
+      "districtCode": "SOU",
+      "label": "SHEOPUR",
+      "value": "MPSOU"
+    },
+    {
+      "districtName": "SHIVPURI",
+      "districtCode": "SVI",
+      "label": "SHIVPURI",
+      "value": "MPSVI"
+    },
+    {
+      "districtName": "SIDHI",
+      "districtCode": "SIH",
+      "label": "SIDHI",
+      "value": "MPSIH"
+    },
+    {
+      "districtName": "SINGRAULI",
+      "districtCode": "SRU",
+      "label": "SINGRAULI",
+      "value": "MPSRU"
+    },
+    {
+      "districtName": "TIKAMGARH",
+      "districtCode": "TGR",
+      "label": "TIKAMGARH",
+      "value": "MPTGR"
+    },
+    {
+      "districtName": "UJJAIN",
+      "districtCode": "UJI",
+      "label": "UJJAIN",
+      "value": "MPUJI"
+    },
+    {
+      "districtName": "UMARIA",
+      "districtCode": "URA",
+      "label": "UMARIA",
+      "value": "MPURA"
+    },
+    {
+      "districtName": "VIDISHA",
+      "districtCode": "VII",
+      "label": "VIDISHA",
+      "value": "MPVII"
+    }
+  ],
+  "MH": [
+    {
+      "districtName": "AHMEDNAGAR",
+      "districtCode": "AHM",
+      "label": "AHMEDNAGAR",
+      "value": "MHAHM"
+    },
+    {
+      "districtName": "AKOLA",
+      "districtCode": "AKO",
+      "label": "AKOLA",
+      "value": "MHAKO"
+    },
+    {
+      "districtName": "AMRAVATI",
+      "districtCode": "ART",
+      "label": "AMRAVATI",
+      "value": "MHART"
+    },
+    {
+      "districtName": "AURANGABAD",
+      "districtCode": "ARU",
+      "label": "AURANGABAD",
+      "value": "MHARU"
+    },
+    {
+      "districtName": "BEED",
+      "districtCode": "BEE",
+      "label": "BEED",
+      "value": "MHBEE"
+    },
+    {
+      "districtName": "BHANDARA",
+      "districtCode": "BHD",
+      "label": "BHANDARA",
+      "value": "MHBHD"
+    },
+    {
+      "districtName": "BULDHANA",
+      "districtCode": "BUH",
+      "label": "BULDHANA",
+      "value": "MHBUH"
+    },
+    {
+      "districtName": "CHANDRAPUR",
+      "districtCode": "CDA",
+      "label": "CHANDRAPUR",
+      "value": "MHCDA"
+    },
+    {
+      "districtName": "DHULE",
+      "districtCode": "DHU",
+      "label": "DHULE",
+      "value": "MHDHU"
+    },
+    {
+      "districtName": "GADCHIROLI",
+      "districtCode": "GOI",
+      "label": "GADCHIROLI",
+      "value": "MHGOI"
+    },
+    {
+      "districtName": "GONDIA",
+      "districtCode": "GIA",
+      "label": "GONDIA",
+      "value": "MHGIA"
+    },
+    {
+      "districtName": "HINGOLI",
+      "districtCode": "HIG",
+      "label": "HINGOLI",
+      "value": "MHHIG"
+    },
+    {
+      "districtName": "JALGAON",
+      "districtCode": "JLG",
+      "label": "JALGAON",
+      "value": "MHJLG"
+    },
+    {
+      "districtName": "JALNA",
+      "districtCode": "JNA",
+      "label": "JALNA",
+      "value": "MHJNA"
+    },
+    {
+      "districtName": "KOLHAPUR",
+      "districtCode": "KOH",
+      "label": "KOLHAPUR",
+      "value": "MHKOH"
+    },
+    {
+      "districtName": "LATUR",
+      "districtCode": "LTR",
+      "label": "LATUR",
+      "value": "MHLTR"
+    },
+    {
+      "districtName": "MUMBAI",
+      "districtCode": "MBI",
+      "label": "MUMBAI",
+      "value": "MHMBI"
+    },
+    {
+      "districtName": "MUMBAI SUBURBAN",
+      "districtCode": "MSU",
+      "label": "MUMBAI SUBURBAN",
+      "value": "MHMSU"
+    },
+    {
+      "districtName": "NAGPUR",
+      "districtCode": "NGP",
+      "label": "NAGPUR",
+      "value": "MHNGP"
+    },
+    {
+      "districtName": "NANDED",
+      "districtCode": "NND",
+      "label": "NANDED",
+      "value": "MHNND"
+    },
+    {
+      "districtName": "NANDURBAR",
+      "districtCode": "NDR",
+      "label": "NANDURBAR",
+      "value": "MHNDR"
+    },
+    {
+      "districtName": "NASHIK",
+      "districtCode": "NSK",
+      "label": "NASHIK",
+      "value": "MHNSK"
+    },
+    {
+      "districtName": "OSMANABAD",
+      "districtCode": "OSM",
+      "label": "OSMANABAD",
+      "value": "MHOSM"
+    },
+    {
+      "districtName": "PALGHAR",
+      "districtCode": "PHR",
+      "label": "PALGHAR",
+      "value": "MHPHR"
+    },
+    {
+      "districtName": "PARBHANI",
+      "districtCode": "PRB",
+      "label": "PARBHANI",
+      "value": "MHPRB"
+    },
+    {
+      "districtName": "PUNE",
+      "districtCode": "PNE",
+      "label": "PUNE",
+      "value": "MHPNE"
+    },
+    {
+      "districtName": "RAIGAD",
+      "districtCode": "RIG",
+      "label": "RAIGAD",
+      "value": "MHRIG"
+    },
+    {
+      "districtName": "RATNAGIRI",
+      "districtCode": "RTG",
+      "label": "RATNAGIRI",
+      "value": "MHRTG"
+    },
+    {
+      "districtName": "SANGLI",
+      "districtCode": "SNG",
+      "label": "SANGLI",
+      "value": "MHSNG"
+    },
+    {
+      "districtName": "SATARA",
+      "districtCode": "STR",
+      "label": "SATARA",
+      "value": "MHSTR"
+    },
+    {
+      "districtName": "SINDHUDURG",
+      "districtCode": "SDH",
+      "label": "SINDHUDURG",
+      "value": "MHSDH"
+    },
+    {
+      "districtName": "SOLAPUR",
+      "districtCode": "SOL",
+      "label": "SOLAPUR",
+      "value": "MHSOL"
+    },
+    {
+      "districtName": "THANE",
+      "districtCode": "THN",
+      "label": "THANE",
+      "value": "MHTHN"
+    },
+    {
+      "districtName": "WARDHA",
+      "districtCode": "WRD",
+      "label": "WARDHA",
+      "value": "MHWRD"
+    },
+    {
+      "districtName": "WASHIM",
+      "districtCode": "WHI",
+      "label": "WASHIM",
+      "value": "MHWHI"
+    },
+    {
+      "districtName": "YAVATMAL",
+      "districtCode": "YVL",
+      "label": "YAVATMAL",
+      "value": "MHYVL"
+    }
+  ],
+  "MN": [
+    {
+      "districtName": "BISHNUPUR",
+      "districtCode": "BIS",
+      "label": "BISHNUPUR",
+      "value": "MNBIS"
+    },
+    {
+      "districtName": "CHANDEL",
+      "districtCode": "CHN",
+      "label": "CHANDEL",
+      "value": "MNCHN"
+    },
+    {
+      "districtName": "CHURACHANDPUR",
+      "districtCode": "CHR",
+      "label": "CHURACHANDPUR",
+      "value": "MNCHR"
+    },
+    {
+      "districtName": "IMPHAL EAST",
+      "districtCode": "IME",
+      "label": "IMPHAL EAST",
+      "value": "MNIME"
+    },
+    {
+      "districtName": "IMPHAL WEST",
+      "districtCode": "IMW",
+      "label": "IMPHAL WEST",
+      "value": "MNIMW"
+    },
+    {
+      "districtName": "JIRIBAM",
+      "districtCode": "JIR",
+      "label": "JIRIBAM",
+      "value": "MNJIR"
+    },
+    {
+      "districtName": "KAKCHING",
+      "districtCode": "KAK",
+      "label": "KAKCHING",
+      "value": "MNKAK"
+    },
+    {
+      "districtName": "KAMJONG",
+      "districtCode": "KMJ",
+      "label": "KAMJONG",
+      "value": "MNKMJ"
+    },
+    {
+      "districtName": "KANGPOKPI",
+      "districtCode": "KPI",
+      "label": "KANGPOKPI",
+      "value": "MNKPI"
+    },
+    {
+      "districtName": "NONEY",
+      "districtCode": "NON",
+      "label": "NONEY",
+      "value": "MNNON"
+    },
+    {
+      "districtName": "PHERZAWL",
+      "districtCode": "PZL",
+      "label": "PHERZAWL",
+      "value": "MNPZL"
+    },
+    {
+      "districtName": "SENAPATI",
+      "districtCode": "SEP",
+      "label": "SENAPATI",
+      "value": "MNSEP"
+    },
+    {
+      "districtName": "TAMENGLONG",
+      "districtCode": "TEN",
+      "label": "TAMENGLONG",
+      "value": "MNTEN"
+    },
+    {
+      "districtName": "TENGNOUPAL",
+      "districtCode": "NOP",
+      "label": "TENGNOUPAL",
+      "value": "MNNOP"
+    },
+    {
+      "districtName": "THOUBAL",
+      "districtCode": "OBL",
+      "label": "THOUBAL",
+      "value": "MNOBL"
+    },
+    {
+      "districtName": "UKHRUL",
+      "districtCode": "UKR",
+      "label": "UKHRUL",
+      "value": "MNUKR"
+    }
+  ],
+  "MG": [
+    {
+      "districtName": "EAST GARO HILLS",
+      "districtCode": "EGO",
+      "label": "EAST GARO HILLS",
+      "value": "MGEGO"
+    },
+    {
+      "districtName": "EAST JAINTIA HILLS",
+      "districtCode": "EJT",
+      "label": "EAST JAINTIA HILLS",
+      "value": "MGEJT"
+    },
+    {
+      "districtName": "EAST KHASI HILLS",
+      "districtCode": "EKS",
+      "label": "EAST KHASI HILLS",
+      "value": "MGEKS"
+    },
+    {
+      "districtName": "NORTH GARO HILLS",
+      "districtCode": "NGO",
+      "label": "NORTH GARO HILLS",
+      "value": "MGNGO"
+    },
+    {
+      "districtName": "RI BHOI",
+      "districtCode": "RIB",
+      "label": "RI BHOI",
+      "value": "MGRIB"
+    },
+    {
+      "districtName": "SOUTH GARO HILLS",
+      "districtCode": "SGO",
+      "label": "SOUTH GARO HILLS",
+      "value": "MGSGO"
+    },
+    {
+      "districtName": "SOUTH WEST GARO HILLS",
+      "districtCode": "SWG",
+      "label": "SOUTH WEST GARO HILLS",
+      "value": "MGSWG"
+    },
+    {
+      "districtName": "SOUTH WEST KHASI HILLS",
+      "districtCode": "SWK",
+      "label": "SOUTH WEST KHASI HILLS",
+      "value": "MGSWK"
+    },
+    {
+      "districtName": "WEST GARO HILLS",
+      "districtCode": "WGO",
+      "label": "WEST GARO HILLS",
+      "value": "MGWGO"
+    },
+    {
+      "districtName": "WEST JAINTIA HILLS",
+      "districtCode": "WJT",
+      "label": "WEST JAINTIA HILLS",
+      "value": "MGWJT"
+    },
+    {
+      "districtName": "WEST KHASI HILLS",
+      "districtCode": "WKI",
+      "label": "WEST KHASI HILLS",
+      "value": "MGWKI"
+    }
+  ],
+  "MZ": [
+    {
+      "districtName": "AIZAWL",
+      "districtCode": "AZW",
+      "label": "AIZAWL",
+      "value": "MZAZW"
+    },
+    {
+      "districtName": "CHAMPHAI",
+      "districtCode": "CHM",
+      "label": "CHAMPHAI",
+      "value": "MZCHM"
+    },
+    {
+      "districtName": "Hnahthial",
+      "districtCode": "HNT",
+      "label": "Hnahthial",
+      "value": "MZHNT"
+    },
+    {
+      "districtName": "KHAWZAWL",
+      "districtCode": "KHW",
+      "label": "KHAWZAWL",
+      "value": "MZKHW"
+    },
+    {
+      "districtName": "KOLASIB",
+      "districtCode": "KOS",
+      "label": "KOLASIB",
+      "value": "MZKOS"
+    },
+    {
+      "districtName": "LAWNGTLAI",
+      "districtCode": "LWT",
+      "label": "LAWNGTLAI",
+      "value": "MZLWT"
+    },
+    {
+      "districtName": "LUNGLEI",
+      "districtCode": "LUG",
+      "label": "LUNGLEI",
+      "value": "MZLUG"
+    },
+    {
+      "districtName": "MAMIT",
+      "districtCode": "MMT",
+      "label": "MAMIT",
+      "value": "MZMMT"
+    },
+    {
+      "districtName": "SAIHA",
+      "districtCode": "SIH",
+      "label": "SAIHA",
+      "value": "MZSIH"
+    },
+    {
+      "districtName": "SAITUAL",
+      "districtCode": "SAT",
+      "label": "SAITUAL",
+      "value": "MZSAT"
+    },
+    {
+      "districtName": "SERCHHIP",
+      "districtCode": "CHP",
+      "label": "SERCHHIP",
+      "value": "MZCHP"
+    }
+  ],
+  "NG": [
+    {
+      "districtName": "DIMAPUR",
+      "districtCode": "KHA",
+      "label": "DIMAPUR",
+      "value": "NGKHA"
+    },
+    {
+      "districtName": "KIPHIRE",
+      "districtCode": "KIP",
+      "label": "KIPHIRE",
+      "value": "NGKIP"
+    },
+    {
+      "districtName": "KOHIMA",
+      "districtCode": "KOH",
+      "label": "KOHIMA",
+      "value": "NGKOH"
+    },
+    {
+      "districtName": "LONGLENG",
+      "districtCode": "LON",
+      "label": "LONGLENG",
+      "value": "NGLON"
+    },
+    {
+      "districtName": "MOKOKCHUNG",
+      "districtCode": "MOK",
+      "label": "MOKOKCHUNG",
+      "value": "NGMOK"
+    },
+    {
+      "districtName": "MON",
+      "districtCode": "MON",
+      "label": "MON",
+      "value": "NGMON"
+    },
+    {
+      "districtName": "PEREN",
+      "districtCode": "PRN",
+      "label": "PEREN",
+      "value": "NGPRN"
+    },
+    {
+      "districtName": "PHEK",
+      "districtCode": "PHK",
+      "label": "PHEK",
+      "value": "NGPHK"
+    },
+    {
+      "districtName": "TUENSANG",
+      "districtCode": "TSN",
+      "label": "TUENSANG",
+      "value": "NGTSN"
+    },
+    {
+      "districtName": "WOKHA",
+      "districtCode": "WOK",
+      "label": "WOKHA",
+      "value": "NGWOK"
+    },
+    {
+      "districtName": "ZUNHEBOTO",
+      "districtCode": "ZUN",
+      "label": "ZUNHEBOTO",
+      "value": "NGZUN"
+    }
+  ],
+  "OD": [
+    {
+      "districtName": "ANUGUL",
+      "districtCode": "ANU",
+      "label": "ANUGUL",
+      "value": "ODANU"
+    },
+    {
+      "districtName": "BALANGIR",
+      "districtCode": "BAL",
+      "label": "BALANGIR",
+      "value": "ODBAL"
+    },
+    {
+      "districtName": "BALESHWAR",
+      "districtCode": "BSW",
+      "label": "BALESHWAR",
+      "value": "ODBSW"
+    },
+    {
+      "districtName": "BARGARH",
+      "districtCode": "BGR",
+      "label": "BARGARH",
+      "value": "ODBGR"
+    },
+    {
+      "districtName": "BHADRAK",
+      "districtCode": "BRK",
+      "label": "BHADRAK",
+      "value": "ODBRK"
+    },
+    {
+      "districtName": "BOUDH",
+      "districtCode": "BOH",
+      "label": "BOUDH",
+      "value": "ODBOH"
+    },
+    {
+      "districtName": "CUTTACK",
+      "districtCode": "CTK",
+      "label": "CUTTACK",
+      "value": "ODCTK"
+    },
+    {
+      "districtName": "DEOGARH",
+      "districtCode": "DEO",
+      "label": "DEOGARH",
+      "value": "ODDEO"
+    },
+    {
+      "districtName": "DHENKANAL",
+      "districtCode": "DHE",
+      "label": "DHENKANAL",
+      "value": "ODDHE"
+    },
+    {
+      "districtName": "GAJAPATI",
+      "districtCode": "GJP",
+      "label": "GAJAPATI",
+      "value": "ODGJP"
+    },
+    {
+      "districtName": "GANJAM",
+      "districtCode": "GJM",
+      "label": "GANJAM",
+      "value": "ODGJM"
+    },
+    {
+      "districtName": "JAGATSINGHAPUR",
+      "districtCode": "JGT",
+      "label": "JAGATSINGHAPUR",
+      "value": "ODJGT"
+    },
+    {
+      "districtName": "JAJAPUR",
+      "districtCode": "JJP",
+      "label": "JAJAPUR",
+      "value": "ODJJP"
+    },
+    {
+      "districtName": "JHARSUGUDA",
+      "districtCode": "JGD",
+      "label": "JHARSUGUDA",
+      "value": "ODJGD"
+    },
+    {
+      "districtName": "KALAHANDI",
+      "districtCode": "KHI",
+      "label": "KALAHANDI",
+      "value": "ODKHI"
+    },
+    {
+      "districtName": "KANDHAMAL",
+      "districtCode": "KHL",
+      "label": "KANDHAMAL",
+      "value": "ODKHL"
+    },
+    {
+      "districtName": "KENDRAPARA",
+      "districtCode": "KED",
+      "label": "KENDRAPARA",
+      "value": "ODKED"
+    },
+    {
+      "districtName": "KENDUJHAR",
+      "districtCode": "KJH",
+      "label": "KENDUJHAR",
+      "value": "ODKJH"
+    },
+    {
+      "districtName": "KHORDHA",
+      "districtCode": "KOR",
+      "label": "KHORDHA",
+      "value": "ODKOR"
+    },
+    {
+      "districtName": "KORAPUT",
+      "districtCode": "KOT",
+      "label": "KORAPUT",
+      "value": "ODKOT"
+    },
+    {
+      "districtName": "MALKANGIRI",
+      "districtCode": "MLK",
+      "label": "MALKANGIRI",
+      "value": "ODMLK"
+    },
+    {
+      "districtName": "MAYURBHANJ",
+      "districtCode": "MYJ",
+      "label": "MAYURBHANJ",
+      "value": "ODMYJ"
+    },
+    {
+      "districtName": "NABARANGPUR",
+      "districtCode": "NBP",
+      "label": "NABARANGPUR",
+      "value": "ODNBP"
+    },
+    {
+      "districtName": "NAYAGARH",
+      "districtCode": "NGH",
+      "label": "NAYAGARH",
+      "value": "ODNGH"
+    },
+    {
+      "districtName": "NUAPADA",
+      "districtCode": "NUD",
+      "label": "NUAPADA",
+      "value": "ODNUD"
+    },
+    {
+      "districtName": "PURI",
+      "districtCode": "PUR",
+      "label": "PURI",
+      "value": "ODPUR"
+    },
+    {
+      "districtName": "RAYAGADA",
+      "districtCode": "RYG",
+      "label": "RAYAGADA",
+      "value": "ODRYG"
+    },
+    {
+      "districtName": "SAMBALPUR",
+      "districtCode": "SLP",
+      "label": "SAMBALPUR",
+      "value": "ODSLP"
+    },
+    {
+      "districtName": "SONEPUR",
+      "districtCode": "SPU",
+      "label": "SONEPUR",
+      "value": "ODSPU"
+    },
+    {
+      "districtName": "SUNDARGARH",
+      "districtCode": "SDG",
+      "label": "SUNDARGARH",
+      "value": "ODSDG"
+    }
+  ],
+  "PB": [
+    {
+      "districtName": "AMRITSAR",
+      "districtCode": "AMS",
+      "label": "AMRITSAR",
+      "value": "PBAMS"
+    },
+    {
+      "districtName": "BARNALA",
+      "districtCode": "BRL",
+      "label": "BARNALA",
+      "value": "PBBRL"
+    },
+    {
+      "districtName": "BATHINDA",
+      "districtCode": "BTI",
+      "label": "BATHINDA",
+      "value": "PBBTI"
+    },
+    {
+      "districtName": "FARIDKOT",
+      "districtCode": "FRI",
+      "label": "FARIDKOT",
+      "value": "PBFRI"
+    },
+    {
+      "districtName": "FATEHGARH SAHIB",
+      "districtCode": "FAT",
+      "label": "FATEHGARH SAHIB",
+      "value": "PBFAT"
+    },
+    {
+      "districtName": "FAZILKA",
+      "districtCode": "FAZ",
+      "label": "FAZILKA",
+      "value": "PBFAZ"
+    },
+    {
+      "districtName": "FIROZEPUR",
+      "districtCode": "FIR",
+      "label": "FIROZEPUR",
+      "value": "PBFIR"
+    },
+    {
+      "districtName": "GURDASPUR",
+      "districtCode": "GUR",
+      "label": "GURDASPUR",
+      "value": "PBGUR"
+    },
+    {
+      "districtName": "HOSHIARPUR",
+      "districtCode": "HOS",
+      "label": "HOSHIARPUR",
+      "value": "PBHOS"
+    },
+    {
+      "districtName": "JALANDHAR",
+      "districtCode": "JAL",
+      "label": "JALANDHAR",
+      "value": "PBJAL"
+    },
+    {
+      "districtName": "KAPURTHALA",
+      "districtCode": "KPR",
+      "label": "KAPURTHALA",
+      "value": "PBKPR"
+    },
+    {
+      "districtName": "LUDHIANA",
+      "districtCode": "LUD",
+      "label": "LUDHIANA",
+      "value": "PBLUD"
+    },
+    {
+      "districtName": "MANSA",
+      "districtCode": "MNS",
+      "label": "MANSA",
+      "value": "PBMNS"
+    },
+    {
+      "districtName": "MOGA",
+      "districtCode": "MOG",
+      "label": "MOGA",
+      "value": "PBMOG"
+    },
+    {
+      "districtName": "PATHANKOT",
+      "districtCode": "PAT",
+      "label": "PATHANKOT",
+      "value": "PBPAT"
+    },
+    {
+      "districtName": "PATIALA",
+      "districtCode": "PTI",
+      "label": "PATIALA",
+      "value": "PBPTI"
+    },
+    {
+      "districtName": "RUPNAGAR",
+      "districtCode": "RPG",
+      "label": "RUPNAGAR",
+      "value": "PBRPG"
+    },
+    {
+      "districtName": "SANGRUR",
+      "districtCode": "SGR",
+      "label": "SANGRUR",
+      "value": "PBSGR"
+    },
+    {
+      "districtName": "S.A.S Nagar",
+      "districtCode": "SSN",
+      "label": "S.A.S Nagar",
+      "value": "PBSSN"
+    },
+    {
+      "districtName": "Shahid Bhagat Singh Nagar",
+      "districtCode": "SBT",
+      "label": "Shahid Bhagat Singh Nagar",
+      "value": "PBSBT"
+    },
+    {
+      "districtName": "SRI MUKTSAR SAHIB",
+      "districtCode": "SMT",
+      "label": "SRI MUKTSAR SAHIB",
+      "value": "PBSMT"
+    },
+    {
+      "districtName": "Tarn Taran",
+      "districtCode": "TRN",
+      "label": "Tarn Taran",
+      "value": "PBTRN"
+    }
+  ],
+  "RJ": [
+    {
+      "districtName": "Ajmer",
+      "districtCode": "RJAJM",
+      "label": "Ajmer",
+      "value": "RJAJM"
+    },
+    {
+      "districtName": "Alwar",
+      "districtCode": "RJAW",
+      "label": "Alwar",
+      "value": "RJAW"
+    },
+    {
+      "districtName": "Banswara",
+      "districtCode": "RJBW",
+      "label": "Banswara",
+      "value": "RJBW"
+    },
+    {
+      "districtName": "Baran",
+      "districtCode": "RJBR",
+      "label": "Baran",
+      "value": "RJBR"
+    },
+    {
+      "districtName": "Barmer",
+      "districtCode": "RJBRM",
+      "label": "Barmer",
+      "value": "RJBRM"
+    },
+    {
+      "districtName": "Bharatpur",
+      "districtCode": "RJBRT",
+      "label": "Bharatpur",
+      "value": "RJBRT"
+    },
+    {
+      "districtName": "Bhilwara",
+      "districtCode": "RJBL",
+      "label": "Bhilwara",
+      "value": "RJBL"
+    },
+    {
+      "districtName": "Bikaner",
+      "districtCode": "RJBK",
+      "label": "Bikaner",
+      "value": "RJBK"
+    },
+    {
+      "districtName": "Bundi",
+      "districtCode": "RJBN",
+      "label": "Bundi",
+      "value": "RJBN"
+    },
+    {
+      "districtName": "Chittorgarh",
+      "districtCode": "RJCTR",
+      "label": "Chittorgarh",
+      "value": "RJCTR"
+    },
+    {
+      "districtName": "Churu",
+      "districtCode": "RJCU",
+      "label": "Churu",
+      "value": "RJCU"
+    },
+    {
+      "districtName": "Dausa",
+      "districtCode": "RJDU",
+      "label": "Dausa",
+      "value": "RJDU"
+    },
+    {
+      "districtName": "Dholpur",
+      "districtCode": "RJDL",
+      "label": "Dholpur",
+      "value": "RJDL"
+    },
+    {
+      "districtName": "Dungarpur",
+      "districtCode": "RJDG",
+      "label": "Dungarpur",
+      "value": "RJDG"
+    },
+    {
+      "districtName": "Ganganagar",
+      "districtCode": "RJGGN",
+      "label": "Ganganagar",
+      "value": "RJGGN"
+    },
+    {
+      "districtName": "Hanumangarh",
+      "districtCode": "RJHMG",
+      "label": "Hanumangarh",
+      "value": "RJHMG"
+    },
+    {
+      "districtName": "Jaipur",
+      "districtCode": "RJJIP",
+      "label": "Jaipur",
+      "value": "RJJIP"
+    },
+    {
+      "districtName": "Jaisalmer",
+      "districtCode": "RJJS",
+      "label": "Jaisalmer",
+      "value": "RJJS"
+    },
+    {
+      "districtName": "Jalore",
+      "districtCode": "RJJL",
+      "label": "Jalore",
+      "value": "RJJL"
+    },
+    {
+      "districtName": "Jhalawar",
+      "districtCode": "RJJLW",
+      "label": "Jhalawar",
+      "value": "RJJLW"
+    },
+    {
+      "districtName": "Jhunjhunu",
+      "districtCode": "RJJJ",
+      "label": "Jhunjhunu",
+      "value": "RJJJ"
+    },
+    {
+      "districtName": "Jodhpur",
+      "districtCode": "RJJH",
+      "label": "Jodhpur",
+      "value": "RJJH"
+    },
+    {
+      "districtName": "Karauli",
+      "districtCode": "RJKR",
+      "label": "Karauli",
+      "value": "RJKR"
+    },
+    {
+      "districtName": "Kota",
+      "districtCode": "RJKT",
+      "label": "Kota",
+      "value": "RJKT"
+    },
+    {
+      "districtName": "Nagaur",
+      "districtCode": "RJNG",
+      "label": "Nagaur",
+      "value": "RJNG"
+    },
+    {
+      "districtName": "Pali",
+      "districtCode": "RJPL",
+      "label": "Pali",
+      "value": "RJPL"
+    },
+    {
+      "districtName": "Pratapgarh",
+      "districtCode": "RJPG",
+      "label": "PRATAPGARH",
+      "value": "RJPG"
+    },
+    {
+      "districtName": "Rajsamand",
+      "districtCode": "RJRJ",
+      "label": "Rajsamand",
+      "value": "RJRJ"
+    },
+    {
+      "districtName": "Sawai Madhopur",
+      "districtCode": "RJSM",
+      "label": "Sawai Madhopur",
+      "value": "RJSM"
+    },
+    {
+      "districtName": "Sikar",
+      "districtCode": "RJSK",
+      "label": "Sikar",
+      "value": "RJSK"
+    },
+    {
+      "districtName": "Sirohi",
+      "districtCode": "RJSR",
+      "label": "Sirohi",
+      "value": "RJSR"
+    },
+    {
+      "districtName": "Tonk",
+      "districtCode": "RJTK",
+      "label": "Tonk",
+      "value": "RJTK"
+    },
+    {
+      "districtName": "Udaipur",
+      "districtCode": "RJUI",
+      "label": "Udaipur",
+      "value": "RJUI"
+    }
+  ],
+  "SK": [
+    {
+      "districtName": "East District",
+      "districtCode": "SKED",
+      "label": "East District",
+      "value": "SKED"
+    },
+    {
+      "districtName": "North District",
+      "districtCode": "SKND",
+      "label": "North District",
+      "value": "SKND"
+    },
+    {
+      "districtName": "South District",
+      "districtCode": "SKSD",
+      "label": "South District",
+      "value": "SKSD"
+    },
+    {
+      "districtName": "West District",
+      "districtCode": "SKWD",
+      "label": "West District",
+      "value": "SKWD"
+    }
+  ],
+  "TN": [
+    {
+      "districtName": "Ariyalur",
+      "districtCode": "TNAY",
+      "label": "Ariyalur",
+      "value": "TNAY"
+    },
+    {
+      "districtName": "Chengalpattu",
+      "districtCode": "TNCL",
+      "label": "Chengalpattu",
+      "value": "TNCL"
+    },
+    {
+      "districtName": "Chennai",
+      "districtCode": "TNCN",
+      "label": "Chennai",
+      "value": "TNCN"
+    },
+    {
+      "districtName": "Coimbatore",
+      "districtCode": "TNCB",
+      "label": "Coimbatore",
+      "value": "TNCB"
+    },
+    {
+      "districtName": "Dindigul",
+      "districtCode": "TNDG",
+      "label": "Dindigul",
+      "value": "TNDG"
+    },
+    {
+      "districtName": "Karur",
+      "districtCode": "TNKR",
+      "label": "Karur",
+      "value": "TNKR"
+    },
+    {
+      "districtName": "Madurai",
+      "districtCode": "TNMD",
+      "label": "Madurai",
+      "value": "TNMD"
+    },
+    {
+      "districtName": "Namakkal",
+      "districtCode": "TNNK",
+      "label": "Namakkal",
+      "value": "TNNK"
+    },
+    {
+      "districtName": "Ranipet",
+      "districtCode": "TNRP",
+      "label": "Ranipet",
+      "value": "TNRP"
+    },
+    {
+      "districtName": "Tenkasi",
+      "districtCode": "TNTK",
+      "label": "Tenkasi",
+      "value": "TNTK"
+    },
+    {
+      "districtName": "Theni",
+      "districtCode": "TNTI",
+      "label": "Theni",
+      "value": "TNTI"
+    },
+    {
+      "districtName": "Tirupathur",
+      "districtCode": "TNTP",
+      "label": "Tirupathur",
+      "value": "TNTP"
+    },
+    {
+      "districtName": "Vellore",
+      "districtCode": "TNVL",
+      "label": "Vellore",
+      "value": "TNVL"
+    },
+    {
+      "districtName": "Villupuram",
+      "districtCode": "TNVLP",
+      "label": "Villupuram",
+      "value": "TNVLP"
+    },
+    {
+      "districtName": "Virudhunagar",
+      "districtCode": "TNVDN",
+      "label": "Virudhunagar",
+      "value": "TNVDN"
+    }
+  ],
+  "TR": [
+    {
+      "districtName": "Dhalai",
+      "districtCode": "TRDL",
+      "label": "Dhalai",
+      "value": "TRDL"
+    },
+    {
+      "districtName": "Gomati",
+      "districtCode": "TRGM",
+      "label": "Gomati",
+      "value": "TRGM"
+    },
+    {
+      "districtName": "Khowai",
+      "districtCode": "TRKW",
+      "label": "Khowai",
+      "value": "TRKW"
+    },
+    {
+      "districtName": "North Tripura",
+      "districtCode": "TRNTR",
+      "label": "North Tripura",
+      "value": "TRNTR"
+    },
+    {
+      "districtName": "Sepahijala",
+      "districtCode": "TRSJ",
+      "label": "Sepahijala",
+      "value": "TRSJ"
+    },
+    {
+      "districtName": "South Tripura",
+      "districtCode": "TRSTR",
+      "label": "South Tripura",
+      "value": "TRSTR"
+    },
+    {
+      "districtName": "Unakoti",
+      "districtCode": "TRUK",
+      "label": "Unakoti",
+      "value": "TRUK"
+    },
+    {
+      "districtName": "West Tripura",
+      "districtCode": "TRWTR",
+      "label": "West Tripura",
+      "value": "TRWTR"
+    }
+  ],
+  "UP": [
+    {
+      "districtName": "Agra",
+      "districtCode": "UPAG",
+      "label": "Agra",
+      "value": "UPAG"
+    },
+    {
+      "districtName": "Aligarh",
+      "districtCode": "UPALG",
+      "label": "Aligarh",
+      "value": "UPALG"
+    },
+    {
+      "districtName": "Ambedkar Nagar",
+      "districtCode": "UPAN",
+      "label": "Ambedkar Nagar",
+      "value": "UPAN"
+    },
+    {
+      "districtName": "Amethi",
+      "districtCode": "UPAMT",
+      "label": "Amethi",
+      "value": "UPAMT"
+    },
+    {
+      "districtName": "Amroha",
+      "districtCode": "UPAMR",
+      "label": "Amroha",
+      "value": "UPAMR"
+    },
+    {
+      "districtName": "Auraiya",
+      "districtCode": "UPAUR",
+      "label": "Auraiya",
+      "value": "UPAUR"
+    },
+    {
+      "districtName": "Ayodhya",
+      "districtCode": "UPAYD",
+      "label": "Ayodhya",
+      "value": "UPAYD"
+    },
+    {
+      "districtName": "Azamgarh",
+      "districtCode": "UPAZM",
+      "label": "Azamgarh",
+      "value": "UPAZM"
+    },
+    {
+      "districtName": "BAGHPAT",
+      "districtCode": "UPBG",
+      "label": "BAGHPAT",
+      "value": "UPBG"
+    },
+    {
+      "districtName": "Bahraich",
+      "districtCode": "UPBR",
+      "label": "Bahraich",
+      "value": "UPBR"
+    },
+    {
+      "districtName": "Ballia",
+      "districtCode": "UPBL",
+      "label": "Ballia",
+      "value": "UPBL"
+    },
+    {
+      "districtName": "Balrampur",
+      "districtCode": "UPBLR",
+      "label": "Balrampur",
+      "value": "UPBLR"
+    },
+    {
+      "districtName": "Banda",
+      "districtCode": "UPBN",
+      "label": "Banda",
+      "value": "UPBN"
+    },
+    {
+      "districtName": "Barabanki",
+      "districtCode": "UPBB",
+      "label": "Barabanki",
+      "value": "UPBB"
+    },
+    {
+      "districtName": "Bareilly",
+      "districtCode": "UPBRY",
+      "label": "Bareilly",
+      "value": "UPBRY"
+    },
+    {
+      "districtName": "Basti",
+      "districtCode": "UPBT",
+      "label": "Basti",
+      "value": "UPBT"
+    },
+    {
+      "districtName": "Bijnor",
+      "districtCode": "UPBIJ",
+      "label": "Bijnor",
+      "value": "UPBIJ"
+    },
+    {
+      "districtName": "Budaun",
+      "districtCode": "UPBDU",
+      "label": "Budaun",
+      "value": "UPBDU"
+    },
+    {
+      "districtName": "Bulandshahr",
+      "districtCode": "UPBDR",
+      "label": "Bulandshahr",
+      "value": "UPBDR"
+    },
+    {
+      "districtName": "Chandauli",
+      "districtCode": "UPCD",
+      "label": "Chandauli",
+      "value": "UPCD"
+    },
+    {
+      "districtName": "Chitrakoot",
+      "districtCode": "UPCR",
+      "label": "Chitrakoot",
+      "value": "UPCR"
+    },
+    {
+      "districtName": "Deoria",
+      "districtCode": "UPDR",
+      "label": "Deoria",
+      "value": "UPDR"
+    },
+    {
+      "districtName": "Etah",
+      "districtCode": "UPET",
+      "label": "Etah",
+      "value": "UPET"
+    },
+    {
+      "districtName": "Etawah",
+      "districtCode": "UPEW",
+      "label": "Etawah",
+      "value": "UPEW"
+    },
+    {
+      "districtName": "Farrukhabad",
+      "districtCode": "UPFRU",
+      "label": "Farrukhabad",
+      "value": "UPFRU"
+    },
+    {
+      "districtName": "Fatehpur",
+      "districtCode": "UPFTH",
+      "label": "Fatehpur",
+      "value": "UPFTH"
+    },
+    {
+      "districtName": "Firozabad",
+      "districtCode": "UPFIZ",
+      "label": "Firozabad",
+      "value": "UPFIZ"
+    },
+    {
+      "districtName": "Gautam Buddha Nagar",
+      "districtCode": "UPGBM",
+      "label": "Gautam Buddha Nagar",
+      "value": "UPGBM"
+    },
+    {
+      "districtName": "Ghaziabad",
+      "districtCode": "UPGZI",
+      "label": "Ghaziabad",
+      "value": "UPGZI"
+    },
+    {
+      "districtName": "Ghazipur",
+      "districtCode": "UPGZR",
+      "label": "Ghazipur",
+      "value": "UPGZR"
+    },
+    {
+      "districtName": "Gonda",
+      "districtCode": "UPGD",
+      "label": "Gonda",
+      "value": "UPGD"
+    },
+    {
+      "districtName": "Gorakhpur",
+      "districtCode": "UPGKP",
+      "label": "Gorakhpur",
+      "value": "UPGKP"
+    },
+    {
+      "districtName": "Hamirpur",
+      "districtCode": "UPHR",
+      "label": "Hamirpur",
+      "value": "UPHR"
+    },
+    {
+      "districtName": "Hapur",
+      "districtCode": "UPHP",
+      "label": "Hapur",
+      "value": "UPHP"
+    },
+    {
+      "districtName": "Hardoi",
+      "districtCode": "UPHD",
+      "label": "Hardoi",
+      "value": "UPHD"
+    },
+    {
+      "districtName": "Hathras",
+      "districtCode": "UPHTS",
+      "label": "Hathras",
+      "value": "UPHTS"
+    },
+    {
+      "districtName": "Jalaun",
+      "districtCode": "UPJL",
+      "label": "Jalaun",
+      "value": "UPJL"
+    },
+    {
+      "districtName": "Jaunpur",
+      "districtCode": "UPJP",
+      "label": "Jaunpur",
+      "value": "UPJP"
+    },
+    {
+      "districtName": "Jhansi",
+      "districtCode": "UPJNS",
+      "label": "Jhansi",
+      "value": "UPJNS"
+    },
+    {
+      "districtName": "Kannauj",
+      "districtCode": "UPKNJ",
+      "label": "Kannauj",
+      "value": "UPKNJ"
+    },
+    {
+      "districtName": "Kanpur Dehat",
+      "districtCode": "UPKD",
+      "label": "Kanpur Dehat",
+      "value": "UPKD"
+    },
+    {
+      "districtName": "Kanpur Nagar",
+      "districtCode": "UPKN",
+      "label": "Kanpur Nagar",
+      "value": "UPKN"
+    },
+    {
+      "districtName": "Kasganj",
+      "districtCode": "UPKGJ",
+      "label": "Kasganj",
+      "value": "UPKGJ"
+    },
+    {
+      "districtName": "Kaushambi",
+      "districtCode": "UPKSM",
+      "label": "Kaushambi",
+      "value": "UPKSM"
+    },
+    {
+      "districtName": "Kheri",
+      "districtCode": "UPKRI",
+      "label": "Kheri",
+      "value": "UPKRI"
+    },
+    {
+      "districtName": "Kushi Nagar",
+      "districtCode": "UPKIN",
+      "label": "Kushi Nagar",
+      "value": "UPKIN"
+    },
+    {
+      "districtName": "Lalitpur",
+      "districtCode": "UPLLI",
+      "label": "Lalitpur",
+      "value": "UPLLI"
+    },
+    {
+      "districtName": "Lucknow",
+      "districtCode": "UPLKW",
+      "label": "Lucknow",
+      "value": "UPLKW"
+    },
+    {
+      "districtName": "Maharajganj",
+      "districtCode": "UPMRJ",
+      "label": "Maharajganj",
+      "value": "UPMRJ"
+    },
+    {
+      "districtName": "Mahoba",
+      "districtCode": "UPMB",
+      "label": "Mahoba",
+      "value": "UPMB"
+    },
+    {
+      "districtName": "Mainpuri",
+      "districtCode": "UPMIPR",
+      "label": "Mainpuri",
+      "value": "UPMIPR"
+    },
+    {
+      "districtName": "Mathura",
+      "districtCode": "UPMTR",
+      "label": "Mathura",
+      "value": "UPMTR"
+    },
+    {
+      "districtName": "Mau",
+      "districtCode": "UPMU",
+      "label": "Mau",
+      "value": "UPMU"
+    },
+    {
+      "districtName": "Meerut",
+      "districtCode": "UPMRT",
+      "label": "Meerut",
+      "value": "UPMRT"
+    },
+    {
+      "districtName": "Mirzapur",
+      "districtCode": "UPMZPR",
+      "label": "Mirzapur",
+      "value": "UPMZPR"
+    },
+    {
+      "districtName": "Moradabad",
+      "districtCode": "UPMBD",
+      "label": "Moradabad",
+      "value": "UPMBD"
+    },
+    {
+      "districtName": "Muzaffarnagar",
+      "districtCode": "UPMFR",
+      "label": "Muzaffarnagar",
+      "value": "UPMFR"
+    },
+    {
+      "districtName": "Pilibhit",
+      "districtCode": "UPPLT",
+      "label": "Pilibhit",
+      "value": "UPPLT"
+    },
+    {
+      "districtName": "Pratapgarh",
+      "districtCode": "UPPTP",
+      "label": "Pratapgarh",
+      "value": "UPPTP"
+    },
+    {
+      "districtName": "Prayagraj",
+      "districtCode": "UPPYJ",
+      "label": "Prayagraj",
+      "value": "UPPYJ"
+    },
+    {
+      "districtName": "Rae Bareli",
+      "districtCode": "UPRB",
+      "label": "Rae Bareli",
+      "value": "UPRB"
+    },
+    {
+      "districtName": "Rampur",
+      "districtCode": "UPRPR",
+      "label": "Rampur",
+      "value": "UPRPR"
+    },
+    {
+      "districtName": "Saharanpur",
+      "districtCode": "UPSRP",
+      "label": "Saharanpur",
+      "value": "UPSRP"
+    },
+    {
+      "districtName": "Sambhal",
+      "districtCode": "UPSBL",
+      "label": "Sambhal",
+      "value": "UPSBL"
+    },
+    {
+      "districtName": "Sant Kabeer Nagar",
+      "districtCode": "UPSKR",
+      "label": "Sant Kabeer Nagar",
+      "value": "UPSKR"
+    },
+    {
+      "districtName": "Sant Ravidas Nagar",
+      "districtCode": "UPSRN",
+      "label": "Sant Ravidas Nagar",
+      "value": "UPSRN"
+    },
+    {
+      "districtName": "Shahjahanpur",
+      "districtCode": "UPSJR",
+      "label": "Shahjahanpur",
+      "value": "UPSJR"
+    },
+    {
+      "districtName": "Shamli",
+      "districtCode": "UPSLI",
+      "label": "Shamli",
+      "value": "UPSLI"
+    },
+    {
+      "districtName": "Shravasti",
+      "districtCode": "UPSVT",
+      "label": "Shravasti",
+      "value": "UPSVT"
+    },
+    {
+      "districtName": "Siddharth Nagar",
+      "districtCode": "UPSN",
+      "label": "Siddharth Nagar",
+      "value": "UPSN"
+    },
+    {
+      "districtName": "Sitapur",
+      "districtCode": "UPSTP",
+      "label": "Sitapur",
+      "value": "UPSTP"
+    },
+    {
+      "districtName": "Sonbhadra",
+      "districtCode": "UPSBR",
+      "label": "Sonbhadra",
+      "value": "UPSBR"
+    },
+    {
+      "districtName": "Sultanpur",
+      "districtCode": "UPSTPS",
+      "label": "Sultanpur",
+      "value": "UPSTPS"
+    },
+    {
+      "districtName": "Unnao",
+      "districtCode": "UPUO",
+      "label": "Unnao",
+      "value": "UPUO"
+    },
+    {
+      "districtName": "Varanasi",
+      "districtCode": "UPVRN",
+      "label": "Varanasi",
+      "value": "UPVRN"
+    }
+  ],
+  "UK": [
+    {
+      "districtName": "Almora",
+      "districtCode": "UKAM",
+      "label": "Almora",
+      "value": "UKAM"
+    },
+    {
+      "districtName": "Bageshwar",
+      "districtCode": "UKBS",
+      "label": "Bageshwar",
+      "value": "UKBS"
+    },
+    {
+      "districtName": "Chamoli",
+      "districtCode": "UKCM",
+      "label": "Chamoli",
+      "value": "UKCM"
+    },
+    {
+      "districtName": "Champawat",
+      "districtCode": "UKCP",
+      "label": "Champawat",
+      "value": "UKCP"
+    },
+    {
+      "districtName": "Dehradun",
+      "districtCode": "UKDRD",
+      "label": "Dehradun",
+      "value": "UKDRD"
+    },
+    {
+      "districtName": "Haridwar",
+      "districtCode": "UKHD",
+      "label": "Haridwar",
+      "value": "UKHD"
+    },
+    {
+      "districtName": "Nainital",
+      "districtCode": "UKNI",
+      "label": "Nainital",
+      "value": "UKNI"
+    },
+    {
+      "districtName": "Pauri Garhwal",
+      "districtCode": "UKPG",
+      "label": "Pauri Garhwal",
+      "value": "UKPG"
+    },
+    {
+      "districtName": "Pithoragarh",
+      "districtCode": "UKPR",
+      "label": "Pithoragarh",
+      "value": "UKPR"
+    },
+    {
+      "districtName": "Rudra Prayag",
+      "districtCode": "UKRP",
+      "label": "Rudra Prayag",
+      "value": "UKRP"
+    },
+    {
+      "districtName": "Tehri Garhwal",
+      "districtCode": "UKTG",
+      "label": "Tehri Garhwal",
+      "value": "UKTG"
+    },
+    {
+      "districtName": "Udam Singh Nagar",
+      "districtCode": "UKUSN",
+      "label": "Udam Singh Nagar",
+      "value": "UKUSN"
+    },
+    {
+      "districtName": "Uttar kashi",
+      "districtCode": "UKUKS",
+      "label": "Uttar kashi",
+      "value": "UKUKS"
+    }
+  ],
+  "WB": [
+    {
+      "districtName": "Alipurduar",
+      "districtCode": "WBAPD",
+      "label": "Alipurduar",
+      "value": "WBAPD"
+    },
+    {
+      "districtName": "Bankura",
+      "districtCode": "WBBK",
+      "label": "Bankura",
+      "value": "WBBK"
+    },
+    {
+      "districtName": "Birbhum",
+      "districtCode": "WBBB",
+      "label": "Birbhum",
+      "value": "WBBB"
+    },
+    {
+      "districtName": "Cooch Behar",
+      "districtCode": "WBCHB",
+      "label": "Cooch Behar",
+      "value": "WBCHB"
+    },
+    {
+      "districtName": "Dakshin Dinajpur",
+      "districtCode": "WBDD",
+      "label": "Dakshin Dinajpur",
+      "value": "WBDD"
+    },
+    {
+      "districtName": "Darjeeling",
+      "districtCode": "WBDJ",
+      "label": "Darjeeling",
+      "value": "WBDJ"
+    },
+    {
+      "districtName": "Hooghly",
+      "districtCode": "WBHG",
+      "label": "Hooghly",
+      "value": "WBHG"
+    },
+    {
+      "districtName": "Howrah",
+      "districtCode": "WBHW",
+      "label": "Howrah",
+      "value": "WBHW"
+    },
+    {
+      "districtName": "Jalpaiguri",
+      "districtCode": "WBJP",
+      "label": "Jalpaiguri",
+      "value": "WBJP"
+    },
+    {
+      "districtName": "Jhargram",
+      "districtCode": "WBJG",
+      "label": "Jhargram",
+      "value": "WBJG"
+    },
+    {
+      "districtName": "Kalimpong",
+      "districtCode": "WBKP",
+      "label": "Kalimpong",
+      "value": "WBKP"
+    },
+    {
+      "districtName": "Malda",
+      "districtCode": "WBML",
+      "label": "Malda",
+      "value": "WBML"
+    },
+    {
+      "districtName": "Murshidabad",
+      "districtCode": "WBMD",
+      "label": "Murshidabad",
+      "value": "WBMD"
+    },
+    {
+      "districtName": "Nadia",
+      "districtCode": "WBND",
+      "label": "Nadia",
+      "value": "WBND"
+    },
+    {
+      "districtName": "North 24 Parganas",
+      "districtCode": "WBN24P",
+      "label": "North 24 Parganas",
+      "value": "WBN24P"
+    },
+    {
+      "districtName": "Paschim Bardhaman",
+      "districtCode": "WBPB",
+      "label": "Paschim Bardhaman",
+      "value": "WBPB"
+    },
+    {
+      "districtName": "Purba Bardhaman",
+      "districtCode": "WBPBM",
+      "label": "Purba Bardhaman",
+      "value": "WBPBM"
+    },
+    {
+      "districtName": "Purulia",
+      "districtCode": "WBPR",
+      "label": "Purulia",
+      "value": "WBPR"
+    },
+    {
+      "districtName": "South 24 Parganas",
+      "districtCode": "WBS24P",
+      "label": "South 24 Parganas",
+      "value": "WBS24P"
+    }
+  ],
+  "AN": [
+    {
+      "districtName": "NICOBARS",
+      "districtCode": "NIC",
+      "label": "NICOBARS",
+      "value": "ANNIC"
+    },
+    {
+      "districtName": "NORTH AND MIDDLE ANDAMAN",
+      "districtCode": "NMA",
+      "label": "NORTH AND MIDDLE ANDAMAN",
+      "value": "ANNMA"
+    },
+    {
+      "districtName": "SOUTH ANDAMANS",
+      "districtCode": "SAD",
+      "label": "SOUTH ANDAMANS",
+      "value": "ANSAD"
+    }
+  ],
+  "CH": [
+    {
+      "districtName": "Chandigarh",
+      "districtCode": "CDG",
+      "label": "Chandigarh",
+      "value": "CHCDG"
+    }
+  ],
+  "DN": [
+    {
+      "districtName": "Dadra & Nagar Haveli",
+      "districtCode": "DNDNH",
+      "label": "Dadra & Nagar Haveli",
+      "value": "DNDNH"
+    },
+    {
+      "districtName": "Daman",
+      "districtCode": "DNDM",
+      "label": "Daman",
+      "value": "DNDM"
+    },
+    {
+      "districtName": "Diu",
+      "districtCode": "DNDU",
+      "label": "Diu",
+      "value": "DNDU"
+    }
+  ],
+  "DD": [
+    {
+      "districtName": "Daman",
+      "districtCode": "DAM",
+      "label": "Daman",
+      "value": "DDDAM"
+    },
+    {
+      "districtName": "DIU",
+      "districtCode": "DIU",
+      "label": "DIU",
+      "value": "DDDIU"
+    }
+  ],
+  "LA": [
+    {
+      "districtName": "KARGIL",
+      "districtCode": "‎LEH‎",
+      "label": "KARGIL",
+      "value": "LA‎LEH"
+    },
+    {
+      "districtName": "LEH LADAKH",
+      "districtCode": "‎LEH‎",
+      "label": "LEH LADAKH",
+      "value": "LA‎LDK"
+    }
+  ],
+  "LD": [
+    {
+      "districtName": "LAKSHADWEEP",
+      "districtCode": "LKW",
+      "label": "LAKSHADWEEP",
+      "value": "LDLKW"
+    }
+  ],
+  "PC": [
+    {
+      "districtName": "KARAIKAL",
+      "districtCode": "KRL",
+      "label": "KARAIKAL",
+      "value": "PCKRL"
+    },
+    {
+      "districtName": "MAHE",
+      "districtCode": "MHE",
+      "label": "MAHE",
+      "value": "PCMHE"
+    },
+    {
+      "districtName": "PONDICHERRY",
+      "districtCode": "PDE",
+      "label": "PONDICHERRY",
+      "value": "PCPDE"
+    },
+    {
+      "districtName": "YANAM",
+      "districtCode": "YNM",
+      "label": "YANAM",
+      "value": "PCYNM"
+    }
+  ],
+  "DL": [
+    {
+      "districtName": "Central",
+      "districtCode": "DLC",
+      "label": "Central",
+      "value": "DLC"
+    },
+    {
+      "districtName": "East Delhi",
+      "districtCode": "DLEDL",
+      "label": "East Delhi",
+      "value": "DLEDL"
+    },
+    {
+      "districtName": "New Delhi",
+      "districtCode": "DLNDL",
+      "label": "New Delhi",
+      "value": "DLNDL"
+    },
+    {
+      "districtName": "North Delhi",
+      "districtCode": "DLNDEL",
+      "label": "North Delhi",
+      "value": "DLNDEL"
+    },
+    {
+      "districtName": "North East Delhi",
+      "districtCode": "DLNEDL",
+      "label": "North East Delhi",
+      "value": "DLNEDL"
+    },
+    {
+      "districtName": "North West Delhi",
+      "districtCode": "DLNWDL",
+      "label": "North West Delhi",
+      "value": "DLNWDL"
+    },
+    {
+      "districtName": "Shahdara",
+      "districtCode": "DLSD",
+      "label": "Shahdara",
+      "value": "DLSD"
+    },
+    {
+      "districtName": "South Delhi",
+      "districtCode": "DLSDL",
+      "label": "South Delhi",
+      "value": "DLSDL"
+    },
+    {
+      "districtName": "South East Delhi",
+      "districtCode": "DLSEDL",
+      "label": "South East Delhi",
+      "value": "DLSEDL"
+    },
+    {
+      "districtName": "South West Delhi",
+      "districtCode": "DLSWDL",
+      "label": "South West Delhi",
+      "value": "DLSWDL"
+    },
+    {
+      "districtName": "West Delhi",
+      "districtCode": "DLWDL",
+      "label": "West Delhi",
+      "value": "DLWDL"
+    }
+  ]
+}
