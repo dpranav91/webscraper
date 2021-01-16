@@ -1,19 +1,18 @@
+import argparse
+import datetime
 import json
 import os
 import sys
-import argparse
-import datetime
 import time
 from collections import namedtuple
 from pprint import pprint
 
 import pandas as pd
-
 from bs4 import BeautifulSoup
-from selenium.webdriver.support.select import Select
-
 from scrape_helper import init_webdriver
-from utils import create_csv, setup_logging
+from selenium.webdriver.support.select import Select
+from utils import create_csv
+from utils import setup_logging
 
 OptionTuple = namedtuple('option', field_names=['value', 'text', 'uri_arg'])
 
@@ -29,20 +28,34 @@ class AgmarknetScraper(object):
     state_codes_filename = 'CountryStates.json'
     district_codes_filename = 'StateDistricts.json'
     market_codes_filename = 'DistrictMarkets.json'
-    # Leaving commodities_list/states_list to empty list or None will run the script for all commodities/states
-    commodities_list = ['Apple', 'Arhar Dal(Tur Dal)', 'Beans', 'Bengal Gram Dal (Chana Dal)', 'Bhindi(Ladies Finger)',
-                        'Bitter gourd', 'Carrot', 'Chili Red', 'Coriander(Leaves)', 'Cotton', 'Dry Chillies',
-                        'Ginger(Dry)', 'Ginger(Green)', 'Green Chilli', 'Groundnut', 'Potato', 'Spinach',
-                        'Tamarind Fruit', 'Tamarind Seed', 'Tomato', 'Turmeric', 'Water Melon']
-    states_list = ['Andhra Pradesh', 'Telangana', 'Maharashtra', 'Karnataka', 'Chattisgarh', 'Tamil Nadu',
-                   'Uttar Pradesh', 'Madhya Pradesh']
+    # Leaving filtered_states_filename/filtered_commodities_filename as None will consider parsing for all states/commodities
+    filtered_states_filename = 'FilteredStates.json'
+    filtered_commodities_filename = 'FilteredCommodities.json'
     column_names = [
-        'State', 'State Code', 'District Name', 'District Code', 'Market Name',
-        'Market Code', 'Commodity', 'Variety', 'Grade', 'Min Price (Rs./Quintal)',
-        'Max Price (Rs./Quintal)', 'Modal Price (Rs./Quintal)', 'Price Date'
+        'State',
+        'State Code',
+        'District Name',
+        'District Code',
+        'Market Name',
+        'Market Code',
+        'Commodity',
+        'Variety',
+        'Grade',
+        'Min Price (Rs./Quintal)',
+        'Max Price (Rs./Quintal)',
+        'Modal Price (Rs./Quintal)',
+        'Price Date',
     ]
 
-    def __init__(self, days_before=7, verbose=True, healess_browser=True):
+    def __init__(
+            self,
+            days_before=7,
+            verbose=True,
+            healess_browser=True,
+            testing=False,
+            states=None,
+            commodities=None,
+    ):
         self.logger = setup_logging(verbose=verbose, name='argmarknet')
         self.driver = init_webdriver(browser='chrome', headless=healess_browser)
         self.driver.implicitly_wait(10)
@@ -55,6 +68,28 @@ class AgmarknetScraper(object):
         self.data_directory = os.path.join(directory_self, 'data')
         self._code_mapping = None
 
+        # set states_list
+        self.states_list = []
+        if testing:
+            self.states_list = ['Telangana']
+        elif states:
+            self.states_list = states
+        elif self.filtered_states_filename:
+            self.states_list = self.read_json_file_from_data_directory(
+                json_filename=self.filtered_states_filename
+            )
+
+        # set commodities_list
+        self.commodities_list = []
+        if testing:
+            self.commodities_list = ['Tomato']
+        elif commodities:
+            self.commodities_list = commodities
+        elif self.filtered_commodities_filename:
+            self.commodities_list = self.read_json_file_from_data_directory(
+                json_filename=self.filtered_commodities_filename
+            )
+
     def stringify_date(self, days_before):
         today = datetime.datetime.today()
         days_to_subtract = datetime.timedelta(days=days_before)
@@ -64,6 +99,11 @@ class AgmarknetScraper(object):
     @staticmethod
     def convert_text_to_url_text(text):
         return text.replace(' ', '+')
+
+    def read_json_file_from_data_directory(self, json_filename):
+        json_file = os.path.join(self.data_directory, json_filename)
+        with open(json_file, 'r') as f:
+            return json.load(f)
 
     def generate_url(self, commodity_id='78', commodity='Tomato', state='Telangana', state_id='TL'):
         """
@@ -120,36 +160,35 @@ class AgmarknetScraper(object):
                     continue
                 value = option.get_attribute('value')
                 options.append(
-                    OptionTuple(
-                        value=value, text=text, uri_arg=self.convert_text_to_url_text(text)
-                    )
+                    OptionTuple(value=value, text=text, uri_arg=self.convert_text_to_url_text(text))
                 )
 
-        assert options, f"No options found for {element_name}. Please check values and re-run with proper values"
+        assert (
+            options
+        ), f"No options found for {element_name}. Please check values and re-run with proper values"
         if filtered_options:
             assert len(options) == len(
-                filtered_options), f"Some options in {element_name} did not match filtered_options. Please check names provided as options and re-run with proper values"
+                filtered_options
+            ), f"Some options in {element_name} did not match filtered_options. Please check names provided as options and re-run with proper values"
         return options
 
-    def parse_json(self, jsonfilename, keyname='label', code_name='value'):
+    def parse_codes_json(self, jsonfilename, keyname='label', code_name='value'):
         result = {}
-        jsonfile = os.path.join(self.data_directory, jsonfilename)
-        with open(jsonfile, 'rb') as f:
-            data = json.load(f)
-            for each_sub_code, sub_data in data.items():
-                for item in sub_data:
-                    key = item[keyname].replace('\u200e', '')
-                    value = item[code_name].replace('\u200e', '')
-                    result[key] = value
+        data = self.read_json_file_from_data_directory(jsonfilename)
+        for each_sub_code, sub_data in data.items():
+            for item in sub_data:
+                key = item[keyname].replace('\u200e', '')
+                value = item[code_name].replace('\u200e', '')
+                result[key] = value
         return result
 
     @property
     def code_mapping(self):
         if self._code_mapping is None:
             self._code_mapping = {
-                'State': self.parse_json(self.state_codes_filename),
-                'District Name': self.parse_json(self.district_codes_filename),
-                'Market Name': self.parse_json(self.market_codes_filename),
+                'State': self.parse_codes_json(self.state_codes_filename),
+                'District Name': self.parse_codes_json(self.district_codes_filename),
+                'Market Name': self.parse_codes_json(self.market_codes_filename),
             }
         return self._code_mapping
 
@@ -167,10 +206,14 @@ class AgmarknetScraper(object):
         for commodity in commodities:
             for state in states:
                 url = self.generate_url(
-                    commodity=commodity.uri_arg, commodity_id=commodity.value,
-                    state=state.uri_arg, state_id=state.value
+                    commodity=commodity.uri_arg,
+                    commodity_id=commodity.value,
+                    state=state.uri_arg,
+                    state_id=state.value,
                 )
-                self.logger.info(f'Collecting data for {commodity.text} from {state.text} through {url}')
+                self.logger.info(
+                    f'Collecting data for {commodity.text} from {state.text} through {url}'
+                )
                 self.driver.get(url)
                 try:
                     self.parse_each_page(state_text=state.text)
@@ -187,9 +230,14 @@ class AgmarknetScraper(object):
         # get list of states and commodities
         # ---------------------------------------------------------------
         self.driver.get(self.base_url)
-        commodities = self.get_options(element_name='commodity', element_id=self.commodity_id,
-                                       filtered_options=self.commodities_list)
-        states = self.get_options(element_name='state', element_id=self.state_id, filtered_options=self.states_list)
+        commodities = self.get_options(
+            element_name='commodity',
+            element_id=self.commodity_id,
+            filtered_options=self.commodities_list,
+        )
+        states = self.get_options(
+            element_name='state', element_id=self.state_id, filtered_options=self.states_list
+        )
         self.logger.debug('Collected required commodities and states')
         # ---------------------------------------------------------------
         # parse all different combinations and pages
@@ -199,9 +247,15 @@ class AgmarknetScraper(object):
     def process_date(self):
         df = pd.DataFrame(self.output)
         df.drop(['Sl no.'], axis=1, inplace=True)
-        df['State Code'] = df.apply(lambda row: self.set_code_value_from_mapping('State', row), axis=1)
-        df['Market Code'] = df.apply(lambda row: self.set_code_value_from_mapping('Market Name', row), axis=1)
-        df['District Code'] = df.apply(lambda row: self.set_code_value_from_mapping('District Name', row), axis=1)
+        df['State Code'] = df.apply(
+            lambda row: self.set_code_value_from_mapping('State', row), axis=1
+        )
+        df['Market Code'] = df.apply(
+            lambda row: self.set_code_value_from_mapping('Market Name', row), axis=1
+        )
+        df['District Code'] = df.apply(
+            lambda row: self.set_code_value_from_mapping('District Name', row), axis=1
+        )
         df['Price Date'] = pd.to_datetime(df['Price Date']).dt.strftime('%Y-%d-%m')
         # set order of columns
         try:
@@ -255,20 +309,21 @@ def parse_args(args):
 if __name__ == '__main__':
     # # MAKE SURE SCRIPT IS RAN WITH python 3.6
     interpreter_version_info = sys.version_info
-    assert interpreter_version_info.major == 3 and interpreter_version_info.minor == 6, "Run script with python version 3.6"
+    assert (
+            interpreter_version_info.major == 3 and interpreter_version_info.minor == 6
+    ), "Run script with python version 3.6"
 
     args = parse_args(sys.argv[1:])
     # print(args)
-    scraper = AgmarknetScraper(days_before=args.days, verbose=True, healess_browser=True)
-    if args.state:
-        scraper.states_list = args.state
-    if args.commodity:
-        scraper.commodities_list = args.commodity
-    if args.test:
-        scraper.states_list = ['Telangana']
-        scraper.commodities_list = ['Tomato']
+    scraper = AgmarknetScraper(
+        days_before=args.days,
+        verbose=True,
+        healess_browser=True,
+        testing=args.test,
+        states=args.state,
+        commodities=args.commodity,
+    )
 
-    # pprint(scraper.code_mapping)
     scraper.main()
     if scraper.errors_count:
         notify('Some errors encountered')
