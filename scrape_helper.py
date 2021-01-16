@@ -4,23 +4,34 @@ import time
 import os
 import sys
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 from utils import (save_to_csv,
                    setup_logging,
                    convert_to_filenameable,
                    create_csv)
 
-
 DELAY = 1
 scraper_logging = "stdout"  # the other is "file"
 current_directory = os.path.split(os.path.realpath(__file__))[0]
 
-def init_webdriver(browser='chrome'):
-    if browser=='chrome':
-        chromedriver = os.path.join(current_directory,'utilities','chromedriver.exe')
+
+def init_webdriver(browser='chrome', headless=True):
+    if browser == 'chrome':
+        if sys.platform.startswith('win'):
+            chromedriver = os.path.join(current_directory, 'utilities', 'chromedriver.exe')
+        else:
+            chromedriver = os.path.join(current_directory, 'utilities', 'chromedriver')
+
         # print(os.environ["webdriver.chrome.driver"])
         os.environ["webdriver.chrome.driver"] = chromedriver
-        driver = webdriver.Chrome(chromedriver)
+        if headless:
+            options = Options()
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')  # Last I checked this was necessary.
+            driver = webdriver.Chrome(chromedriver, chrome_options=options)
+        else:
+            driver = webdriver.Chrome(chromedriver)
     else:
         if sys.platform.startswith('win'):
             phantomdriver = os.path.join(current_directory, 'utilities', 'phantomjs.exe')
@@ -33,6 +44,7 @@ def init_webdriver(browser='chrome'):
                 driver = webdriver.PhantomJS()
         driver.set_window_size(1120, 550)
     return driver
+
 
 class Scraper:
     """
@@ -139,7 +151,7 @@ class Scraper:
         # will be fixed for the particular instance and will act as a random
         # agent for the bot
         if not proxies:
-            self.proxies = None #ProxyRotator().proxies
+            self.proxies = None  # ProxyRotator().proxies
         else:
             self.proxies = proxies
 
@@ -172,6 +184,7 @@ class Scraper:
             a dict object containing the parameters to be given to requests for
             the next post request.
         """
+
         def decorator(f):
             # we will make use of the request lib here
             # this is taken a design choice as the urls we want to use are more
@@ -180,6 +193,7 @@ class Scraper:
                 self.response = self.requests_response(url, params, cookies)
 
             return f
+
         return decorator
 
     def requests_response(self, url,
